@@ -1,21 +1,37 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
+permalink: /:year-:month-:day-:title/
+paginate: 10
+markdown: kramdown
+encoding: utf-8
+
+# 作者信息
+author: 
+  name: 刘加宝
+  email: lv460051518@gmail.com
+  link: http://www.sinsy.top
+  # weibo: http://weibo.com/liqing215
+  github: http://github.com/sinsy
+
+#网站信息
 title: Sinsy
 email: 1214440709@qq.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+  当一天猿媛，敲一天代码
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://www.sinsy.top" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
 github_username:  sinsy
 
-# Build settings
-markdown: kramdown
+
+# 首页除了最新文章外显示分类
+cates: 
+  - React
+  - 摄影
+
+# 中文本地化
+locals:
+tags: 标签
+about: 关于
+newest: 最新文章
+archive: 归档
+

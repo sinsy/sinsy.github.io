@@ -1,0 +1,480 @@
+*{padding:0;margin:0;}
+body{
+	height:100%;
+}
+.content{
+	width:50%;
+	height:100%;
+	position: absolute;
+	left:50%;
+}
+.content-left{
+	background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);
+	left: 0;
+	font-size: 30px;
+}
+.sun{
+    -webkit-animation: sun 15s linear infinite; 
+        animation: sun 15s linear infinite;
+	position: absolute;
+	font-size: 90%;
+	top: 1vh;
+	left: 2.5em;
+	width: .8em;
+	height: 6.5em;
+	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+}
+.sun::before{
+	content: '';
+	width: .8em;
+	height: 6.5em;
+	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+	transform: rotate(90deg);
+	position: absolute;
+	top: 0;
+}
+.sun::after{
+	content: '';
+    background: #FFEE44;
+    width: 3.6em;
+    height: 3.6em;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-left: -1.8em;
+    margin-top: -1.8em;
+    border-radius: 50%;
+    box-shadow: rgba(255,255,0,0.3) 0 0 0 .5em;
+}
+.clouds{
+	font-size: 70%;
+	position:absolute;
+	left: 6px;
+}
+.cloud2{
+	width: 2.5em;
+	height: 2.5em;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	font-size: 120%;
+	top: 5.8em;
+	left: -.4em;
+	box-shadow: rgba(0,0,0,.1) -.05em .05em 0,#FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
+	z-index: 10;
+}	
+.cloud3{
+	width: 2.5em;
+	height: 2.5em;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	font-size: 110%;
+	top: 6.6em;
+	left: 3.5em;
+	box-shadow: rgba(0,0,0,.1) -.05em .05em 0,#FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
+	z-index: 10;
+}
+
+@keyframes sun { 
+	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+.monkbell{
+	width: 12em;
+	height: 10em;
+	position: absolute;
+	bottom: 17vh;
+	right: 30px;
+}
+.monk{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 16.6em;
+	font-size:15px;
+	.head_div {
+	    position: absolute;
+	    top: 0.1em;
+	    transform: rotate(10deg);
+	    transform-origin: 3.5em 8.5em;
+	    z-index: 15;
+	}
+
+	.head {
+	    position: absolute;
+	    width: 7em;
+	    height: 8.5em;
+	    background: radial-gradient( #ecc3ab 60%, #e5a798);
+	    box-shadow: 0 .6em .2em -.5em rgba(0, 0, 0, .4);
+	    border-radius: 50% 50% 50% 50% /35% 35% 30% 30%;
+	    border: 1px solid #bc896c;
+	}
+
+	.head:after {
+	    content: '';
+	    width: 1em;
+	    height: 1.8em;
+	    background: #ecc3ab;
+	    border: 1px solid #bc896c;
+	    position: absolute;
+	    z-index: -1;
+	    top: 4em;
+	    left: -.8em;
+	    border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+	    box-shadow: .3em 0 .3em #e8b5a9 inset;
+	    transform: rotate(-10deg);
+	}
+
+	.head:before {
+	    content: '';
+	    width: 1em;
+	    height: 1.8em;
+	    background: #ecc3ab;
+	    border: 1px solid #bc896c;
+	    position: absolute;
+	    z-index: -1;
+	    top: 4em;
+	    right: -.8em;
+	    border-radius: 0 100% 100% 0/ 0 50% 70% 0;
+	    box-shadow: -.3em 0 .3em #e8b5a9 inset;
+	    transform: rotate(10deg);
+	}
+
+	.eyebrow>div {
+	    width: .9em;
+	    height: .06em;
+	    border-radius: 50% 50% 0 0 /100% 100% 0 0;
+	    border-top: .1em solid black;
+	    position: absolute;
+	    top: 3.5em;
+	}
+
+	.eye>div {
+	    width: .65em;
+	    height: .65em;
+	    border-radius: 50%;
+	    background: #000;
+	    position: absolute;
+	    top: 4.5em;
+	}
+
+	.eyebrow>div:nth-child(1) {
+	    left: 1em;
+	    transform: rotate(-5deg);
+	}
+
+	.eyebrow>div:nth-child(2) {
+	    right: 1em;
+	    transform: rotate(5deg);
+	}
+
+	.nose {
+	    width: .24em;
+	    height: .1em;
+	    position: absolute;
+	    background: #000;
+	    border-radius: 40% 40% 0 0 /100% 100% 0 0;
+	    top: 5.3em;
+	    left: 3.38em;
+	}
+
+	.l1 {
+	    left: 1.2em;
+	}
+
+	.r1 {
+	    right: 1.2em;
+	}
+
+	.mouth {
+	    width: 2em;
+	    height: .4em;
+	    /*background: #8d3f33;*/
+	    border-bottom: .1em solid #8d3f33;
+	    border-radius: 0 0 60% 60%/ 0 0 100% 100%;
+	    position: absolute;
+	    top: 6em;
+	    left: 2.5em;
+	    position: relative;
+	}
+
+	.mouth:after {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: .15em;
+	    background: #ecc3ab;
+	}
+
+	.blusher>div {
+	    width: .1em;
+	    height: .1em;
+	    border-radius: 50%;
+	    background: #e5a798;
+	    box-shadow: 0 0 1.2em .9em #e5a798;
+	    position: absolute;
+	    top: 6.2em;
+	}
+
+	.ear>div {
+	    width: 1em;
+	    height: 1.8em;
+	    background: #ecc3ab;
+	    border: 1px solid #bc896c;
+	    /*position: absolute;*/
+	    z-index: -10;
+	}
+
+	.ear>div:nth-child(1) {
+	    top: 4em;
+	    left: -.8em;
+	    border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+	    box-shadow: .3em 0 .3em #e8b5a9 inset;
+	    transform: rotate(-10deg);
+	}
+
+	.ear>div:nth-child(2) {
+	    top: 4em;
+	    right: -.8em;
+	    border-radius: 0 100% 100% 0/ 0 50% 70% 0;
+	    box-shadow: -.3em 0 .3em #e8b5a9 inset;
+	    transform: rotate(10deg);
+	}
+
+	.bodys {
+	    width: 6em;
+	    height: 6em;
+	    background: #e8b5a9;
+	    border-radius: 50% 50% 2% 2%/ 50% 50% 2% 2%;
+	    left: 0.5em;
+	    top: 8.3em;
+	    z-index: 10;
+	    border-bottom: 1px solid #5a5a5a;
+	    position: absolute;
+	    background: linear-gradient(-45deg, #727471 60%, #5a5a5a 0, #5a5a5a 60.3%, #717271 0, #717271 70%, #5a5a5a 0, #5a5a5a 70.4%, transparent 0), linear-gradient(-135deg, #e8b5a9 30%, #5a5a5a 0, #5a5a5a 30.3%, #717271 0, #717271 40%, #5a5a5a 0, #5a5a5a 40.3%, #727471 0);
+	}
+
+	.arms div {
+	    position: absolute;
+	    width: 2em;
+	    height: 5.2em;
+	    z-index: 15;
+	    /*background: rgba(0,0,0,.5);*/
+	    /*background: #727471;*/
+	}
+
+	.arms .l1 {
+	    left: -.18em;
+	    top: .48em;
+	    border-radius: 100% 0 0 20%/ 80% 0 0 2%;
+	    transform: rotate(10deg);
+	    transform-origin: right top;
+	    background: linear-gradient(transparent 40%, #5a5a5a 0) no-repeat right, linear-gradient(#727471, #727471) left;
+	    background-size: 1.5px 100%, 100% 100%;
+	    animation:monkArmMove 10s infinite;
+	}
+
+	.arms .r1 {
+	    left: 4.2em;
+	    top: .48em;
+	    border-radius: 0 100% 20% 0 / 0 80% 3% 0;
+	    transform: rotate(-10deg);
+	    transform-origin: left top;
+	    background: linear-gradient(transparent 40%, #5a5a5a 0) no-repeat left, linear-gradient(#727471, #727471) right;
+	    background-size: 1.5px 100%, 100% 100%;
+	    animation:monkArmMove 10s infinite;
+	}
+
+	.arms .l1::before,
+	.arms .r1::before {
+	    content: '';
+	    position: absolute;
+	    width: 1.5em;
+	    height: 1.1em;
+	    background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+	    border-radius: 0 0 60% 60%/0 0 60% 60%;
+	    z-index: -20;
+	}
+
+	.arms .l1:before {
+	    left: .35em;
+	    top: 5em;
+	}
+
+	.arms .r1:before {
+	    left: .35em;
+	    top: 5em;
+	}
+	.stick{
+		width: 15em;
+		height: 2em;
+		background: repeating-linear-gradient(25deg, #FD830C, #D67F2A 15px, #FFA823 0, #F99F39 30px);
+		background-size: 100% 100%;
+		position: absolute;
+		top: 4em;
+		left: -3em;
+		z-index: 12;
+		border-radius: 3% 3% 3% 3%/ 50% 50% 50% 50%;
+		animation: stickMove 10s infinite;
+		transform-origin:50% 50%;
+	}
+	.leg div {
+	    width: 2.2em;
+	    height: 2em;
+	    background: #727471;
+	    position: absolute;
+	    border-radius: 0 0 20% 20% / 0 0 100% 100%;
+	    border: 1px solid #5a5a5a;
+	    top: 13.8em;
+	    z-index: 9;
+	}
+
+	.leg .l1 {
+	    left: 1.2em;
+	}
+
+	.leg .r1 {
+	    left: 3.4em;
+	}
+
+	.foot {
+	    position: relative;
+	}
+
+	.foot div {
+	    width: 2.2em;
+	    height: .5em;
+	    background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+	    position: absolute;
+	    top: 15.8em;
+	    z-index: 6;
+	}
+
+	.foot .l1 {
+	    left: .8em;
+	    border-radius: 60% 0 20% 5% / 80% 0 70% 20%;
+	}
+
+	.foot .r1 {
+	    left: 3.9em;
+	    border-radius: 0 60% 5% 20% / 0 80% 20% 70%;
+	}
+
+}
+.bell{
+	text-align: center;
+	color:#fff;
+	line-height: 5.2em;
+	position: absolute;
+	right: 0px;
+	bottom: 2em;
+	width: 4.6em;
+	height: 5.2em;
+	background: linear-gradient(rgba(243, 214, 9, 1) 0%, rgba(255, 177, 0, 1) 50%, rgb(255, 235, 0) 100%);
+	border-radius: 50% 50% 4% 4% / 50% 50% 20% 20%;
+	animation: bellMove 10s 1.7s infinite;
+}
+.bell:before{
+	content: '';
+	width: .6em;
+	height:.3em;
+	position: absolute;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+	left: 50%;
+	top: -.3em;
+	margin-left: -.3em;
+	border: 0 solid #f3d609;
+	border-width: .1em .1em 0 .1em;
+}
+.content-right{
+	position: absolute;
+	width: 280px;
+	left: 50%;
+	top: 50%;
+	margin-left: -140px;
+	margin-top: -200px;
+}
+.logo{
+	margin: auto;
+	margin-bottom: 30px;
+	width: 120px;
+	height: 120px;
+	background: #6BD2F7;
+	border-radius: 50%;
+	text-align: center;
+	line-height:123px;
+	color: #fff;
+	font-size: 30px;
+	border: 10px solid #B8E0F5;
+	cursor: pointer;
+}
+
+.navigate{
+	margin: auto;
+	margin-top: 36px;
+	text-align: center;
+	a{
+		word-wrap:break-word;
+		text-align:center;
+		width: 16px;
+		writing-mode:tb-rl;
+		display: inline-block;
+		padding: 10px 5px;
+		margin: 0 5px;
+		color: #9a9a9a;
+		text-decoration: none;
+		vertical-align: top;
+		transition: all .3s ease-in;
+		border-top: 1px solid transparent;
+	}
+	a.sel,a:hover{
+		border-top: 1px solid black;
+		color: #333;
+	}
+
+}
+blockquote {
+    margin: 1em 0 1.714285714rem;
+    padding: 1em 2em;
+    background: #f8f8f8;
+    position: relative;
+}
+blockquote:before {
+    content: "『";
+    position: absolute;
+    color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    font-size: 18px;
+    top: 0.75em;
+    left: 0.25em;
+}
+blockquote:after {
+    content: "』";
+    position: absolute;
+    color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    font-size: 18px;
+    bottom: 0.50em;
+    right: 0.25em;
+}
+@keyframes monkArmMove{
+	0% {transform: rotate(30deg);}
+	25%{transform: rotate(-40deg);}
+	50%{transform: rotate(20deg);}
+}
+@keyframes bellMove{
+	10%{transform: rotate(-34deg);}
+	20%{transform: rotate(30deg);}
+	32%{transform: rotate(-20deg);}
+	42%{transform: rotate(20deg);}
+	55%{transform: rotate(-10deg);}
+	65%{transform: rotate(10deg);}
+}
+@keyframes stickMove{
+	0%{transform: rotate(5deg) translate(0px, 0px);}
+	25%{transform: rotate(-10deg) translate(50px, -10px);}
+	50%{transform: rotate(5deg) translate(-10px, 0px);}
+}

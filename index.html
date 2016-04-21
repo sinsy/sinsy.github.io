@@ -1,22 +1,63 @@
 ---
-layout: default
+layout: index
 ---
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class="content content-left">
+  <div class="sun"></div>
+  <div class="clouds">
+    <div class="cloud2"></div>
+    <div class="cloud3"></div>
+  </div>
+  <div class="monkbell">
+    <div class="bell">DEMO</div>
+    <div class="monk">
+      <div class="head_div">
+        <div class="head">
+          <div class="eyebrow">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="eye">
+            <div class="l1"></div>
+            <div class="r1"></div>
+          </div>
+          <div class="nose"></div>
+          <div class="mouth"></div>
+          <div class="blusher">
+            <div class="l1"></div>
+            <div class="r1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bodys">
+        <div class="stick"></div>
+        <div class="arms">
+          <div class="l1">
+          </div>
+          <div class="r1">
+          </div>
+        </div>
+      </div>
+      <div class="leg">
+        <div class="l1"></div>
+        <div class="r1"></div>
+      </div>
+      <div class="foot">
+        <div class="l1"></div>
+        <div class="r1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="content-right">
+    <div class="logo">SINSY</div>
+    <blockquote class="word">当一天猿媛，敲一天DEMO</blockquote>
+    <nav class="navigate">
+      <a class="sel" href="/">首页</a>
+      <a href="/blog">技术日志</a>
+      <a href="/demo">DEMO</a>
+      <a href="/thoughts">生活随想</a>
+      <a href="/thoughts">读书计划</a>
+    </nav>
+  </div>
 </div>
