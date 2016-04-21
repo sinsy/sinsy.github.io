@@ -17,7 +17,7 @@ title: Sinsy
 email: 1214440709@qq.com
 description: > # this means to ignore newlines until "baseurl:"
   当一天猿媛，敲一天代码
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.sinsy.top" # the base hostname & protocol for your site
 # twitter_username: jekyllrb
 github_username:  sinsy
