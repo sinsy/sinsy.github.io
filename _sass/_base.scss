@@ -8,7 +8,9 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
+*{
+    box-sizing: border-box;
+}
 
 /**
  * Basic styling
@@ -121,7 +123,30 @@ blockquote {
         margin-bottom: 0;
     }
 }
-
+blockquote {
+    margin: 1em 0 1.714285714rem;
+    padding: 1em 2em;
+    background: #f8f8f8;
+    position: relative;
+}
+blockquote:before {
+    content: "『";
+    position: absolute;
+    color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    font-size: 18px;
+    top: 0.75em;
+    left: 0.25em;
+}
+blockquote:after {
+    content: "』";
+    position: absolute;
+    color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    font-size: 18px;
+    bottom: 0.50em;
+    right: 0.25em;
+}
 
 
 /**
@@ -151,26 +176,6 @@ pre {
 }
 
 
-
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
 
 
 

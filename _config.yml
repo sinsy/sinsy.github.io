@@ -1,6 +1,5 @@
 
 permalink: /:year-:month-:day-:title/
-paginate: 10
 markdown: kramdown
 encoding: utf-8
 
@@ -30,8 +29,10 @@ cates:
 
 # 中文本地化
 locals:
-tags: 标签
-about: 关于
-newest: 最新文章
-archive: 归档
+  tags: 标签
+  about: 关于
+  newest: 最新文章
+  archive: 归档
 
+# 主题设置，自动激活某个标签
+active: 全部文章
