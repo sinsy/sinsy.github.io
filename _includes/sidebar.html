@@ -1,20 +1,53 @@
 <aside class="site-sidebar">
     <div class="sidebar-left">
-        <a id="sidebar-avatar" href="{{ " / " | prepend: site.baseurl }}">
-            <img id="sidebar-avatar-img" alt="{{ site.tittle }}" src="{{ site.avatar | prepend: site.baseurl }}" />
-        </a>
-        <div id="sidebar-social">
-            <a href="{{ site.rss_url | prepend: site.baseurl }}" class="sidebar-social-icon feed"></a>
-            <a href="mailto:{{ site.email }}" class="sidebar-social-icon email"></a>
+        <div class="sidebar-head">
+           <a class="logo card" id="sidebar-avatar" href="{{ " / " | prepend: site.baseurl }}">
+                <div class="word back">SINSY</div>
+                <div class="monk font">
+                  <div class="head_div">
+                    <div class="head">
+                      <div class="eyebrow">
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div class="eye">
+                        <div class="l1"></div>
+                        <div class="r1"></div>
+                      </div>
+                      <div class="nose"></div>
+                      <div class="mouth"></div>
+                      <div class="blusher">
+                        <div class="l1"></div>
+                        <div class="r1"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </a> 
         </div>
-        <ul id="sidebar-tags">
-        <li><a href="/blog/#all">全部文章</a></li>
-		 {% for category in site.categories %}
-         <li><a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
-        {% endfor %}
-        <li><a href="/tags/" data-toggle="tab">{{ site.locals.tags }}</a></li>  
-        <li><a class="" href="/archive/">{{ site.locals.archive }}</a></li>
-        <li><a class="" href="/about/">{{ site.locals.about }}</a></li>
+        <div class="sidebar-social">
+            {% if site.author.email %}
+                <a href="mailto:{{ site.author.email }}" class="sidebar-social-icon email"><span class="icon icon--twitter">{% include /svg/icon-email.svg %}</span></a> 
+            {% endif %}
+<!--             <a href="{{ site.rss_url | prepend: site.baseurl }}" class="sidebar-social-icon feed"></a>-->
+            
+            {% if site.author.twitter %}
+              <a href="https://twitter.com/{{ site.author.twitter }}" class="sidebar-social-icon twitter" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-twitter.svg %}</span></a>
+            {% endif %}
+
+
+            {% if site.author.github %}
+              <a href="https://github.com/{{ site.author.github }}" class="sidebar-social-icon github" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-github.svg %}</span></a>
+            {% endif %}
+        </div>
+        <ul id="sidebar-tags" class="sidebar-tags">
+            <li class="sel"><a href="/blog/#all">全部文章</a></li>
+    		 {% for category in site.categories %}
+            <li><a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
+            {% endfor %}
+            <li><a href="/tags/" data-toggle="tab">{{ site.locals.tags }}</a></li>  
+            <li><a href="/archive/">{{ site.locals.archive }}</a></li>
+            <li><a href="/about/">{{ site.locals.about }}</a></li>
         </ul>
     </div>
 </aside>

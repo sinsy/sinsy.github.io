@@ -1,0 +1,42 @@
+/**
+*翻牌效果	
+*/
+.card .font,
+.card .back {
+    position: absolute;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+.card .font {
+    -webkit-transform: rotateY( 0deg);
+    -moz-transform: rotateY( 0deg);
+    -o-transform: rotateY( 0deg);
+    transform: rotateY( 0deg);
+}
+
+.card .back {
+    -webkit-transform: rotateY( -180deg);
+    -moz-transform: rotateY( -180deg);
+    -o-transform: rotateY( -180deg);
+    transform: rotateY( -180deg);
+}
+
+.card:hover .font {
+    -webkit-transform: rotateY( 180deg);
+    -moz-transform: rotateY( 180deg);
+    -o-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
+}
+
+.card:hover .back {
+    -webkit-transform: rotateY( 0deg);
+    -moz-transform: rotateY( 0deg);
+    -o-transform: rotateY( 0deg);
+    transform: rotateY( 0deg);
+}

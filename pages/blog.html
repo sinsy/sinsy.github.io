@@ -3,7 +3,7 @@ layout: default
 permalink: /blog/
 ---
 {% for post in site.posts %}
-  <a class="toc-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}">
+  <a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}">
     {{ post.title }}
             {{ post.date | date: "%F" }} 
     
