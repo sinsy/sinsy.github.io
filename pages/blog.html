@@ -1,11 +1,13 @@
 ---
 layout: default
+title: blog
 permalink: /blog/
 ---
 {% for post in site.posts %}
-  <a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}">
-    {{ post.title }}
-            {{ post.date | date: "%F" }} 
+  <a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}" href="{{post.url | prepend: site.articleurl}}">
+    <span class="al-title">{{ post.title }}</span>
+    <span class="al-tag">{{ post.categories | join: ' '}}</span>
+    <span class="al-date">{{ post.date | date: "%F" }} </span>
     
   </a>
 {% endfor %}

@@ -19,12 +19,11 @@ $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
 $grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
+$grey-color-light: lighten($grey-color, 30%);
 $grey-color-dark:  darken($grey-color, 25%);
-
+$theme-color: 	   #6BD2F7;
+$theme-color-dark: darken($theme-color, 25%);;
 // Width of the content area
-$content-width:    800px;
-
 $on-palm:          600px;
 $on-laptop:        800px;
 $sidebar-width:    240px;
@@ -49,7 +48,6 @@ $sidebar-width:    240px;
 @import
         "base",
         "layout",
-        "syntax-highlighting",
         "monk",
         "sidebar",
         "effect"

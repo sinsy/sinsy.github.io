@@ -1,5 +1,6 @@
+{% include head.html %}
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post">
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
@@ -27,3 +28,13 @@ var duoshuoQuery = {short_name:"garboliu"};
 	})();
 	</script>
 <!-- 多说公共JS代码 end -->
+{% include footer.html %}
+<link rel="stylesheet" href="{{ "/public/component/prettify/prettify.css" | prepend: site.baseurl }}">
+<script src="/public/js/zepto.js"></script>
+<script src="/public/component/prettify/prettify.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("pre").addClass("prettyprint");
+    prettyPrint();
+  });
+</script>

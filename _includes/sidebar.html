@@ -26,23 +26,12 @@
             </a> 
         </div>
         <div class="sidebar-social">
-            {% if site.rss_url %}
-            <a href="{{ site.rss_url | prepend: site.baseurl }}" class="sidebar-social-icon feed"><span class="icon icon--twitter">{% include /svg/icon-rss.svg %}</span></a>
-            {% endif %}
-            {% if site.author.github %}
-              <a href="{{ site.author.github }}" class="sidebar-social-icon github" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-github.svg %}</span></a>
-            {% endif %}
-            {% if site.author.email %}
-                <a href="mailto:{{ site.author.email }}" class="sidebar-social-icon email"><span class="icon icon--twitter">{% include /svg/icon-email.svg %}</span></a> 
-            {% endif %}
-            {% if site.author.twitter %}
-              <a href="{{ site.author.twitter }}" class="sidebar-social-icon twitter" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-twitter.svg %}</span></a>
-            {% endif %}
+          {% include social.html %}
         </div>
         <ul id="sidebar-tags" class="sidebar-tags">
-            <li class="sel"><a href="/blog/#all">全部文章</a></li>
-    		 {% for category in site.categories %}
-            <li><a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
+            <li class="sel"><a href="/blog/#all">全部</a></li>
+    		    {% for category in site.categories %}
+              <li><a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
             {% endfor %}
             <li><a href="/tags/" data-toggle="tab">{{ site.locals.tags }}</a></li>  
             <li><a href="/archive/">{{ site.locals.archive }}</a></li>

@@ -14,9 +14,11 @@ author:
   # twitter: https://twitter.com/jekyllrb
 
 #网站信息
+title: sinsy的博客
 description: > # this means to ignore newlines until "baseurl:"
   当一天猿媛，敲一天代码
 baseurl: "" # the subpath of your site, e.g. /blog
+articleurl: "#"
 url: "http://www.sinsy.top" # the base hostname & protocol for your site
 github_username:  sinsy
 rss_url: /pages/feed.xml
@@ -30,3 +32,5 @@ locals:
 
 # 主题设置，自动激活某个标签
 active: 全部文章
+
+# 代码高亮：google-code-prettify

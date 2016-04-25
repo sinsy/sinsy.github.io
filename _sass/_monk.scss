@@ -7,12 +7,24 @@ body{
 	width:50%;
 	height:100%;
 	position: absolute;
-	left:50%;
+	left: 50%;
 }
 .content-left{
 	background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);
 	left: 0;
 	font-size: 30px;
+}
+.content-right{
+	left: 50%;
+}
+@include media-query($on-palm) {
+	.content-left{
+		display: none;
+	}
+	.content-right{
+		left: 0;
+		width: 100%;
+	}
 }
 .sun{
     -webkit-animation: sun 15s linear infinite; 
@@ -390,7 +402,7 @@ body{
 	border: 0 solid #f3d609;
 	border-width: .1em .1em 0 .1em;
 }
-.content-right{
+.cr-content{
 	position: absolute;
 	width: 280px;
 	left: 50%;

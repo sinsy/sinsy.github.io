@@ -1,8 +1,12 @@
-{% if site.author.twitter %}
-  <a href="https://twitter.com/{{ site.author.twitter }}" class="sidebar-social-icon twitter" target="_blank"><span class="icon icon--twitter">{% include icon-twitter.svg %}</span></a>
+{% if site.rss_url %}
+  	<a href="{{ site.rss_url | prepend: site.baseurl }}" class="sidebar-social-icon feed"><span class="icon icon--twitter">{% include /svg/icon-rss.svg %}</span></a>
 {% endif %}
-
-
 {% if site.author.github %}
-  <a href="https://github.com/{{ site.author.github }}" class="sidebar-social-icon github" target="_blank"><span class="">{% include icon-gitbub.svg %}</span></a>
+  	<a href="{{ site.author.github }}" class="sidebar-social-icon github" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-github.svg %}</span></a>
+{% endif %}
+{% if site.author.email %}
+    <a href="mailto:{{ site.author.email }}" class="sidebar-social-icon email"><span class="icon icon--twitter">{% include /svg/icon-email.svg %}</span></a> 
+{% endif %}
+{% if site.author.twitter %}
+  	<a href="{{ site.author.twitter }}" class="sidebar-social-icon twitter" target="_blank"><span class="icon icon--twitter">{% include /svg/icon-twitter.svg %}</span></a>
 {% endif %}

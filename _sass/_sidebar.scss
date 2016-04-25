@@ -3,13 +3,16 @@
  */
 .site-sidebar{
 	display:inline-block;
-	background:#6BD2F7;
+	background:$theme-color;
 	width: 20%;
 	height: 100%;
 	position: absolute;
 	left: 0;
 	overflow: hidden;
 	overflow-y: scroll;
+	@include media-query($on-palm) {
+        width: 55px;
+    }
 }
 .sidebar-tags{
 	margin: 0;
@@ -42,7 +45,7 @@
 		position: relative;
 		display: block;
 	    margin: auto;
-	    margin-bottom: 10px;
+	    margin-bottom: 5px;
 	    margin-top: 5px;
 	    width: 125px;
 	    height: 125px;
@@ -81,16 +84,30 @@
 	}
 }
 .sidebar-social{
+	text-align: center;
 	.icon {
 	    > svg {
 	        display: inline-block;
 	        width: 30px;
 	        height: 30px;
 	        vertical-align: middle;
-
+			margin: 0 2px;
+			margin-bottom: 5px;
 	        path {
-	            fill: $grey-color;
+	            fill: #fff;
 	        }
 	    }
+	}
+	.icon:hover {
+		>svg{
+			path{
+				fill: #f7f7f7;
+			}
+		}
+	}
+}
+@include media-query($on-palm) {
+	.sidebar-social{
+		display: none;
 	}
 }

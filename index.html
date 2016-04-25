@@ -48,16 +48,16 @@ layout: index
     </div>
   </div>
 </div>
-<div class="content">
-  <div class="content-right">
+<div class="content content-right">
+  <div class="cr-content">
     <div class="logo">SINSY</div>
     <blockquote class="word">当一天猿媛，敲一天DEMO</blockquote>
     <nav class="navigate">
-      <a class="sel" href="/">首页</a>
-      <a href="/blog">技术日志</a>
-      <a href="/demo">DEMO</a>
-      <a href="/thoughts">生活随想</a>
-      <a href="/thoughts">读书计划</a>
+      <a href="/blog/#all">全部</a>
+      {% for category in site.categories %}
+        <a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a>
+      {% endfor %}
+      <a href="/about/">{{ site.locals.about }}</a>
     </nav>
   </div>
 </div>
