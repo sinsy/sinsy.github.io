@@ -5,34 +5,27 @@ encoding: utf-8
 
 # 作者信息
 author: 
-  name: 刘加宝
-  email: lv460051518@gmail.com
+  name: Sinsy
+  email: 1214440709@qq.com
   link: http://www.sinsy.top
   # weibo: http://weibo.com/liqing215
   github: http://github.com/sinsy
-  twitter: jekyllrb
+  github_name: sinsy
+  # twitter: https://twitter.com/jekyllrb
 
 #网站信息
-title: Sinsy
-email: 1214440709@qq.com
 description: > # this means to ignore newlines until "baseurl:"
   当一天猿媛，敲一天代码
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.sinsy.top" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
 github_username:  sinsy
+rss_url: /pages/feed.xml
 
-
-# 首页除了最新文章外显示分类
-cates: 
-  - React
-  - 摄影
 
 # 中文本地化
 locals:
   tags: 标签
   about: 关于
-  newest: 最新文章
   archive: 归档
 
 # 主题设置，自动激活某个标签

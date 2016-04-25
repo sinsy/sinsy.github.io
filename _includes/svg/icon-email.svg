@@ -1,4 +1,9 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="266.796875" height="200" viewBox="0 0 266.796875 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[
-@font-face { font-family: ifont; src: url("http://at.alicdn.com/t/font_1442373896_4754455.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1442373896_4754455.woff") format("woff"), url("http://at.alicdn.com/t/font_1442373896_4754455.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1442373896_4754455.svg#ifont") format("svg"); }
-
-]]></style></defs><g class="transform-group"><g transform="scale(0.1953125, 0.1953125)"><path d="M689.233 17.558c-271.706 0-491.964 220.261-491.964 491.964s220.261 491.964 491.964 491.964c271.702 0 491.962-220.261 491.962-491.964s-220.258-491.964-491.962-491.964zM1031.048 262.523l-341.455 319.395-341.661-319.395h683.117zM342.518 320.207l212.427 198.577-212.427 198.575v-397.156zM374.84 756.526l217.054-205.331 75.168 67.812 22.531 21.063 22.531-19.867 75.109-69.033 216.903 205.344h-629.306zM1035.939 717.298l-212.222-198.509 212.222-198.507v397.019z" fill="#272636"></path></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="32px" height="32px" viewBox="6.844 0 32 32" enable-background="new 6.844 0 32 32" xml:space="preserve">
+<path d="M22.844,0c-8.837,0-16,7.163-16,16s7.163,16,16,16c8.836,0,16-7.163,16-16S31.681,0,22.844,0z M32.387,9.104l-9.533,8.918
+	l-9.539-8.918H32.387z M13.164,10.715l5.931,5.544l-5.931,5.544V10.715z M14.067,22.896l6.059-5.732l2.099,1.893l0.629,0.588
+	l0.629-0.555l2.097-1.927l6.056,5.733H14.067z M32.524,21.801l-5.925-5.542l5.925-5.542V21.801z"/>
+</svg>
