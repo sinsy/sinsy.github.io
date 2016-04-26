@@ -1,17 +1,37 @@
 ---
 layout: default
-title: About
+title: tags
 permalink: /tags/
 ---
 <div class="tags-content">
 {% for tag in site.tags %} 
 	<div class="tc-tag">
-		<a class="tc-name" href="javascript:void(0)">{{ tag[0] }} <span class="tc-num">{{ tag[1].size }}</span> </a>
+		<a class="tc-name" href="javascript:void(0)" data-name="{{ tag[0] }}">{{ tag[0] }} <span class="tc-num">{{ tag[1].size }}</span> </a>
 		<div class="tc-content">
 			{% for post in tag[1] %} 
-				{{ post.title }} 
+				<a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}" href="{{ post.url }}">
+			    <span class="al-title">{{ post.title }}</span>
+			    <span class="al-tag">{{ post.categories | join: ' '}}</span>
+			    <span class="al-date">{{ post.date | date: "%F" }} </span>
+			    
+			  </a>
 			{% endfor %}
 		</div>
 	</div>
 {% endfor %}
 </div>
+<script>
+	$(function(){
+		$('.tc-tag').on('click', function(){
+			$('#iframe-post').show();
+			var content = '<header>'+$($(this).find('.tc-name')[0]).attr('data-name')+'</header>';
+			content += $($(this).find('.tc-content')[0]).html();
+			$('#iframe-content').html(content);
+		});
+		$('#iframe-close').on('click', function(){
+			$('#iframe-post').hide();
+		});
+	});
+
+</script>
+
