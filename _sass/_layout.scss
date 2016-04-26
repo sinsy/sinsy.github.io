@@ -94,6 +94,7 @@
     height: 100%;
     background: $background-color;
     overflow: scroll;
+    overflow-x: hidden;
     padding:20px 2% ;
     padding-left: 22%;
     z-index: -1;

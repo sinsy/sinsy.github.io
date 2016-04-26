@@ -18,17 +18,71 @@
 		<div class="close" id="iframe-close">&times;</div>
 		 <iframe class="content" id="iframe-content" src=""></iframe>
 	</div>
-   <script src="/public/js/zepto.js"></script>
-   
-   <script>
-   	$('.article-link').on('click', function(){
-   		$('#iframe-post').show();
-   		$('#iframe-content').attr('src', $(this).attr('data-href'));
-   	});
-   	$('#iframe-close').on('click', function(){
-   		$('#iframe-post').hide();
-   	});
-   </script>
+  <script src="/public/js/zepto.js"></script>
+
+  <script>
+  $(function(){
+    Page.init();
+    var hash = window.location.hash;
+    if(hash != '' && hash.indexOf('/')!=-1){//链接包含文章,hash去除文章链接，iframe show
+      var hashArr = hash.split('/');
+      hash = hashArr[0];
+      Article.iframeShow('/'+hashArr[1]+'/');
+    }else{
+      Article.iframeHide();
+    }
+    Article.initLink(hash);
+    /*iframe关闭事件*/
+    $('#iframe-close').on('click', function(){
+        $('#iframe-post').hide();
+      });
+    $('#sidebar-tags li').on('click', function(){
+      $(this).addClass('sel').siblings().removeClass('sel');
+    });
+    /*sidebar: blog-link 添加点击事件*/
+    $('.blog-link').on('click', function(){
+      Article.initLink($(this).attr('data-href'));
+    });
+  })
+  var Page = {
+    /*页面初始化，根据路径值，sidebar选项选中状态*/
+    init: function(){
+      var href = window.location.href.replace(window.location.protocol+'//'+window.location.host, '');
+      if(href != '/blog/'){
+        $('a[href="'+href+'"]').parent().addClass('sel').siblings().removeClass('sel');
+      }
+    }
+  }
+  var Article = {
+    /*初始化文章链接*/
+    initLink : function(hash){
+      /*article-link 添加链接*/
+      var articleLinkArr = $('.article-link');
+      for(var i=0, len=articleLinkArr.length; i<len; i++){
+        var link = $(articleLinkArr[i]);
+        link.attr('href', hash+link.attr('data-href'));
+      }
+      /*article-link 添加点击事件*/
+      articleLinkArr.on('click', function(){
+        Article.iframeShow($(this).attr('data-href'));
+      });
+    },
+    /*根据hash值过滤文章*/
+    filter : function(val){
+      console.log('文章测试'+val);
+    },
+    /*iframe 出现*/
+    iframeShow: function(src){
+      $('#iframe-post').show();
+      $('#iframe-content').attr('src', src);
+    },
+    iframeHide: function(){
+      $('#iframe-post').hide();
+    }
+  }
+
+
+  </script>
 
   </body>
 
