@@ -34,6 +34,7 @@
 /**
  * Posts
  */
+.post{overflow: hidden;}
 .post-header {
     margin-bottom: $spacing-unit/2;
     background: #ECECEC;
@@ -113,7 +114,7 @@
     cursor: pointer;
     display: block; 
     color: #333;
-    padding: 5px 0;
+    padding: 10px 0;
     border-bottom: 1px dashed $grey-color-light;
 
     &:hover{

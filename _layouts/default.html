@@ -28,9 +28,11 @@
       var hashArr = hash.split('/');
       hash = hashArr[0];
       Article.iframeShow('/'+hashArr[1]+'/');
+
     }else{
       Article.iframeHide();
     }
+    console.log(hash);
     Article.initLink(hash);
     Article.filter(hash);
     /*iframe关闭事件*/
@@ -50,8 +52,13 @@
     /*页面初始化，根据路径值，sidebar选项选中状态*/
     init: function(){
       var href = window.location.href.replace(window.location.protocol+'//'+window.location.host, '');
-      if(href != '/blog/'){
+      var hrefArr = href.split('/');
+      if(href != '/blog/' && hrefArr.length == 3){
         $('a[href="'+href+'"]').parent().addClass('sel').siblings().removeClass('sel');
+      }else if(href != '/blog/' && hrefArr.length > 3){
+        $('a[href="/'+hrefArr[1]+'/'+hrefArr[2]+'"]').parent().addClass('sel').siblings().removeClass('sel');
+      }else{
+        $('a[href="/blog/#all"]').parent().addClass('sel').siblings().removeClass('sel');
       }
     }
   }
@@ -72,11 +79,11 @@
     /*根据hash值过滤文章*/
     filter : function(val){
       var type = val.replace('#', '');
-      if(type != 'all'){
+      if(type == 'all' || type == ''){
+        $('.article-link').show();
+      }else{
         $('.article-link').hide();
         $('a[data-tags="'+type+'"]').show();
-      }else{
-        $('.article-link').show();
       }
     },
     /*iframe 出现*/

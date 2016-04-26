@@ -29,7 +29,9 @@ locals:
   tags: 标签
   about: 关于
   archive: 归档
-
+  ukulele: 小尤
+  demo: DEMO
+  book: 读书
 # 主题设置，自动激活某个标签
 active: 全部文章
 

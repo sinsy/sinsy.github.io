@@ -29,12 +29,14 @@
           {% include social.html %}
         </div>
         <ul id="sidebar-tags" class="sidebar-tags">
-            <li class="sel"><a href="/blog/#all" class="blog-link" data-href="#all">全部</a></li>
+            <li><a href="/blog/#all" class="blog-link" data-href="#all">全部</a></li>
     		    {% for category in site.categories %}
               <li><a href="/blog/#{{ category | first }}" class="blog-link" data-href="#{{ category | first }}">{{ category[0] }}</a></li>
             {% endfor %}
-            <li><a href="/tags/" data-toggle="tab">{{ site.locals.tags }}</a></li>  
-            <li><a href="/archive/">{{ site.locals.archive }}</a></li>
+            <li><a href="/demo/">{{ site.locals.demo }}</a></li> 
+            <li><a href="/ukulele/">{{ site.locals.ukulele }}</a></li> 
+            <li><a href="/book/">{{ site.locals.book }}</a></li> 
+            <li><a href="/tags/">{{ site.locals.tags }}</a></li>  
             <li><a href="/about/">{{ site.locals.about }}</a></li>
         </ul>
     </div>
