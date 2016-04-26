@@ -53,10 +53,11 @@ layout: index
     <div class="logo">SINSY</div>
     <blockquote class="word">当一天猿媛，敲一天DEMO</blockquote>
     <nav class="navigate">
-      <a href="/blog/#all">全部</a>
-      {% for category in site.categories %}
-        <a href="/blog/#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a>
-      {% endfor %}
+      <a href="/blog/#all">全部文章</a>
+      <a href="/demo/">{{ site.locals.demo }}</a>
+      <a href="/ukulele/">{{ site.locals.ukulele }}</a>
+      <a href="/book/">{{ site.locals.book }}</a>
+      <a href="/tags/">{{ site.locals.tags }}</a>
       <a href="/about/">{{ site.locals.about }}</a>
     </nav>
   </div>
