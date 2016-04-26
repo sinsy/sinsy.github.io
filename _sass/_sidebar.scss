@@ -9,7 +9,7 @@
 	position: absolute;
 	left: 0;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	@include media-query($on-palm) {
         width: 55px;
     }

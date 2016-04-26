@@ -32,6 +32,7 @@
       Article.iframeHide();
     }
     Article.initLink(hash);
+    Article.filter(hash);
     /*iframe关闭事件*/
     $('#iframe-close').on('click', function(){
         $('#iframe-post').hide();
@@ -42,6 +43,7 @@
     /*sidebar: blog-link 添加点击事件*/
     $('.blog-link').on('click', function(){
       Article.initLink($(this).attr('data-href'));
+      Article.filter($(this).attr('data-href'));
     });
   })
   var Page = {
@@ -69,7 +71,13 @@
     },
     /*根据hash值过滤文章*/
     filter : function(val){
-      console.log('文章测试'+val);
+      var type = val.replace('#', '');
+      if(type != 'all'){
+        $('.article-link').hide();
+        $('a[data-tags="'+type+'"]').show();
+      }else{
+        $('.article-link').show();
+      }
     },
     /*iframe 出现*/
     iframeShow: function(src){
