@@ -3,3 +3,15 @@ layout: default
 title: About
 permalink: /tags/
 ---
+<div class="tags-content">
+{% for tag in site.tags %} 
+	<div class="tc-tag">
+		<a class="tc-name" href="javascript:void(0)">{{ tag[0] }} <span class="tc-num">{{ tag[1].size }}</span> </a>
+		<div class="tc-content">
+			{% for post in tag[1] %} 
+				{{ post.title }} 
+			{% endfor %}
+		</div>
+	</div>
+{% endfor %}
+</div>
