@@ -96,6 +96,10 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
+    outline: none;
+    /*设置的tap  A标签的时候出现的黑色高亮*/
+    -webkit-tap-highlight-color: transparent;
+
 
     &:visited {
         // color: darken($brand-color, 15%);
