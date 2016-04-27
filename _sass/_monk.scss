@@ -1,4 +1,20 @@
 *{padding:0;margin:0;}
+a {
+    color: $brand-color;
+    text-decoration: none;
+    outline: none;
+    /*设置的tap  A标签的时候出现的黑色高亮*/
+    -webkit-tap-highlight-color: transparent;
+    &:visited {
+        // color: darken($brand-color, 15%);
+    }
+
+    &:hover {
+        outline: none;
+        // color: $text-color;
+        // text-decoration: underline;
+    }
+}
 body{
 	height:100%;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

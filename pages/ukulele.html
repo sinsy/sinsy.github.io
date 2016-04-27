@@ -3,3 +3,21 @@ layout: default
 title: 小尤
 permalink: /ukulele/
 ---
+<section class="waterfall container" data-width="250">
+	{% for item in site.data.ukulele %}
+	<div class="item">
+		
+		<div class="desc">
+			{{item.desc}}
+			<a href="{{item.url}}">[查看演示]</a>
+			<a href="{{item.code}}">[查看代码]</a>
+		</div>
+	</div>
+	{% endfor %}
+</section>
+<script src="../public/component/waterfall/jquery.waterfall.js"></script>
+<script>
+$(function(){
+	$(".container").waterfall();
+});
+</script>

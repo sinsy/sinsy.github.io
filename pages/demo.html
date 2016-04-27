@@ -3,3 +3,20 @@ layout: default
 title: Demo
 permalink: /demo/
 ---
+<section class="waterfall container" data-width="250">
+	{% for item in site.data.demo %}
+	<div class="item">
+		<img src="{{item.src}}" alt="" width="{{item.width}}px" height="{{item.height}}px"><div class="desc">
+			{{item.desc}}
+			<a href="{{item.url}}">[查看演示]</a>
+			<a href="{{item.code}}">[查看代码]</a>
+		</div>
+	</div>
+	{% endfor %}
+</section>
+<script src="../public/component/waterfall/jquery.waterfall.js"></script>
+<script>
+$(function(){
+	$(".container").waterfall();
+});
+</script>

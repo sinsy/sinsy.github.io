@@ -242,7 +242,7 @@
         .tc-num{
             display: inline-block;
             border-radius: 50%;
-            background: #F924B1;
+            background: $theme-color2;
             color: #fff;
             width: 20px;
             height: 20px;
@@ -259,4 +259,65 @@
         }    
     }
 
+}
+
+/*瀑布流布局样式： demo.html 和 ukulele.html*/
+.waterfall{
+    margin-bottom: 10px;
+    .item{
+        max-width: 100%;
+        box-shadow: 0 1px 5px -1px rgba(170, 180, 190, 1);
+        color: #000;
+        background: #fff;
+        border-radius:0 0 8px 8px/ 0 0 8px 8px;
+        height: auto;
+        margin:8px;
+        font-weight: bolder;
+        font-size: 16px;
+        text-align: center;
+        line-height: 20px;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        .desc{
+            background: $theme-color2;
+            color: #fff;
+            padding:10px 10px;
+            a{
+                white-space:nowrap;
+                color: #fff;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }  
+    .item:hover{
+        // background: 
+    }
+    @include media-query($on-laptop) {
+
+        .item{
+            border-radius: 0;
+            text-align: left;
+            display: block;
+
+            img{
+                width: 20%;
+                height:auto;
+                display: inline-block;
+                
+            }
+            .desc{
+                display: inline-block;
+                vertical-align: middle;
+                background: #fff;
+                color: #333;
+                width: 80%;
+                a{color:$theme-color2;}
+
+            }
+        }
+    }
 }
