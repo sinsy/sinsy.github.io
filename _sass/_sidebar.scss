@@ -13,6 +13,10 @@
 	@include media-query($on-palm) {
         width: 55px;
     }
+    .sidebar-left{
+    	width: 100%;
+    	overflow-x: hidden;
+    }
 }
 .sidebar-tags{
 	margin: 0;
