@@ -157,7 +157,7 @@
 }
 
 /**
- * 文章详情布局
+ * 文章列表页面和小尤曲谱图片展示页
  */
 .iframe-post{
     display: none;
@@ -207,7 +207,7 @@
                 font-size: 28px;
             }
         }
-        img{
+        .ukuleleImg{
             width: 100%;
             max-width: 700px;
             display: block;

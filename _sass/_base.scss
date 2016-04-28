@@ -170,9 +170,16 @@ code, kbd, pre, samp {
 pre {
     overflow: auto;
 }
-
-
-
+.highlighter-rouge{
+    background: rgba(0,0,0,0.04);
+}
+hr{
+    height: 4px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
 
 /**
  * Clearfix
