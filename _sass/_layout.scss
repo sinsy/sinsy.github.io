@@ -209,6 +209,9 @@
         }
         img{
             width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: auto;
             height: auto;
         }
     }
@@ -242,8 +245,12 @@
                 background: $theme-color;
                 color: #fff;
                 transform: scale(1.1);
+                @include media-query($on-laptop) {
+                    transform: none;
+                }
             }
-        }  
+        } 
+
         .tc-num{
             display: inline-block;
             border-radius: 50%;
