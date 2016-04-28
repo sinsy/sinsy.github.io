@@ -12,30 +12,47 @@ tags: [git]
 
 **初始化** `git init`
 
-## 二、历史管理
-
+## 二、查看记录
 **查看提交历史** `git log（–pretty=oneline)`
 
 **查看命令历史** `git reflog`
 
-
-**添加文件** `git add readme.txt`
-
-**提交文件** `git commit -m “XXXX”(-m 带提交说明)[建议使用]/git commit -a`
+**查看某次修改** `git show xxxx`
 
 **查看状态** `git status`
 
 **查看不同** `git diff`
 
+## 三、文件操作
 
+**添加文件** `git add readme.txt`
 
-**回退** git `reset –hard commit_id(HEAD^:回退到上一版本)`
+**提交文件** `git commit -m “XXXX”(-m 带提交说明)[建议使用]/git commit -a`
 
-**删除文件** `git rm test.txt`
+**直接删除文件** `git rm test.txt`
+
+**删除文件暂存状态** `git rm --cached test.txt`
 
 **还原删除文件** `git checkout test.txt`
 
-## 二、远程仓库
+## 四、版本操作
+**版本回退** 
+
+* `git reset --hard commit_id(HEAD^:回退到上一版本)`
+* `git reset commit_id (保留修改)`
+
+**标签功能**
+
+* git tag # 显示所有标签
+* git tag -l 'v1.4.2.*' # 显示 1.4.2 开头标签
+* git tag v1.3 # 简单打标签   
+* git tag -a v1.2 9fceb02 # 后期加注标签
+* git tag -a v1.4 -m 'my version 1.4' # 增加标签并注释， -a 为 annotated 缩写
+* git show v1.4 # 看某一标签详情
+* git push origin v1.5 # 分享某个标签
+* git push origin --tags # 分享所有标签
+
+## 五、远程仓库
 
 ### 1.远程仓库准备工作
 1. 创建ssh key： ssh-keygen -t rsa –C “youremail@example.com”，如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
