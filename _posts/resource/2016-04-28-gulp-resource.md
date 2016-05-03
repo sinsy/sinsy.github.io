@@ -25,13 +25,16 @@ tags: [gulp,postcss]
 ```
 gulp.task(browsersync);
 function browsersync() {
-    gulp.watch("./src/public/preCss/*.css", gulp.series(
+    browserSync({ 
+      // proxy: 'http://localhost:8080/zhibei2/web/src/' //利用tomcat或其他服务器
+      server: { //browsersync内置
+        baseDir: "./src/"
+      }
+    });
+    gulp.watch("./src/public/precss/*.css").on('change', gulp.series(
         css, browserSync.reload
         ));
-    gulp.watch(['./src/*.jsp','./src/public/js/*.js'], browserSync.reload);
-    browserSync({ 
-      proxy: 'http://localhost:8080/zhibei2/web/src/'
-    });
+    gulp.watch(['./src/*.jsp','./src/*.html','./src/public/js/*.js']).on('change', browserSync.reload);
 }
 ```
 
@@ -48,7 +51,59 @@ function browsersync() {
     - [postcss-import](https://github.com/postcss/postcss-import)： @import xxx.css导入样式
 * [gulp-css-spriter](http://www.codes51.com/article/detail_117947.html)： css文件中的sprite图片合成
 
+```
+gulp.task(css);
+function css() {
+    var processors = [
+      cssImport,
+      mixins,//Note, that you must set this plugin before postcss-simple-vars and postcss-nested.
+      simplevars,
+      nestedcss,
+      // px2rem({remUnit: 64}),mobile
+      autoprefixer,
+      mqpacker,
+    ];
+    var processors2 = [
+      cssnano({discardComments: {removeAll: true}})
+    ]
+    return gulp.src('./src/public/precss/*.css')
+        .pipe(postcss(processors))
+        .pipe(spriteCss({
+          //生成的sprite的位置
+          'spriteSheet': './src/public/img/sprite.png',
+          //生成样式的文件图片引用路径
+          'pathToSpriteSheetFromCSS': '../img/sprite.png'
+        }))
+        .pipe(postcss(processors2))
+        .pipe(gulp.dest('./src/public/css'));
+}
+```
+
 ### 3.js处理
+* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) js压缩
+* [gulp-concat](https://www.npmjs.com/package/gulp-concat) js文件合并
+* [gulp-jshint](https://www.npmjs.com/package/gulp-jshint) js错误检查
+
+### 4.html处理
+* [gulp-processhtml](https://www.npmjs.com/package/gulp-processhtml) html处理
+* [gulp-htmlmin](https://www.npmjs.com/package/gulp-htmlmin) html压缩
+
+### 5.image处理
+* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) 图片压缩
+* [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) png图片压缩
+* [gulp-cache](https://www.npmjs.com/package/gulp-cache) 图片缓存
+
+### 6.版本控制
+* [gulp-rev](https://www.npmjs.com/package/gulp-rev)
+* [gulp-rev-collector](https://www.npmjs.com/package/gulp-rev-collector)
+
+### 7.其余
+* [gulp-notify](https://www.npmjs.com/package/gulp-notify)
+* [del](https://www.npmjs.com/package/del)
+
+## 三、资源
+所有gulp插件集合一起：
+[github地址](https://github.com/sinsy/gulpTest)
 
 
 

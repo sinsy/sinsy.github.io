@@ -62,6 +62,8 @@ tags: [git]
 ### 2.远程仓库操作语句
 **关联** `git remote add origin git@server-name:path/repo-name.git`
 
+**取消关联** ` git remote rm origin`
+
 **推送** 
 
 * `git push -u origin master(第一次推送所有内容)`
