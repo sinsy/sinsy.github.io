@@ -8,3 +8,7 @@ tags: [移动端]
 ## 参考文章：
 * [Web移动端Fixed布局的解决方案](http://efe.baidu.com/blog/mobile-fixed-layout/)
 * [Issues with position fixed & scrolling on iOS](https://remysharp.com/2012/05/24/issues-with-position-fixed-scrolling-on-ios) 
+
+基于这两篇文章，我又把改解决方法封装成iscroll插件，纯js的
+
+
