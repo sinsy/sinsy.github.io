@@ -221,7 +221,7 @@ transition-timing-function 属性规定过渡效果的速度曲线。该属性�
 ```
 transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n)|steps(number_of_steps, direction);
 ```
-在这里我们只是讲讲用法和运动曲线的差异，不深入探讨，想要跟深入了解各个运动曲线的可以狠狠点击链接[css3 transition-timing-function之 Cubic-bezier与Steps详解](http://www.sinsy.top/2016-06-18-css3-cubic-bezier-steps/)
+在这里我们只是讲讲用法和运动曲线的差异，不深入探讨，想要跟深入了解各个运动曲线的可以狠狠点击链接[css3 transition-timing-function之 Cubic-bezier与Steps详解](http://www.sinsy.top/2015-06-18-css3-cubic-bezier-steps/)
 
 <iframe src="https://www.sinsy.top/hungry/learn/css3/transition/timing_function.html" frameborder="0" width="100%" height="450px"></iframe>
 
