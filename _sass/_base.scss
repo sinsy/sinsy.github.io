@@ -231,8 +231,14 @@ table th {
 }
 table td {
     border-width: 1px;
-    padding:15px;
+    padding:12px 15px;
     border-style: solid;
     border-color: #ddd;
-    background-color: #ffffff;
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+
+b{
+    color: red;
 }

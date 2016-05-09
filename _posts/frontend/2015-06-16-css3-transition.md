@@ -1,9 +1,9 @@
 ---
 layout: post
-title: css3 过渡transition分析
-date:   2015-05-16 16:02:15 +0800
+title: css3过渡 transition分析
+date:   2015-06-16 16:02:15 +0800
 category: 前端
-tags: [移动端]
+tags: [css]
 ---
 
 transition 属性是一个简写属性，用于设置四个过渡属性。

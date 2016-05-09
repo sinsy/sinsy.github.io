@@ -3,7 +3,7 @@ layout: post
 title: css3 transition-timing-function之 Cubic-bezier与Steps详解
 date:   2015-06-18 11:02:15 +0800
 category: 前端
-tags: [移动端]
+tags: [css]
 ---
 本章主要详细讲讲transition-timing-function中的cubic-bezier与steps,而上文所讲的linear，ease， ease-in，ease-out 和 ease-in-out都是基于cubic-bezier。
 
