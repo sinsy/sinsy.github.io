@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git常用资源"
+title:  "jekyll常用资源"
 date:   2016-04-28 14:39:15 +0800
 categories: 资源 
 tags: [jekyll]

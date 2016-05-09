@@ -298,6 +298,9 @@ scaleX与scaleY可以跟2D平面的差不多，但是scaleZ需要定义perspecti
 </html>
 ```
 
+## 四、资料
 
+### 代码下载
+[点击下载](https://www.sinsy.top/hungry/learn/css3/3d/transform3d.zip)
 
 
