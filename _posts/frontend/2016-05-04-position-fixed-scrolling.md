@@ -83,48 +83,48 @@ tags: [移动端]
 修改style样式:main绝对定位，`overflow-y: scroll;`进行内部滚动, `-webkit-overflow-scrolling: touch;`可以增加弹性。
 
 ```
-    <style>
-        header, footer, main {
-            display: block;
-        }
-        header, footer{
-            background: red;
-            z-index: 100;
-        }
-        header {
-            position: fixed;
-            height: 50px;
-            left: 0;
-            right: 0;
-            top: 0;
-        }
+<style>
+    header, footer, main {
+        display: block;
+    }
+    header, footer{
+        background: red;
+        z-index: 100;
+    }
+    header {
+        position: fixed;
+        height: 50px;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
 
-        footer {
-            position: fixed;
-            height: 34px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+    footer {
+        position: fixed;
+        height: 34px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
-        main {
-            /* main绝对定位，进行内部滚动 */
-            position: absolute;
-            top: 50px;
-            bottom: 34px;
-            /* 使之可以滚动 */
-            overflow-y: scroll;
-            /* 增加该属性，可以增加弹性 */
-            -webkit-overflow-scrolling: touch;
-        }
-    </style>
+    main {
+        /* main绝对定位，进行内部滚动 */
+        position: absolute;
+        top: 50px;
+        bottom: 34px;
+        /* 使之可以滚动 */
+        overflow-y: scroll;
+        /* 增加该属性，可以增加弹性 */
+        -webkit-overflow-scrolling: touch;
+    }
+</style>
 ```
 
 测试地址： [solutionFixed.html](http://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionFixed.html)
 
 ### 其他细节处理
 1. 在页面滚动到上下边缘的时候，如果继续拖拽会将整个 View 一起拖拽走，导致页面的“露底”。
-对第一篇文章的代码进行微小的修改：
+对第一篇文章的js代码进行微小的修改：
 
 ```
 <script>
@@ -169,6 +169,7 @@ function stopEvent(e){
     e.preventDefault();
     // console.log('Default prevented');
 }
+</script>
 ```
 
 2. 最好将 header 和 footer 元素的 touchmove 事件禁止，以防止滚动在上面触发了部分浏览器全屏模式切换，而导致顶部地址栏和底部工具栏遮挡住 header 和 footer 元素。
