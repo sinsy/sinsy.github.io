@@ -57,7 +57,7 @@ animation: name duration timing-function delay iteration-count direction;
 animation-name  规定需要绑定到选择器的 keyframe 名称。
 
 `animation-name: keyframename|none;`
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-name.html" frameborder="0" width="100%" height="150px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-name.html" frameborder="0" width="100%" height="150px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -126,7 +126,7 @@ to {left:200px;}
 animation-duration  规定完成动画所花费的时间，以秒或毫秒计。默认是 0。
 
 `animation-duration: time;`
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-duration.html" frameborder="0" width="100%" height="350px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-duration.html" frameborder="0" width="100%" height="350px"></iframe>
 
 ```
 .d1{
@@ -174,7 +174,7 @@ animation-timing-function   规定动画的速度曲线。默认是 ease。
         <td>在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。</td>
     </tr>
 </table>
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-timing-function.html" frameborder="0" width="100%" height="410px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-timing-function.html" frameborder="0" width="100%" height="410px"></iframe>
 
 ```
 #div1 {animation-timing-function:linear;}
@@ -199,7 +199,7 @@ cubic-bezier曲线可以参考：[css3 transition-timing-function之 Cubic-bezie
 animation-delay 规定在动画开始之前的延迟。默认是 0。
 
 `animation-delay: time;`
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-delay.html" frameborder="0" width="100%" height="250px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-delay.html" frameborder="0" width="100%" height="250px"></iframe>
 
 ```
 .d1{
@@ -238,7 +238,7 @@ animation-iteration-count   规定动画应该播放的次数。默认是 1。
         <td>规定动画应该无限次播放。</td>
     </tr>
 </table>
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-iteration-count.html" frameborder="0" width="100%" height="220px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-iteration-count.html" frameborder="0" width="100%" height="220px"></iframe>
 
 ```
 #div1 {animation-iteration-count:1;}
@@ -270,7 +270,7 @@ animation-direction 规定是否应该轮流反向播放动画。默认是 "norm
     </tr>
 </table>
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-direction.html" frameborder="0" width="100%" height="200px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-direction.html" frameborder="0" width="100%" height="200px"></iframe>
 
 ```
 #div1 {animation-direction:normal;}
@@ -299,7 +299,7 @@ animation-play-state    规定动画是否正在运行或暂停。默认是 "run
         <td>规定动画正在播放。</td>
     </tr>
 </table>
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-play-state.html" frameborder="0" width="100%" height="150px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-play-state.html" frameborder="0" width="100%" height="150px"></iframe>
 
 ## 八、animation-fill-mode
 
@@ -328,9 +328,9 @@ animation-fill-mode 属性规定动画在播放之前或之后，其动画效果
         <td>向前和向后填充模式都被应用。</td>
     </tr>
 </table>
-<iframe src="https://www.sinsy.top/hungry/learn/css3/animation/animation-fill-mode.html" frameborder="0" width="100%" height="340px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/animation/animation-fill-mode.html" frameborder="0" width="100%" height="340px"></iframe>
 
 ## 九、资料
 
 1.代码下载
-[点击下载](https://www.sinsy.top/hungry/learn/css3/animation/animation.zip)
+[点击下载](http://www.sinsy.top/hungry/learn/css3/animation/animation.zip)

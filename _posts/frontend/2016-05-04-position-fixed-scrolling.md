@@ -72,7 +72,7 @@ tags: [移动端]
 </html>
 ```
 
-测试地址： [https://www.sinsy.top/hungry/learn/mobile/iscroll/example/bug.html](https://www.sinsy.top/hungry/learn/mobile/iscroll/example/bug.html)
+测试地址： [bug.html](http://www.sinsy.top/hungry/learn/mobile/iscroll/example/bug.html)
 
 如果底部输入框软键盘被唤起以后，再次滑动页面，就会看到如下图所示：
 ![fixed bug](http://7xtflp.com1.z0.glb.clouddn.com/mobile-iscroll-fixed.png "fixed bug") 
@@ -120,7 +120,7 @@ tags: [移动端]
     </style>
 ```
 
-测试地址： [https://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionFixed.html](https://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionFixed.html)
+测试地址： [solutionFixed.html](http://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionFixed.html)
 
 ### 其他细节处理
 1. 在页面滚动到上下边缘的时候，如果继续拖拽会将整个 View 一起拖拽走，导致页面的“露底”。
@@ -184,12 +184,12 @@ footer.addEventListener('touchmove', function(e){
 </script>
 ```
 
-细节完善后的测试地址： [https://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionDetail.html](https://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionDetail.html)
+细节完善后的测试地址： [solutionDetail.html](http://www.sinsy.top/hungry/learn/mobile/iscroll/example/solutionDetail.html)
 
 ## 三、插件化
 
-* [github地址](https://github.com/sinsy/iscroll/)
-* [代码下载地址](https://www.sinsy.top/hungry/learn/mobile/iscroll.zip)
+* [github地址](http://github.com/sinsy/iscroll/)
+* [代码下载地址](http://www.sinsy.top/hungry/learn/mobile/iscroll.zip)
 
 
 

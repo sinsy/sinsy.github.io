@@ -154,11 +154,11 @@ perspective还有另一种写法transform: perspective(200px) translateZ(300px);
 </table>
 这个跟2D平面的rotate可是真心不同啊，你要用3D的思维去看待它，先看看他们在一个立方体的三条边上摆什么姿势。
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/3d/rotate3D_animate.html" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_animate.html" frameborder="0" width="100%" height="450px"></iframe>
 
 看了上图应该可以比较清晰的瞧出三者的差异了吧，现在详细的讲讲他们的用法，继续涨姿势吧。
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/3d/rotate3D_easy.html" frameborder="0" width="100%" height="300px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_easy.html" frameborder="0" width="100%" height="300px"></iframe>
 
 1、2图为rotateX(45deg)  rotateX( 135deg)，3、4图为rotateY(45deg)  rotateY(135deg)，5、6图为rotateZ(45deg)  rotateZ(135deg)
 
@@ -227,7 +227,7 @@ perspective还有另一种写法transform: perspective(200px) translateZ(300px);
 </html>
 ```
 
-上面讲解了rotateX，rotateY，rotateZ的用法，而rotate3d是三者的缩写，在这里就不详细介绍了有兴趣了解的朋友们可以点击以下链[https://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html](https://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html)
+上面讲解了rotateX，rotateY，rotateZ的用法，而rotate3d是三者的缩写，在这里就不详细介绍了有兴趣了解的朋友们可以点击以下链[http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html](http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html)
 
 ## 三、scale
 
@@ -250,7 +250,7 @@ perspective还有另一种写法transform: perspective(200px) translateZ(300px);
     </tr>
 </table>
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/3d/scale3d.html" frameborder="0" width="100%" height="400px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/scale3d.html" frameborder="0" width="100%" height="400px"></iframe>
 
 scaleX与scaleY可以跟2D平面的差不多，但是scaleZ需要定义perspective和rotate才可以显示出来。
 
@@ -301,6 +301,6 @@ scaleX与scaleY可以跟2D平面的差不多，但是scaleZ需要定义perspecti
 ## 四、资料
 
 ### 代码下载
-[点击下载](https://www.sinsy.top/hungry/learn/css3/3d/transform3d.zip)
+[点击下载](http://www.sinsy.top/hungry/learn/css3/3d/transform3d.zip)
 
 

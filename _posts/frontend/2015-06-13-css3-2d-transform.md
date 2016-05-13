@@ -64,7 +64,7 @@ transform: rotate(30deg);
         <td>定义 2D 转换，沿着 Y 轴移动元素。transform:translateY(300px);</td>
     </tr>
 </table>
-<iframe src="https://www.sinsy.top/hungry/learn/css3/2d/translate.html" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/2d/translate.html" frameborder="0" width="100%" height="450px"></iframe>
 点X、Y、XY、O的初始位置为(0,0)，所以平移后的情况可相对于“点O”的位置来观看，X向右平移去整数，X向左平移取负数，Y向下取整数，Y向上取负数。
 
 ```
