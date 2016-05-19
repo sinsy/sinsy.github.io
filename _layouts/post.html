@@ -38,7 +38,13 @@ var duoshuoQuery = {short_name:"garboliu"};
 <script type="text/javascript">
   $(function(){
     $('#post-close').on('click', function(){
-      history.go(-1);
+      if(history.length > 1){
+        history.go(-1);
+
+      }else{
+        window.location.href='http://www.sinsy.top/blog/#all';
+      }
+      
     });
     $("pre").addClass("prettyprint");
     prettyPrint();

@@ -45,7 +45,7 @@ Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition 属性。Saf
 
 ### 1.单个动画属性的例子
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/property_single.html" frameborder="0" width="100%"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/property_single.html" frameborder="0" width="100%"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -78,7 +78,7 @@ width:300px;
 
 ### 2.多个动画属性的例子
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/property_multiple.html" frameborder="0" width="100%" height="200px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/property_multiple.html" frameborder="0" width="100%" height="200px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -118,7 +118,7 @@ width:300px;
 ## 二、过渡属性详解
 
 ### 1. transition-property
-transition-property 属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。点击查看[可以设置过渡效果的 CSS 属性列表](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)。
+transition-property 属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。点击查看[可以设置过渡效果的 CSS 属性列表](http://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties)。
 
 `
 提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。
@@ -173,7 +173,7 @@ transition-duration 属性规定完成过渡效果需要花费的时间（以秒
 transition-duration: time;
 ```
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/duration_animate.html" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/duration_animate.html" frameborder="0" width="100%" height="450px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -223,7 +223,7 @@ transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezie
 ```
 在这里我们只是讲讲用法和运动曲线的差异，不深入探讨，想要跟深入了解各个运动曲线的可以狠狠点击链接[css3 transition-timing-function之 Cubic-bezier与Steps详解](http://www.sinsy.top/2015-06-18-css3-cubic-bezier-steps/)
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/timing_function.html" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/timing_function.html" frameborder="0" width="100%" height="450px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -282,7 +282,7 @@ transition-delay 属性规定过渡效果何时开始（以秒或毫秒计）。
 ```
 transition-delay: time;
 ```
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/delay_animate.html" frameborder="0" width="100%" height="450px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/delay_animate.html" frameborder="0" width="100%" height="450px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -326,7 +326,7 @@ width: 200px;
 ## 三、资料
 
 ### 1.参考文档
-[Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
+[Using CSS transitions](http://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
 
 ### 2.代码下载
-[点击下载](https://www.sinsy.top/hungry/learn/css3/transition/transition-analyse.zip)
+[点击下载](http://www.sinsy.top/hungry/learn/css3/transition/transition-analyse.zip)

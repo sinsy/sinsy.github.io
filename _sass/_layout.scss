@@ -36,7 +36,9 @@
 /**
  * Posts
  */
-.post{overflow: hidden;}
+.post{
+    overflow: hidden;            
+}
 .post-close{
     cursor: pointer; 
     position: fixed;
@@ -112,6 +114,7 @@
     height: 100%;
     background: $background-color;
     overflow: auto;
+    height: 100%;
     padding:20px 2% ;
     padding-left: 22%;
     z-index: -1;

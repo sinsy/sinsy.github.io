@@ -20,7 +20,7 @@ Cubic-bezier()是三阶贝塞尔曲线，那什么是贝塞尔曲线呢？我们
 ![css3-cubic-bezier](http://7xtflp.com1.z0.glb.clouddn.com/css3-cubic-bezier.png "css3-cubic-bezier")
 不是所有的三阶贝塞尔曲线都适合timing-function，例如曲线给定的横坐标有0或1个值。首先P0和P3必须是固定值，然后P1和P2的横坐标X值在[0,1],如果P1和P2的值。如果纵坐标Y值超过[0,1]会产生一个反弹的效果。当你定义了一个无效的cubic-bezier，css会忽略掉整个属性。看图对比正常的cubic-bizier与超出范围的cubic-bezier。
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/cubic_bezier.html" frameborder="0" width="100%"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/cubic_bezier.html" frameborder="0" width="100%"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -153,7 +153,7 @@ steps(number_of_steps, direction)
 
 ![steps](http://7xtflp.com1.z0.glb.clouddn.com/css3-steps2.png "steps")
 
-<iframe src="https://www.sinsy.top/hungry/learn/css3/transition/steps.html" frameborder="0" width="100%" height="250px"></iframe>
+<iframe src="http://www.sinsy.top/hungry/learn/css3/transition/steps.html" frameborder="0" width="100%" height="250px"></iframe>
 
 ```
 <!DOCTYPE html>
@@ -201,12 +201,12 @@ transition:left 2s;
 本章结束，在写这几篇博文时真心挖到了不少外国好网站，资料详细，内容齐全，除了语言是英语，难懂了点，但要想在前端走得更远，学会看外国技术文档是一项必修课。今后一定要努力学好英语，在语言上吃大亏了。
 
 ### 参考文档
-* [Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
+* [Using CSS transitions](http://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
 * [A Look Into: Cubic-bezier in CSS3 Transition](http://www.hongkiat.com/blog/css-cubic-bezier/)
 * [LEA VEROU博客](http://lea.verou.me/)
 
 ### 代码下载
-* [点击下载transition-timing-function.zip](https://www.sinsy.top/hungry/learn/css3/transition/transition-timing-function.zip)
+* [点击下载transition-timing-function.zip](http://www.sinsy.top/hungry/learn/css3/transition/transition-timing-function.zip)
 
 
 
