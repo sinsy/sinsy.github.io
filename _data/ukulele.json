@@ -30,7 +30,7 @@
 	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-xiaoshouladashou.jpeg",
 	"name": "小手拉大手",
 },{
-	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-xiaojiuwo.jpg",
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-xiaojiuwo1.jpg",
 	"name": "小酒窝",
 },{
 	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-yueding.jpg",
@@ -44,7 +44,7 @@
 	"name": "弹唱"
 },
 {
-	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-You-are-my-sunshine.jpeg",
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-youaremysunshine.jpg",
 	"name": "you are my sunshine"
 },
 {
@@ -71,6 +71,33 @@
 	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-bjdldrz.jpg",
 	"name": "北京东路的日子"
 },
+
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-canttakemyeyeoffyou.png",
+	"name": "can't take my eyes off you"
+},
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-xiayutian.png",
+	"name": "下雨天"
+},
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-qiaoqiaogaosuni.jpg",
+	"name": "悄悄告诉你"
+},
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-wokenengbuhuiaini.jpg",
+	"name": "我可能不会爱你"
+},
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-danxiaogui.jpg",
+	"name": "胆小鬼"
+},
+{
+	"src": "http://7xtflp.com1.z0.glb.clouddn.com//uku-kaishidongle.jpg",
+	"name": "开始懂了"
+}
+]
+/*
 {
 	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-ylxb.jpg",
 	"name": "一路向北"
@@ -82,14 +109,4 @@
 {
 	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-zuichangdedianyin.jpg",
 	"name": "最长的电影"
-},
-{
-	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-canttakemyeyeoffyou.png",
-	"name": "can't take my eyes off you"
-},
-{
-	"src": "http://7xtflp.com1.z0.glb.clouddn.com/uku-xiayutian.png",
-	"name": "下雨天"
-}
-
-]
+}*/
