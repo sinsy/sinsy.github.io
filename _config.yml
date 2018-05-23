@@ -30,6 +30,7 @@ locals:
   about: 关于
   archive: 归档
   ukulele: 小尤
+  resume: 个人简历
   demo: DEMO
   book: 读书
 # 主题设置，自动激活某个标签
