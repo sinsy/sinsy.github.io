@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去除空格题目</title>
+</head>
+<body>
+用代码实现trim()
+思路：找到非空格的第一个字母和非空格的最后一个字母，用splice去除
+<script>
+    let str = ' 23456 '
+    let a = str.split('')
+    let first = 0
+    let final = 0
+    for(let i=0,len=a.length; i<len; i++){
+        if(a[i] !== ' '){
+            first = i
+            break;
+        }
+    }
+    for(let i=a.length-1; i>=0; i--){
+        if(a[i] !== ' '){
+            final = i
+            break;
+        }
+    }
+//    a.splice(final+1, a.length)
+//    a.splice(0, first)
+//    console.log(a.join(''))
+    let str1 = a.slice(first, final+1).join('')
+    console.log(str1)
+
+
+</script>
+</body>
+</html>

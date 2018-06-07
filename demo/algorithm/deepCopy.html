@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝</title>
+</head>
+<body>
+JSON.parse(JSON.stringify(data))弊端：{a:undefined}  ====》{}
+<p></p>
+Object.assign({title:{a:1}},{title:{subtext:123}}) ===》 {title: {subtext:123}},该深拷贝还是有问题，但出现这个合并时只会合并第一层的
+<a href="https://blog.csdn.net/waiterwaiter/article/details/50267787">https://blog.csdn.net/waiterwaiter/article/details/50267787</a>
+<script>
+    let a = {
+        a:1,
+        b: undefined,
+        c: {a:1},
+        d: [1,2,3],
+        e: function(){alert('aaa')}
+    }
+    let b ={
+        c:{b:1,c:{test:1}}
+    }
+    let copy = DeepCopy(a)
+    let merge = DeepMerge(a,b)
+    function DeepCopy(data){
+        let d = data instanceof Array ? []:{}
+        for(let key in data){
+            if(data[key] instanceof Array || isJson(data[key])){
+                d[key] = DeepCopy(data[key])
+            }else{
+                d[key] = data[key]
+            }
+        }
+        return d
+    }
+    function isJson(obj){
+        let isjson = typeof(obj) == "object" && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" && !obj.length;
+        return isjson;
+    }
+
+    function DeepMerge(){
+        let d = {}
+        for(let i of arguments){
+            for(let key in i){
+                if(d[key]){
+                    for(let deepkey in i[key]){
+                        d[key][deepkey] = getCopyContent(i[key][deepkey])
+                    }
+                }else{
+                    d[key] = getCopyContent(i[key])
+                }
+            }
+        }
+        
+        return d
+    }
+    function getCopyContent(data){
+        let d
+        if(data instanceof Array || isJson(data)){
+            d = DeepCopy(data)
+        }else{
+            d = data
+        }
+        return d
+    }
+</script>
+</body>
+</html>
