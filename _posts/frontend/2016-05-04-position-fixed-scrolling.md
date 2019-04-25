@@ -72,7 +72,7 @@ tags: [移动端]
 </html>
 ```
 
-测试地址： [bug.html](http://www.sinsy.top/hungry/learn/mobile/iscroll/example/bug.html)
+测试地址： <a href="/begining/mobile/iscroll/example/bug.html" target="_blank">bug.html</a>
 
 如果底部输入框软键盘被唤起以后，再次滑动页面，就会看到如下图所示：
 ![fixed bug](http://7xtflp.com1.z0.glb.clouddn.com/mobile-iscroll-fixed.png "fixed bug") 
