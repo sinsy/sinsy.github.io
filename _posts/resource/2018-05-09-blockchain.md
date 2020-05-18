@@ -2,7 +2,7 @@
 layout: post
 title: 区块链入门汇总整理
 date:   2018-05-09 10:02:15 +0800
-category: 区块链
+category: 其他
 tags: [拓展]
 ---
 

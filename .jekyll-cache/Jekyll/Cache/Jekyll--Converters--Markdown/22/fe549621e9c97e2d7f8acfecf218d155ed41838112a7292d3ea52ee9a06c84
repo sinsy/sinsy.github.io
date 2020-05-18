@@ -1,0 +1,297 @@
+I"-j<p>继续上一篇2D转换，我们来分析3D转换，突然发现要自己组织语言来写博客真的是一件困难的事，第一篇博客就花费了我两天的时间了，语言表达能力还是欠缺了点，发完牢骚进入主题吧。3D(XYZ)在2D(XY)的基础上又增加了一条Z轴，虽说只是增加了一条线，但复杂度可是大大的提升了。
+<img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-3d-axes.png" alt="3d" title="3d" /></p>
+
+<h3 id="3d所有的转换属性">3D所有的转换属性：</h3>
+<table>
+    <tr>
+        <th>属性</th>
+        <th>描述</th>
+    </tr>
+    <tr>
+        <td>transform</td>
+        <td>向元素应用 2D 或 3D 转换。</td>
+    </tr>
+    <tr>
+        <td>transform-origin</td>
+        <td>允许你改变被转换元素的位置。</td>
+    </tr>
+    <tr>
+        <td>transform-style</td>
+        <td>规定被嵌套元素如何在 3D 空间中显示。</td>
+    </tr>
+    <tr>
+        <td>perspective</td>
+        <td>规定 3D 元素的透视效果。</td>
+    </tr>
+    <tr>
+        <td>perspective-origin</td>
+        <td>规定 3D 元素的底部位置。</td>
+    </tr>
+    <tr>
+        <td>backface-visibility</td>
+        <td>定义元素在不面对屏幕时是否可见。</td>
+    </tr>
+</table>
+
+<h3 id="3d-transform方式">3D transform方式：</h3>
+<ul>
+  <li>translate(平移)</li>
+  <li>rotate(旋转)</li>
+  <li>scale(缩放)</li>
+  <li>matrix(矩阵，本节不讲，押后详细分析)</li>
+  <li>perspective(透视)</li>
+</ul>
+
+<h2 id="一translate">一、translate</h2>
+
+<table>
+    <tr>
+        <td>translate3d(x,y,z)</td>
+        <td>定义 3D 转化。transform:translate3d(300px, 300px, 0px);</td>
+    </tr>
+    <tr>
+        <td>translateX(x)</td>
+        <td>定义 3D 转化，仅使用用于 X 轴的值。transform:translateX(300px);</td>
+    </tr>
+    <tr>
+        <td>translateY(y)</td>
+        <td>定义 3D 转化，仅使用用于 Y 轴的值。transform:translateY(300px);</td>
+    </tr>
+    <tr>
+        <td>translateZ(z)</td>
+        <td>定义 3D 转化，仅使用用于 Z 轴的值。transform:translateZ(300px);</td>
+    </tr>
+</table>
+
+<p>translateX与translateY的用法跟在2D的相似，translateZ稍有不同，一定要先设置perspective属性才能看见效果，现在先引入perspective(透视)这一概念。</p>
+
+<p>perspective 属性定义 <b>3D 元素距视图的距离</b>，以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。当为元素定义 perspective 属性时，<b>其子元素会获得透视效果</b>，而不是元素本身。</p>
+
+<p><img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-translate3d1.png" alt="3d" title="3d" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>translate3d<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+    <span class="nc">.content</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span> <span class="m">120px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span><span class="nl">word-wrap</span><span class="p">:</span><span class="n">break-word</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.content</span> <span class="nt">div</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">background</span><span class="p">:</span> <span class="m">#FFCC66</span><span class="p">;</span><span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;}</span>
+    <span class="nc">.content</span><span class="p">{</span><span class="nl">perspective</span><span class="p">:</span> <span class="m">1500px</span><span class="p">;</span><span class="c">/*perspective-origin:300px 300px;*/</span><span class="p">}</span>
+    <span class="nf">#translate3d</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translate3d</span><span class="p">(</span><span class="m">300px</span><span class="p">,</span> <span class="m">300px</span><span class="p">,</span> <span class="m">0px</span><span class="p">);}</span>
+    <span class="nf">#translate3d2</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translate3d</span><span class="p">(</span><span class="m">300px</span><span class="p">,</span> <span class="m">300px</span><span class="p">,</span> <span class="m">300px</span><span class="p">);}</span>
+    <span class="nf">#translate3dX</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">300px</span><span class="p">);}</span>
+    <span class="nf">#translate3dY</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">300px</span><span class="p">);}</span>
+    <span class="nf">#translate3dZ</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translateZ</span><span class="p">(</span><span class="m">300px</span><span class="p">);}</span>
+    <span class="nf">#translate3d1</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">translate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0px</span><span class="p">);}</span>
+    <span class="nt">&lt;/style&gt;</span>
+ 
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3d1"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3d"</span><span class="nt">&gt;</span>马上玩translate3d(300px, 300px, 0px)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3d2"</span><span class="nt">&gt;</span>马上玩translate3d(300px, 300px, 300px)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3dX"</span><span class="nt">&gt;</span>马上玩translateX(300px)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3dY"</span><span class="nt">&gt;</span>马上玩translateY(300px)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate3dZ"</span><span class="nt">&gt;</span>马上玩translateZ(300px)<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>现在来看看perspective值改变时，translateZ的位置变换状况：
+<img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-translate3d2.png" alt="3d2" title="3d2" /></p>
+
+<p>上图中的perspective值分别为1500px、800px、500px，即镜头距离元素表面的位置分别是1500px、800px、500px。距离越小，看到的图像就越大。</p>
+
+<p>设perspective值为1500px，perspective-origin值不同时，tranlateZ的位置变换情况：</p>
+
+<p><img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-translate3d3.png" alt="3d3" title="3d3" /></p>
+
+<p>可以看到当perspective-origin不同时，最上面的方框位置也会不同，我们可以通过画线的方式来更好的理解perspective-origin。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>div
+{
+perspective:1500px;
+perspective-origin: -50px -50px;
+-webkit-perspective:1500px; /* Safari 和 Chrome */
+-webkit-perspective-origin: -50px -50px;    /* Safari 和 Chrome */
+}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">
+浏览器支持：目前浏览器都不支持 perspective，perspective-origin 属性。Chrome 和 Safari 支持替代的 -webkit-perspective，-webkit-perspecitve-origin 属性。
+perspective还有另一种写法transform: perspective(200px) translateZ(300px);但一定要写在第一个，否则没效果。
+</code></p>
+
+<h2 id="二rotate">二、rotate</h2>
+
+<table>
+    <tr>
+        <td>rotate3d(x,y,z,angle)</td>
+        <td>定义 3D 旋转。</td>
+    </tr>
+    <tr>
+        <td>rotateX(angle)</td>
+        <td>定义沿 X 轴的 3D 旋转。</td>
+    </tr>
+    <tr>
+        <td>rotateY(angle)</td>
+        <td>定义沿 Y 轴的 3D 旋转。</td>
+    </tr>
+    <tr>
+        <td>rotateZ(angle)</td>
+        <td>定义沿 Z 轴的 3D 旋转。</td>
+    </tr>
+</table>
+<p>这个跟2D平面的rotate可是真心不同啊，你要用3D的思维去看待它，先看看他们在一个立方体的三条边上摆什么姿势。</p>
+
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_animate.html" frameborder="0" width="100%" height="450px"></iframe>
+
+<p>看了上图应该可以比较清晰的瞧出三者的差异了吧，现在详细的讲讲他们的用法，继续涨姿势吧。</p>
+
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_easy.html" frameborder="0" width="100%" height="300px"></iframe>
+
+<p>1、2图为rotateX(45deg)  rotateX( 135deg)，3、4图为rotateY(45deg)  rotateY(135deg)，5、6图为rotateZ(45deg)  rotateZ(135deg)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>rotate3D_easy<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+    <span class="nc">.content</span><span class="p">{</span>
+        <span class="nl">width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">;</span>
+        <span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
+        <span class="nl">margin</span><span class="p">:</span> <span class="m">80px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span>
+        <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateX45</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateX</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateX135</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateX</span><span class="p">(</span><span class="m">135deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateY45</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateY</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateY135</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateY</span><span class="p">(</span><span class="m">135deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateZ45</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateZ</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotateZ135</span><span class="p">{</span>
+        <span class="nl">transform</span><span class="p">:</span><span class="n">rotateZ</span><span class="p">(</span><span class="m">135deg</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.rotate_box</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">word-wrap</span><span class="p">:</span><span class="n">break-word</span><span class="p">;}</span>
+    <span class="nc">.yellow</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#FFCC66</span><span class="p">;}</span>
+    <span class="nc">.border</span><span class="p">{</span><span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span>  <span class="m">#0099FF</span><span class="p">}</span>
+    <span class="nc">.left200</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="m">150px</span><span class="p">;}</span>
+    <span class="nc">.left400</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">350px</span><span class="p">;}</span>
+    <span class="nc">.left600</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">500px</span><span class="p">;}</span>
+    <span class="nc">.left800</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">700px</span><span class="p">;}</span>
+    <span class="nc">.left1000</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">850px</span><span class="p">;}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content content1"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border opacity1"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box rotateX45 yellow"</span><span class="nt">&gt;</span>rotateX(45deg)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border left200 opacity1"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box yellow rotateX135 left200"</span><span class="nt">&gt;</span>rotateX(135deg)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border left200 opacity1 left400"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box yellow rotateY45 left400"</span><span class="nt">&gt;</span>rotateY(45deg)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border left200 opacity1 left600"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box yellow rotateY135 left600"</span><span class="nt">&gt;</span>rotateY(135deg)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border left200 opacity1 left800"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box yellow rotateZ45 left800"</span><span class="nt">&gt;</span>rotateZ(45deg)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box border left200 opacity1 left1000"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box yellow rotateZ135 left1000"</span><span class="nt">&gt;</span>rotateZ(135deg)<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+ 
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>上面讲解了rotateX，rotateY，rotateZ的用法，而rotate3d是三者的缩写，在这里就不详细介绍了有兴趣了解的朋友们可以点击以下链<a href="http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html">http://www.sinsy.top/hungry/learn/css3/3d/rotate3D_combine.html</a></p>
+
+<h2 id="三scale">三、scale</h2>
+
+<table>
+    <tr>
+        <td>scale3d(x,y,z)</td>
+        <td>定义 3D 缩放转换。</td>
+    </tr>
+    <tr>
+        <td>scaleX(x)</td>
+        <td>定义 3D 缩放转换，通过给定一个 X 轴的值。</td>
+    </tr>
+    <tr>
+        <td>scaleY(y)</td>
+        <td>定义 3D 缩放转换，通过给定一个 Y 轴的值。</td>
+    </tr>
+    <tr>
+        <td>scaleZ(z)</td>
+        <td>定义 3D 缩放转换，通过给定一个 Z 轴的值。</td>
+    </tr>
+</table>
+
+<iframe src="http://www.sinsy.top/hungry/learn/css3/3d/scale3d.html" frameborder="0" width="100%" height="400px"></iframe>
+
+<p>scaleX与scaleY可以跟2D平面的差不多，但是scaleZ需要定义perspective和rotate才可以显示出来。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>scale3D<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+    <span class="nc">.content</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span> <span class="m">80px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.content</span><span class="p">{</span><span class="nl">perspective</span><span class="p">:</span> <span class="m">800px</span><span class="p">;}</span>
+    <span class="nc">.scale_box</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;}</span>
+    <span class="nf">#scale3dX</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleX</span><span class="p">(</span><span class="m">2</span><span class="p">);}</span>
+    <span class="nf">#scale3dX1</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleX</span><span class="p">(</span><span class="m">0.6</span><span class="p">);}</span>
+    <span class="nf">#scale3dY</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleY</span><span class="p">(</span><span class="m">2</span><span class="p">);}</span>
+    <span class="nf">#scale3dY1</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleY</span><span class="p">(</span><span class="m">0.6</span><span class="p">);}</span>
+    <span class="nf">#scale3dZ_first</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleZ</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="n">rotateY</span><span class="p">(</span><span class="m">40deg</span><span class="p">);}</span><span class="c">/*scaleZ单独使用无效果，须加上rotate和perspective*/</span>
+    <span class="nf">#scale3dZ</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scaleZ</span><span class="p">(</span><span class="m">4</span><span class="p">)</span> <span class="n">rotateY</span><span class="p">(</span><span class="m">40deg</span><span class="p">);}</span><span class="c">/*scaleZ单独使用无效果，须加上rotate和perspective*/</span>
+    <span class="nf">#scale3d</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">scale3d</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span> <span class="n">rotateY</span><span class="p">(</span><span class="m">40deg</span><span class="p">);}</span>
+    <span class="nc">.yellow</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#FFCC66</span><span class="p">;}</span>
+    <span class="nc">.left200</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="m">200px</span><span class="p">;}</span>
+    <span class="nc">.left400</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">400px</span><span class="p">;}</span>
+    <span class="nc">.left550</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">550px</span><span class="p">;}</span>
+    <span class="nc">.left700</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">700px</span><span class="p">;}</span>
+    <span class="nc">.left900</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">900px</span><span class="p">}</span>
+    <span class="nc">.top170</span><span class="p">{</span><span class="nl">top</span><span class="p">:</span> <span class="m">170px</span><span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"scale_box yellow"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dX"</span> <span class="na">class=</span><span class="s">"scale_box yellow left200"</span><span class="nt">&gt;</span>马上玩scaleX(2)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dX1"</span> <span class="na">class=</span><span class="s">"scale_box yellow left400"</span><span class="nt">&gt;</span>马上玩scaleX(0.6)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dY"</span> <span class="na">class=</span><span class="s">"scale_box yellow left550"</span><span class="nt">&gt;</span>马上玩scaleY(2)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dY1"</span> <span class="na">class=</span><span class="s">"scale_box yellow left700"</span><span class="nt">&gt;</span>马上玩scaleY(0.6)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3d"</span> <span class="na">class=</span><span class="s">"scale_box yellow left900"</span><span class="nt">&gt;</span>马上玩scale3d(2,2,2)<span class="nt">&lt;/div&gt;</span>
+ 
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dZ_first"</span> <span class="na">class=</span><span class="s">"scale_box yellow top170"</span><span class="nt">&gt;</span>马上玩scaleZ(2)<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3dZ"</span> <span class="na">class=</span><span class="s">"scale_box yellow left200 top170"</span><span class="nt">&gt;</span>马上玩scaleZ(2)<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="四资料">四、资料</h2>
+
+<h3 id="代码下载">代码下载</h3>
+<p><a href="http://www.sinsy.top/hungry/learn/css3/3d/transform3d.zip">点击下载</a></p>
+
+:ET

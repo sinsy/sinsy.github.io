@@ -40,12 +40,14 @@
     init: function(){
       var href = window.location.href.replace(window.location.protocol+'//'+window.location.host, '');
       var hrefArr = href.split('/');
+      console.log(hrefArr)
+
       if(href != '/blog/' && hrefArr.length == 3){
         $('a[href="'+href+'"]').parent().addClass('sel').siblings().removeClass('sel');
       }else if(href != '/blog/' && hrefArr.length > 3){
         $('a[href="/'+hrefArr[1]+'/'+hrefArr[2]+'"]').parent().addClass('sel').siblings().removeClass('sel');
       }else{
-        $('a[href="/blog/#all"]').parent().addClass('sel').siblings().removeClass('sel');
+        $('a[href="/blog/#前端"]').parent().addClass('sel').siblings().removeClass('sel');
       }
     }
   }

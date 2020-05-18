@@ -1,0 +1,108 @@
+I"<h2 id="一git创建">一、git创建</h2>
+<p><strong>创建版本库</strong> <code class="highlighter-rouge">mkdir learngit</code></p>
+
+<p><strong>查看路径</strong> <code class="highlighter-rouge">pwd</code></p>
+
+<p><strong>初始化</strong> <code class="highlighter-rouge">git init</code></p>
+
+<h2 id="二查看记录">二、查看记录</h2>
+<p><strong>查看提交历史</strong> <code class="highlighter-rouge">git log（–pretty=oneline)</code></p>
+
+<p><strong>查看命令历史</strong> <code class="highlighter-rouge">git reflog</code></p>
+
+<p><strong>查看某次修改</strong> <code class="highlighter-rouge">git show xxxx</code></p>
+
+<p><strong>查看状态</strong> <code class="highlighter-rouge">git status</code></p>
+
+<p><strong>查看不同</strong> <code class="highlighter-rouge">git diff</code></p>
+
+<h2 id="三文件操作">三、文件操作</h2>
+
+<p><strong>添加文件</strong> <code class="highlighter-rouge">git add readme.txt</code></p>
+
+<p><strong>提交文件</strong> <code class="highlighter-rouge">git commit -m “XXXX”(-m 带提交说明)[建议使用]/git commit -a</code></p>
+
+<p><strong>直接删除文件</strong> <code class="highlighter-rouge">git rm test.txt</code></p>
+
+<p><strong>删除文件暂存状态</strong> <code class="highlighter-rouge">git rm --cached test.txt</code></p>
+
+<p><strong>还原删除文件</strong> <code class="highlighter-rouge">git checkout test.txt</code></p>
+
+<h2 id="四版本操作">四、版本操作</h2>
+<p><strong>版本回退</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">git reset --hard commit_id(HEAD^:回退到上一版本)</code></li>
+  <li><code class="highlighter-rouge">git reset commit_id (保留修改)</code></li>
+</ul>
+
+<p><strong>标签功能</strong></p>
+
+<ul>
+  <li>git tag # 显示所有标签</li>
+  <li>git tag -l ‘v1.4.2.*’ # 显示 1.4.2 开头标签</li>
+  <li>git tag v1.3 # 简单打标签</li>
+  <li>git tag -a v1.2 9fceb02 # 后期加注标签</li>
+  <li>git tag -a v1.4 -m ‘my version 1.4’ # 增加标签并注释， -a 为 annotated 缩写</li>
+  <li>git show v1.4 # 看某一标签详情</li>
+  <li>git push origin v1.5 # 分享某个标签</li>
+  <li>git push origin –tags # 分享所有标签</li>
+</ul>
+
+<h2 id="五远程仓库">五、远程仓库</h2>
+
+<h3 id="1远程仓库准备工作">1.远程仓库准备工作</h3>
+<ol>
+  <li>创建ssh key： ssh-keygen -t rsa –C “youremail@example.com”，如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</li>
+  <li>登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。</li>
+</ol>
+
+<h3 id="2远程仓库操作语句">2.远程仓库操作语句</h3>
+<p><strong>关联</strong> <code class="highlighter-rouge">git remote add origin git@server-name:path/repo-name.git</code></p>
+
+<p><strong>取消关联</strong> <code class="highlighter-rouge">git remote rm origin</code></p>
+
+<p><strong>推送</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">git push -u origin master(第一次推送所有内容)</code></li>
+  <li><code class="highlighter-rouge">git push origin master(推送最新修改)</code></li>
+</ul>
+
+<p><strong>克隆</strong> <code class="highlighter-rouge">git clone git@server-name:path/repo-name.git</code></p>
+
+<p><strong>抓取分支</strong> <code class="highlighter-rouge">git checkout -b dev origin/dev</code></p>
+
+<p><strong>本地更新</strong> <code class="highlighter-rouge">git pull</code></p>
+
+<h2 id="三分支操作">三、分支操作</h2>
+<p><strong>查看分支</strong>  <code class="highlighter-rouge">git branch</code></p>
+
+<p><strong>创建分支</strong> <code class="highlighter-rouge">git branch &lt;name&gt;</code></p>
+
+<p><strong>切换分支</strong> <code class="highlighter-rouge">git checkout &lt;name&gt;</code></p>
+
+<p><strong>创建+切换分支</strong> <code class="highlighter-rouge">git checkout -b &lt;name&gt;</code></p>
+
+<p><strong>合并到当前分支</strong> <code class="highlighter-rouge">git merge &lt;name&gt;</code></p>
+
+<p><strong>删除分支</strong> <code class="highlighter-rouge">git branch -d &lt;name&gt;</code></p>
+
+<p><strong>查看分支合并情况</strong> <code class="highlighter-rouge">git log –graph –pretty=oneline –abbrev-commit</code></p>
+
+<h2 id="四代码冲突">四、代码冲突</h2>
+<p>1.保留生产服务器上所做的改动,仅仅并入新配置项, 处理方法如下:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
+git pull
+git stash pop
+git diff -w +文件名 //确认代码自动合并的情况
+</code></pre></div></div>
+
+<p>2.反过来,如果希望用代码库中的文件完全覆盖本地工作版本. 方法如下:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --hard
+git pull
+</code></pre></div></div>
+:ET

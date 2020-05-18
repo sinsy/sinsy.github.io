@@ -1,6 +1,7 @@
 _site
 .sass-cache
 .jekyll-metadata
+.jekyll-cache/*
 .DS_Store
 node_modules/
 npm-debug.log*
@@ -13,7 +14,9 @@ selenium-debug.log
 # Editor directories and files
 .idea
 .vscode
+.jekyll-cache
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+ 

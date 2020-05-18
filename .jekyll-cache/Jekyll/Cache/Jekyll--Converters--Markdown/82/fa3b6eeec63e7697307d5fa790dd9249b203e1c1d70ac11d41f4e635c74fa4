@@ -1,0 +1,121 @@
+I"�<p><code class="highlighter-rouge">注：如果npm install -g gulp，就改成sudo npm install -g gulp</code></p>
+
+<h2 id="一安装操作">一、安装操作</h2>
+<ul>
+  <li><strong>全局安装</strong> <code class="highlighter-rouge">npm install -g gulp</code></li>
+  <li><strong>局部安装</strong> <code class="highlighter-rouge">npm install –-save-dev gulp</code> （项目目录下安装）</li>
+  <li><strong>安装插件</strong> <code class="highlighter-rouge">npm install —-save-dev &lt;name&gt;</code></li>
+  <li><strong>安装gulp4.0</strong>
+    <ul>
+      <li>全局安装： <code class="highlighter-rouge">npm install gulpjs/gulp#4.0 -g</code></li>
+      <li>局部安装： <code class="highlighter-rouge">npm install gulpjs/gulp#4.0 --save-dev</code></li>
+      <li>参考资料： <a href="http://www.alloyteam.com/2015/07/update-your-gulp/">gulp 4.0的变化</a>     <a href="https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md">官方升级文档</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="二gulp插件">二、Gulp插件</h2>
+
+<h3 id="1实时浏览">1.实时浏览</h3>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/browser-sync">browser-sync</a> 静态文件服务器，同时也支持浏览器自动刷新</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(browsersync);
+function browsersync() {
+    browserSync({ 
+      // proxy: 'http://localhost:8080/zhibei2/web/src/' //利用tomcat或其他服务器
+      server: { //browsersync内置
+        baseDir: "./src/"
+      }
+    });
+    gulp.watch("./src/public/precss/*.css").on('change', gulp.series(
+        css, browserSync.reload
+        ));
+    gulp.watch(['./src/*.jsp','./src/*.html','./src/public/js/*.js']).on('change', browserSync.reload);
+}
+</code></pre></div></div>
+
+<h3 id="2css处理">2.css处理</h3>
+<ul>
+  <li><a href="https://github.com/postcss/postcss">gulp-postcss</a> css预处理器</li>
+  <li><a href="http://postcss.parts/">postcss插件</a>
+    <ul>
+      <li><a href="https://github.com/postcss/postcss-simple-vars">postcss-simple-vars</a>： 变量</li>
+      <li><a href="https://github.com/postcss/autoprefixer">autoprefixer</a>： 为CSS补全浏览器前缀</li>
+      <li><a href="https://github.com/hail2u/node-css-mqpacker">css-mqpacker</a>： 归类media</li>
+      <li><a href="http://cssnano.co/">cssnano</a>： 压缩css</li>
+      <li><a href="https://github.com/postcss/postcss-nested">postcss-nested</a>： css嵌套</li>
+      <li><a href="https://github.com/postcss/postcss-mixins">postcss-mixins</a>：类</li>
+      <li><a href="https://www.npmjs.com/package/px2rem">postcss-px2rem</a>： px 转为 rem,web端rem兼容不好，但可以在手机端尝试rem单位结合淘宝flexible.js，参考文档：<a href="http://www.tuicool.com/articles/nmm6reE">使用Flexible实现手淘H5页面的终端适配</a></li>
+      <li><a href="https://github.com/postcss/postcss-import">postcss-import</a>： @import xxx.css导入样式</li>
+    </ul>
+  </li>
+  <li><a href="http://www.codes51.com/article/detail_117947.html">gulp-css-spriter</a>： css文件中的sprite图片合成</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(css);
+function css() {
+    var processors = [
+      cssImport,
+      mixins,//Note, that you must set this plugin before postcss-simple-vars and postcss-nested.
+      simplevars,
+      nestedcss,
+      // px2rem({remUnit: 64}),mobile
+      autoprefixer,
+      mqpacker,
+    ];
+    var processors2 = [
+      cssnano({discardComments: {removeAll: true}})
+    ]
+    return gulp.src('./src/public/precss/*.css')
+        .pipe(postcss(processors))
+        .pipe(spriteCss({
+          //生成的sprite的位置
+          'spriteSheet': './src/public/img/sprite.png',
+          //生成样式的文件图片引用路径
+          'pathToSpriteSheetFromCSS': '../img/sprite.png'
+        }))
+        .pipe(postcss(processors2))
+        .pipe(gulp.dest('./src/public/css'));
+}
+</code></pre></div></div>
+
+<h3 id="3js处理">3.js处理</h3>
+<ul>
+  <li><a href="https://www.npmjs.com/package/gulp-uglify">gulp-uglify</a> js压缩</li>
+  <li><a href="https://www.npmjs.com/package/gulp-concat">gulp-concat</a> js文件合并</li>
+  <li><a href="https://www.npmjs.com/package/gulp-jshint">gulp-jshint</a> js错误检查</li>
+</ul>
+
+<h3 id="4html处理">4.html处理</h3>
+<ul>
+  <li><a href="https://www.npmjs.com/package/gulp-processhtml">gulp-processhtml</a> html处理</li>
+  <li><a href="https://www.npmjs.com/package/gulp-htmlmin">gulp-htmlmin</a> html压缩</li>
+</ul>
+
+<h3 id="5image处理">5.image处理</h3>
+<ul>
+  <li><a href="https://www.npmjs.com/package/gulp-imagemin">gulp-imagemin</a> 图片压缩</li>
+  <li><a href="https://www.npmjs.com/package/imagemin-pngquant">imagemin-pngquant</a> png图片压缩</li>
+  <li><a href="https://www.npmjs.com/package/gulp-cache">gulp-cache</a> 图片缓存</li>
+</ul>
+
+<h3 id="6版本控制">6.版本控制</h3>
+<ul>
+  <li><a href="https://www.npmjs.com/package/gulp-rev">gulp-rev</a></li>
+  <li><a href="https://www.npmjs.com/package/gulp-rev-collector">gulp-rev-collector</a></li>
+</ul>
+
+<h3 id="7其余">7.其余</h3>
+<ul>
+  <li><a href="https://www.npmjs.com/package/gulp-notify">gulp-notify</a></li>
+  <li><a href="https://www.npmjs.com/package/del">del</a></li>
+</ul>
+
+<h2 id="三资源">三、资源</h2>
+<p>所有gulp插件集合一起：
+<a href="https://github.com/sinsy/gulpTest">github地址</a></p>
+
+:ET

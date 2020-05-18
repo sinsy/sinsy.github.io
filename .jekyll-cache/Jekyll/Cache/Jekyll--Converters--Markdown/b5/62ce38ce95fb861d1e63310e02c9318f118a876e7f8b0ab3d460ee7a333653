@@ -1,0 +1,24 @@
+I"<p>transition 属性是一个简写属性，用于设置四个过渡属性。</p>
+<table>
+	<tr>
+		<th>值</th>
+		<th>描述</th>
+	</tr>
+	<tr>
+		<td>transition-property</td>
+		<td>规定设置过渡效果的 CSS 属性的名称。</td>
+	</tr>
+	<tr>
+		<td>transition-duration</td>
+		<td>规定完成过渡效果需要多少秒或毫秒。</td>
+	</tr>
+	<tr>
+		<td>transition-timing-function</td>
+		<td>规定速度效果的速度曲线。</td>
+	</tr>
+	<tr>
+		<td>transition-delay</td>
+		<td>定义过渡效果何时开始。</td>
+	</tr>
+</table>
+:ET

@@ -1,0 +1,20 @@
+I"2<h2 id="常用语句">常用语句</h2>
+<p><code class="highlighter-rouge">git init</code></p>
+
+<p><code class="highlighter-rouge">git checkout --orphan gh-pages</code></p>
+
+<p><code class="highlighter-rouge">git remote add origin https://github.com/username/jekyll_demo.git</code></p>
+
+<p><code class="highlighter-rouge">git push origin gh-pages</code></p>
+
+<p><code class="highlighter-rouge">jekyll new blog</code></p>
+
+<p><code class="highlighter-rouge">jekyll server --watch</code></p>
+<h2 id="参考文档">参考文档</h2>
+
+<ol>
+  <li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog—-github Pages和Jekyll入门</a></li>
+  <li><a href="https://www.jianshu.com/p/58f19083138f">配置jekyll安装环境与部署博客网站</a></li>
+</ol>
+
+:ET

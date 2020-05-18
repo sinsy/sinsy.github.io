@@ -2,7 +2,7 @@
 layout: post
 title:  "Gulp常用资源"
 date:   2016-04-29 14:30:15 +0800
-categories: 资源 
+categories: 其他
 tags: [gulp,postcss]
 ---
 `注：如果npm install -g gulp，就改成sudo npm install -g gulp`

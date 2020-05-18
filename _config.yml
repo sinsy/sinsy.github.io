@@ -19,7 +19,7 @@ description: > # this means to ignore newlines until "baseurl:"
   当一天猿媛，敲一天代码
 baseurl: "" # the subpath of your site, e.g. /blog
 articleurl: "#"
-url: "http://www.sinsy.top" # the base hostname & protocol for your site
+# url: "http://www.sinsy.top" # the base hostname & protocol for your site
 github_username:  sinsy
 rss_url: /pages/feed.xml
 
@@ -27,9 +27,7 @@ rss_url: /pages/feed.xml
 # 中文本地化
 locals:
   tags: 标签
-  about: 关于
   archive: 归档
-  ukulele: 小尤
   resume: 个人简历
   demo: DEMO
   book: 读书
