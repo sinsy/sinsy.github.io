@@ -3,7 +3,7 @@ layout: post
 title:  "Markdown常用资源"
 date:   2016-04-28 16:02:15 +0800
 categories: 其他
-tags: [markdown]
+tags: [工具]
 ---
 ## 一、Markdown语法的简要规则
 

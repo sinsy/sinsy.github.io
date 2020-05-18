@@ -3,7 +3,7 @@ layout: post
 title:  "Git常用资源"
 date:   2016-04-28 14:39:15 +0800
 categories: 其他
-tags: [git]
+tags: [工具]
 ---
 ## 一、git创建
 **创建版本库** `mkdir learngit`

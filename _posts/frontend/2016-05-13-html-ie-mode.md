@@ -3,7 +3,7 @@ layout: post
 title: HTML 严格模式与混杂模式
 date:   2016-05-04 14:02:15 +0800
 category: 前端
-tags: [浏览器兼容]
+tags: [浏览器]
 ---
 
 ### 问题

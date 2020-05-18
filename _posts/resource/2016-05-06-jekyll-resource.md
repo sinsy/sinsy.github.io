@@ -3,7 +3,7 @@ layout: post
 title:  "jekyll常用资源"
 date:   2016-04-28 14:39:15 +0800
 categories: 其他
-tags: [jekyll]
+tags: [工具]
 ---
 ## 常用语句
 `git init`
