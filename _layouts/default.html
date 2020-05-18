@@ -2,8 +2,11 @@
 <html> {% include head.html %}
 
   <body>
-    <script src="/public/js/zepto.js"></script> {% include sidebar.html %} <div class="main">
-      {{ content }} {% include footer.html %} </div>
+    <script src="/public/js/zepto.js"></script> 
+    {% include sidebar.html %} 
+    <div class="main">
+      {{ content }} {% include footer.html %} 
+    </div>
     <div class="iframe-post" id="iframe-post">
       <div class="close" id="iframe-close">&times;</div>
       <div class="content" id="iframe-content"></div>

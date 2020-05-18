@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>防抖</title>
+    <style>
+      .div{
+        height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>未使用防抖的例子</p>
+    <div id="content" class="div"></div>
+    <script>
+      let num = 1;
+      let content = document.getElementById('content');
+
+      function count() {
+          content.innerHTML = num++;
+      };
+      content.onmousemove = count;
+    </script>
+    <p>使用防抖的例子: 非立即执行版本</p>
+    <div id="content1" class="div"></div>
+    <script>
+      let num1 = 1;
+      let content1 = document.getElementById('content1');
+      function debounce(fn, wait){
+        let timeout;
+        return function(){
+          let context = this; //content1
+          if(timeout) clearTimeout(timeout)
+          timeout = setTimeout(()=>{
+            fn.apply(context)//content1
+          },wait)
+        }
+      }
+      function count1() {
+        console.log(this)
+        content1.innerHTML = num1++;
+      };
+      //xxx.onmousemove=functon(){} 指的是函数
+      content1.onmousemove = debounce(count1, 1000);
+    </script>
+
+    <p>使用防抖的例子: 立即执行版本</p>
+    <div id="content2" class="div"></div>
+    <script>
+      let num2 = 1;
+      let content2 = document.getElementById('content2');
+      function debounce(fn, wait){
+        let timeout;
+        return function(){
+          let context = this; //content1
+          if(timeout) clearTimeout(timeout)
+          let callNow = !timeout
+          timeout = setTimeout(()=>{
+            timeout = null
+          },wait)
+          if(callNow){
+            console.log(new Date)
+            fn.apply(context)//content1
+          }
+        }
+      }
+      function count2() {
+        content2.innerHTML = num2++;
+      };
+      //xxx.onmousemove=functon(){} 指的是函数
+      content2.onmousemove = debounce(count2, 1000);
+    </script>
+
+    <p>根据场景选择哪种防抖方式，双剑合并版本
+      <input type="checkbox" name="checkbox" value="true" id="checkbox" onchange="changeCheckbox">立即执行
+    </p>
+    <div id="content3" class="div"></div>
+    <script>
+      let num3 = 1
+      //immediate: true:立即执行  false:非立即执行
+      function debounce(fn, wait, immediate){
+        let timeout
+        return function(){
+          let context = this
+          let args = arguments
+          if(timeout) clearTimeout(timeout)
+          if(immediate){
+            let callNow = !timeout
+            if(callNow){
+              fn.apply(context, args)
+            }
+            timeout = setTimeout(()=>{
+              timeout = null
+            }, wait)
+          }else{
+            timeout = setTimeout(()=>{
+              fn.apply(context, args)
+            }, wait)
+          }
+        }
+      }
+      function count3(){
+        content3.innerHTML = num3++
+      }
+      function changeCheckbox(){
+        content3.onmousemove = debounce(count3, 1000, document.querySelector('#checkbox').checked)
+      }
+      content3.onmousemove = debounce(count3, 1000, document.querySelector('#checkbox').checked)
+    </script>
+
+  </body>
+</html>

@@ -2,36 +2,25 @@
 <html>
 {% include head.html %}
 <body>
+{% include sidebar.html %}
+<a class="post-close" id="post-close">↩</a>
 
-<article class="post">
-  <a class="post-close" id="post-close">&times;</a>
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date:"%Y年%m月%d日" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+<div class="main">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+      <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date:"%Y年%m月%d日" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+  
+  </article>
+  {% include footer.html %}
+</div>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
 
-</article>
-<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key={{ page.id }} data-title={{ page.title }} data-url={{ page.url | prepend: site.baseurl }}></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"garboliu"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
-{% include footer.html %}
 <link rel="stylesheet" href="{{ "/public/component/prettify/prettify.css" | prepend: site.baseurl }}">
 <script src="/public/js/zepto.js"></script>
 <script src="/public/component/prettify/prettify.js"></script>

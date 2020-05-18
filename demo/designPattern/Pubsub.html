@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+  <title>发布订阅模式：初级了解</title>
+  <script>
+    var event = {
+      //订阅缓存列表里面
+      orderList: {},
+      //添加订阅者
+      listen: function(key, fn){
+        if(!this.orderList[key]){
+          this.orderList[key] = []
+        }
+        //订阅的消息添加到缓存列表里面
+        this.orderList[key].push(fn)
+      },
+      // 发布-事件触发
+      trigger: function(){
+        var key = Array.prototype.shift.call(arguments)
+        var fns = this.orderList[key]
+        //如果没有订阅过该消息的话就返回
+        if(!fns || fns.length==0){
+          return;
+        }
+        for(var i=0,fn; fn=fns[i++];){
+          fn.apply(this, arguments)
+        }
+      },
+      //删除订阅者
+      remove: function(key, fn){
+        var fns = this.orderList[key]
+        if(!fns) return
+        for(let i=0,fn1;fn1=fns[i++];){
+          if(fn1 === fn){
+            fns.splice(i-1, 1)//删除订阅者的回调函数
+          }
+        }
+      }
+    }
+    //使所有的普通对象都具有发布订阅功能
+    var initEvent = function(obj) {
+      for(var i in event) {
+          obj[i] = event[i];
+      }
+    };
+
+    //店铺发布订阅例子
+    var shoeObj = {}
+    initEvent(shoeObj)
+
+    let fn1=function(size){
+        console.log("小红订阅：尺码是："+size);  
+    }
+    // 小红订阅如下消息
+    shoeObj.listen('xiaohong',fn1);
+    // 小明 订阅如下消息
+    shoeObj.listen('xiaoming', function(color){
+      console.log('小明订阅：颜色是：'+color)
+    })
+    shoeObj.trigger("xiaohong",40); //小红订阅：尺码是：40
+    shoeObj.trigger("xiaoming",'yellow');//小明订阅：颜色是：yellow
+
+    shoeObj.remove('xiaohong',fn1)
+    shoeObj.trigger("xiaohong",40);//没有内容输出
+    
+    
+  </script>
+</head>
+<body>
+  <h1>发布订阅模式：初级了解</h1>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <input id="mainCheckbox" type="checkbox" />全部
+  <div id="observersContainer"></div>
+  <script>
+    var controlCheckbox = document.getElementById( "mainCheckbox" ),
+    addBtn = document.getElementById( "addNewObserver" ),
+    container = document.getElementById( "observersContainer" );
+
+    // controlCheckBox为发布者
+    initEvent(controlCheckbox)
+    // controlCheckBox点击时发布给订阅者信息
+    controlCheckbox["onclick"] = function(){
+      console.log(controlCheckbox.value)
+      controlCheckbox.trigger('check', controlCheckbox.checked)
+    };
+    addBtn['onclick'] = AddNewObserver
+    
+    //添加新的订阅者
+    function AddNewObserver(){
+      var check = document.createElement('input')
+      check.type = 'checkbox'
+      check.Update = function(value){
+        this.checked = value
+      }
+      controlCheckbox.listen('check', function(value){
+        check.Update(value)
+      })
+      container.appendChild(check)
+    }
+  </script>
+
+</body>
+</html>

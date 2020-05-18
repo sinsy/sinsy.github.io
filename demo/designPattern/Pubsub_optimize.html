@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+  <title>发布订阅模式优化：checkbox不再作为发布者主体 </title>
+  <script>
+    //优化event事件，彻底解开 发布者与订阅者的耦合
+    var Event = (function(){
+      //订阅缓存列表里面
+      var orderList= {},listen,trigger,remove;
+      //添加订阅者
+      listen= function(key, fn){
+        if(!orderList[key]){
+          orderList[key] = []
+        }
+        //订阅的消息添加到缓存列表里面
+        orderList[key].push(fn)
+      },
+      // 发布-事件触发
+      trigger= function(){
+        console.log(arguments) //此时的长度是n
+        // var key = 'check'
+        var key = Array.prototype.shift.call(arguments) //arguments是伪数组，通过call可以转成数组并shift第一位，但是arguments.shift()会报错
+        var fns = orderList[key]
+        //如果没有订阅过该消息的话就返回
+        if(!fns || fns.length==0){
+          return;
+        }
+        console.log(arguments) //此时的长度是n-1，shift把第一位的去掉了，这点很重要
+        for(var i=0,fn; fn=fns[i++];){
+          // fn(arguments) 这个的this是指向了Window
+          fn.apply(this, arguments) //让this指向了Event对象
+        }
+      },
+      //删除订阅者
+      remove= function(key, fn){
+        var fns = orderList[key]
+        if(!fns) return
+        for(let i=0,fn1;fn1=fns[i++];){
+          if(fn1 === fn){
+            fns.splice(i-1, 1)//删除订阅者的回调函数
+          }
+        }
+      }
+      return {
+        listen,trigger,remove
+      }
+    })();    
+    
+  </script>
+</head>
+<body>
+  <h1>发布订阅模式优化：</h1>
+  <h5>优化event事件，彻底解开发布者与订阅者的耦合</h5>
+  <h5>checkbox不再作为发布者主体</h5>
+  <h5>和计算checkbox个数</h5>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <h2 id="count"></h2>
+  <input id="mainCheckbox" type="checkbox" />全部
+  <div id="observersContainer"></div>
+  <script>
+    var controlCheckbox = document.getElementById( "mainCheckbox" ),
+    addBtn = document.getElementById( "addNewObserver" ),
+    count = document.getElementById( "count" ),
+    container = document.getElementById( "observersContainer" );
+    // controlCheckBox点击时发布给订阅者信息
+    controlCheckbox["onclick"] = function(){
+      console.log(controlCheckbox.value)
+      Event.trigger('check', controlCheckbox.checked) 
+    };
+    addBtn['onclick'] = AddNewObserver
+    
+    let checkAddLength = 0
+    //添加新的订阅者
+    function AddNewObserver(){
+      checkAddLength++;
+      var check = document.createElement('input')
+      check.type = 'checkbox'
+      check.Update = function(value){
+        this.checked = value
+      }
+      Event.listen('check', function(value){
+        check.Update(value)
+      })
+      container.appendChild(check)
+
+      //触发个数计算
+      Event.trigger('count', checkAddLength)
+    }
+    //添加个数计算的订阅者事件
+    Event.listen('count', function(value){
+      console.log(this)
+      count.innerHTML = value
+    })
+  </script>
+
+</body>
+</html>

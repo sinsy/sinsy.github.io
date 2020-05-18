@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body onload="init()">
+    <p>挑战200位圆周率π-刻意练习 <span id="date"></span></p>
+    <div class="form">
+        <span>用户名：</span><input type="text" value="woods" placeholder="请输入用户名" id="user"/>
+    </div>
+    <div class="form" style="width: 48.8%;">
+        <span>记忆个数: </span><input type="text" placeholder="初始化长度" id="lenInit"/>
+    </div>
+    <div class="form" style="width: 49.8%;">
+        <span>数字出现: </span><input type="text" value="3" placeholder="初始化长度" id="lenNumShow"/>
+    </div>
+    <p style="font-size: 14px;line-height: 0.8;color: #999;">
+        请把记忆的数字输入到文本框：<span style="color: red;" id="errtip"></span>
+    </p>
+    <textarea name="" id="answer" rows="5" onkeyup="keyup()"></textarea>
+    
+    <button onclick="action('add')" id="btnAdd" disabled>进攻</button>
+    <button onclick="action('minus')">防守</button>
+    <button onclick="htmlNum()">重看</button>
+    <div id="content"></div>
+    <div id="number"></div>
+    <div class="btn-flex">
+        <button onclick="getRecord()" class="btn-bottom btn-record">记录</button>
+        <button onclick="setData()" class="btn-bottom btn-reset">设置</button>
+        <button onclick="clearLocData() " class="btn-bottom btn-clear">清除</button>
+    </div>
+    <div class="dialog" id="dialog">
+        <div class="dialog-content" id="dialogContent">
+            
+        </div>
+        <button onclick="$('#dialog').hide();" class="btn-bottom btn-close">X</button>
+    </div>
+    <script>
+        //https://wenku.baidu.com/view/907953dcb14e852458fb57b6.html?rec_flag=default
+        // 0 ： 你 神灵 林 洞
+        // 1 ： 伊 衣 依 咬
+        // 2 ： 鹅 爱 额 恶 凉 吐（two） 儿 兔
+        // 3 ： 山 闪电 天地人 搭讪 生 板凳
+        // 4 ： 寺 死 狮 虱子 
+        // 5 ： 湖 虎 舞 唔 我
+        // 6 ： 辣 腊肉 留 溜 拉 那 柳树 流水 牛 鹿
+        // 7 ： 气 泣 去 请 吃 听 镰刀 鸡
+        // 8 ： 霸 瘪 巴掌 煲 发 笆 麻花
+        // 9 ： 酒 狗 久 沟 睡觉
+        // 注意：了（不能用 0和6不易区分）
+        // 1-117
+        //山(里)一寺 一壶酒， 鹅留湖 山虎霸（道）， 狗吃酒 山二闪(电)，  霸死啦 鹅溜寺， 天地人三拜 山河泣 
+        //狗舞林 饿瘪瘪， 寺(外来了)一狗 吃(着)一(块)腊(肉)， 狗(搭)讪狗 (叼肉的)狗生气， “唔依你 5巴(掌)额 你走(开)去” 
+        //寺(外有间)酒肆 4(个人叫了)5(坛)酒， 鹅想你(的)请帮伊， 辣死你（的）辣鹅煲，拿关二爷灵像，拜了很久很久， （酒喝多了）傍柳吐，(同)伴拎着伞。
+        //寺(外)芭(蕉树)(乘)凉， 捂蚕丝(被)， 两树摇摇 听林边流水  去睡觉吧
+        //(嘴痒的)兔子咬着狮子(214) (狮子)霸拎小白(808) 留我一命(651) 山上的鹅煲(328) 俄送你(230)
+        //118-153
+        //66绿豆 47 树枝 09狗 38沙发 44狮子 60榴莲 95酒壶 50五环 58尾巴   绿豆从树枝上掉下来，砸到了狗，倒在沙发上，有个性的狮子左手拿着榴莲做的酒壶，右手拿着5环，绑住了(狗的)尾巴带走他
+        //22鸳鸯 31鲨鱼 72企鹅 53牡丹 59五角星 40司令 81蚂蚁 28河马 48石板 鸳鸯慢悠悠地游着，鲨鱼悄悄过来，企鹅吹起哨子警惕，岸边的牡丹拿着五角星紧急旗，司令坐着蚂蚁船回到岸上，河马躲在了石板桥的下面
+        //11筷子 17荔枝 45水壶 02鹅 84巴士 10棒球 27耳机 01鱼 93救生圈 
+        Date.prototype.Format = function (fmt) { //author: meizzka
+            var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "H+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        const pi = '314159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798'+
+        '214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196'
+        const numArr = pi.split('')
+        let locData = JSON.parse(localStorage.praticeData || '{}') 
+        const date = new Date().Format("yyyy-MM-dd")
+        let initLen = 0
+        //初始化数据
+        function init(){
+            $('#date').html(date)
+            const name = localStorage.user || 'woods'
+            $('#user').val(name)
+            if(locData[name]){
+                let len = locData[name].initLen
+                $('#lenInit').val(len)
+                let arr = [...numArr].splice(0, len)
+                
+            }
+            start()
+        }
+        //开始事件
+        function start(type){
+            let name = $('#user').val()
+            localStorage.user = name
+            initLen = parseInt($('#lenInit').val())
+            let count = 1
+            if(locData[name]){
+                initLen = type=='set'?initLen : locData[name].initLen
+                count = Object.keys(locData[name].dateList).length
+            }else{
+                locData[name] = {
+                    initLen: initLen,
+                    dateList:{}
+                }
+                locData[name].dateList[date] = 1
+                localStorage.praticeData = JSON.stringify(locData)
+            }
+            htmlNum('init')
+            $('#content').html('hello,'+name+'! 这是你第'+count+'天挑战')
+
+        }
+        //防守 进攻 按钮事件
+        function action(type){
+            let addLen = parseInt($('#lenNumShow').val())
+            console.log(addLen)
+            if(type=='add'){
+                $('#btnAdd').attr("disabled", 'disabled');
+                $('#answer').val('') //初始化答案
+                initLen = initLen + addLen;
+            }else{
+                initLen = initLen - addLen<=0 ? 3:initLen - addLen
+            }
+            locData[localStorage.user].initLen = initLen
+            locData[localStorage.user].dateList[date] = initLen
+            localStorage.praticeData = JSON.stringify(locData)   
+            htmlNum()
+        }
+        //生成数字html
+        function htmlNum(type){
+            $('#lenInit').val(initLen)
+            let arr = [...numArr].splice(0, initLen)
+            let addLen = parseInt($('#lenNumShow').val())
+            let con = ''
+            arr.forEach((i,index) => {
+                let grayClass = index%2==0?'':'num-gray'
+                con += `<span class="num ${grayClass}">${i}</span>`
+            })
+            $('#number').html(con)
+            if(type!='init'){
+                for(let i=1,len=addLen; i<=len;i++){
+                    $('.num').eq(initLen-i).addClass('sel')
+                }
+            }
+            setTimeout(()=>{
+                $('.num').addClass('sel-null')
+            }, 2000*addLen)
+        }
+        //获取记录
+        function getRecord(){
+            $('#dialog').show()
+            let dateList = locData[localStorage.user].dateList
+            let con = ''
+            Object.keys(dateList).forEach(key => {
+                con += `<p>${key} : ${dateList[key]}个</p>`
+            })
+            $('#dialogContent').html(con)
+        }
+        //设置数据
+        function setData(){
+            let user = $('#user').val()
+            if(user !== localStorage.user){
+                if(confirm('用户名发生改变，创建新的用户数据，确定执行操作吗？')==true){
+                    start('set')
+                }
+            }else{
+                if(confirm('设置数据会覆盖现有的数据，确定执行操作吗？')==true){
+                    start('set')
+                }
+            }
+
+        }
+        //清初缓存
+        function clearLocData(){
+            if(confirm('恢复默认设置：会删除练习数据并，确定要执行操作吗？')==true){
+                locData = {}
+                localStorage.clear()
+                $('#user').val('woods')
+                $('#lenInit').val(6)
+                $('#lenNumShow').val(3)
+                start()
+            }
+        }
+        //数字文本框输入
+        function keyup(){
+            let num = $('#answer').val().replace(/ /g, '')
+            let arr = [...numArr].splice(0, initLen)
+            if(num == arr.join('')){
+                $('#btnAdd').removeAttr("disabled");
+                $('#errtip').html('答对啦~')
+            }else if(num.length <= arr.length){
+                let numArray = num.split('')
+                let error = []
+                numArray.forEach((i,index)=>{
+                    if(i !== arr[index]){
+                        error.push(index+1)
+                    }
+                })
+                if(error.length){
+                    $('#errtip').html('唉呀，第'+error.join(',')+'数错了')
+                }else{
+                    let n = initLen - num.length
+                    $('#errtip').html('非常棒，还有'+n+'位数')
+                }
+                $('#btnAdd').attr("disabled", 'disabled');
+            }else{
+                let n = num.length - initLen
+                $('#errtip').html('超出'+n+'个数了')
+                $('#btnAdd').attr("disabled", 'disabled');
+            }
+        }
+    </script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .form{
+            font-size: 14px;
+            position: relative;
+            width: 100%;
+            display: inline-block;
+        }
+        .form input{
+            padding-left: 65px;
+        }
+        .form span{
+            float: left;
+            z-index: 3;
+            position: absolute;
+            left: 5px;
+        }
+        input,textarea{
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+        #content{
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .num{
+            font-size: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .num-gray{
+            color: #999;
+        }
+        .sel{
+            border-bottom: 3px solid red;
+        }
+        .sel-null{
+            color: #fff
+        }
+        .btn-flex{
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        .btn-bottom {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .btn-reset{
+            background: #ff8e01;
+            color: #fff;
+        }
+        .btn-record{
+            background: #12a8ff;
+            color: #fff;
+        }
+        .dialog{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(20, 20, 20, 0.7);
+
+        }
+        .dialog-content{
+            height: calc(100% - 60px);
+            color: #ddd;
+            overflow: auto;
+        }
+        .btn-close{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -25px;
+        }
+    </style>
+</body>
+</html>

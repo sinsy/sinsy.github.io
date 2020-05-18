@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>节流</title>
+    <style>
+      .div{
+        height:150px;line-height:150px;text-align:center; color: #fff;background-color:#ccc;font-size:80px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>未使用节流的例子</p>
+    <div id="content" class="div"></div>
+    <script>
+      let num = 1;
+      let content = document.getElementById('content');
+
+      function count() {
+          content.innerHTML = num++;
+      };
+      content.onmousemove = count;
+    </script>
+
+    <p>使用节流的例子: 时间戳版本</p>
+    <div id="content1" class="div"></div>
+    <script>
+      let num1 = 1;
+      let content1 = document.getElementById('content1');
+      function throttle(fn, wait){
+        let previous = 0;
+        return function(){
+          let context = this; //content1
+          let now = Date.now()
+          let args = arguments
+          if(now-previous > wait){
+            fn.apply(context, args)//content1
+            previous = now
+          }
+        }
+      }
+      function count1() {
+        content1.innerHTML = num1++;
+      };
+      //xxx.onmousemove=functon(){} 指的是函数
+      content1.onmousemove = throttle(count1, 1000);
+    </script>
+
+    <p>使用节流的例子: 定时器版本</p>
+    <div id="content2" class="div"></div>
+    <script>
+      let num2 = 1;
+      let content2 = document.getElementById('content2');
+      function throttle(fn, wait){
+        let timeout;
+        return function(){
+          let context = this; //content1
+          let args = arguments
+          if(!timeout){
+            timeout = setTimeout(()=>{
+              fn.apply(context, args)//content1
+              timeout = null
+            },wait)
+          }
+        }
+      }
+      function count2() {
+        content2.innerHTML = num2++;
+      };
+      //xxx.onmousemove=functon(){} 指的是函数
+      content2.onmousemove = throttle(count2, 1000);
+    </script>
+
+    <p>根据场景选择哪种节流方式，双剑合并版本
+      <input type="checkbox" name="checkbox" value="true" id="checkbox" onchange="changeCheckbox">时间戳版本
+    </p>
+    <div id="content3" class="div"></div>
+    <script>
+      let num3 = 1
+      //immediate: true:时间戳版本  false:定时器版本
+      function throttle(fn, wait, immediate){
+        let timeout
+        let previous = 0
+        return function(){
+          let context = this
+          let args = arguments
+          if(immediate){
+            let now = Date.now()
+            if(now-previous > wait){
+              previous = now
+              fn.apply(context, args)
+            }
+          }else{
+            if(!timeout){
+              timeout = setTimeout(()=>{
+                fn.apply(context, args)
+                timeout = null
+              }, wait)
+            }
+          }
+        }
+      }
+      function count3(){
+        content3.innerHTML = num3++
+      }
+      function changeCheckbox(){
+        content3.onmousemove = throttle(count3, 1000, document.querySelector('#checkbox').checked)
+      }
+      content3.onmousemove = throttle(count3, 1000, document.querySelector('#checkbox').checked)
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<head>
+  <title>MVC模式:TODO待办事项</title>
+  <style>
+    *,
+  *::before,
+  *::after {
+    box-sizing: border-box
+  }
+
+  html {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  #root {
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  form {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  [type="text"],
+  button {
+    display: inline-block;
+    -webkit-appearance: none;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    margin: 0 .5rem;
+  }
+
+  [type="text"] {
+    width: 100%;
+  }
+
+  [type="text"]:active,
+  [type="text"]:focus {
+    outline: 0;
+    border: 2px solid #007bff;
+  }
+
+  [type="checkbox"] {
+    margin-right: 1rem;
+    font-size: 2rem;
+  }
+
+  h1 {
+    color: #222;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f4f4f4;
+    border-radius: 4px;
+  }
+
+  li span {
+    display: inline-block;
+    padding: .5rem;
+    width: 250px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+  }
+
+  li span:hover {
+    background: rgba(179, 215, 255, 0.52);
+  }
+
+  li span:focus {
+    outline: 0;
+    border: 2px solid #007bff;
+    background: rgba(179, 207, 255, 0.52)
+  }
+  </style>
+</head>
+<body>
+  <h1>MVC模式:TODO待办事项</h1>
+  <div id="root"></div>
+  <script>
+    class Model{
+      constructor() {
+        this.todos = JSON.parse(localStorage.getItem('todos')) || []
+      }
+      //绑定todos内容发生改变后的回调
+      bindTodoListChange(callback){
+        this.onTodoListChange = callback
+      }
+      _commit(todos){
+        this.onTodoListChange(todos)
+        localStorage.setItem('todos', JSON.stringify(todos))
+      }
+      addTodo(text){
+        console.log(text)
+        const todo = {
+          id: this.todos.length?this.todos[this.todos.length-1].id+1:1,
+          text: text,
+          complete: false //是否完成
+        }
+        this.todos.push(todo)
+        this._commit(this.todos)
+      }
+      editTodo(id, text){
+        console.log(id, text)
+        this.todos = this.todos.map(todo =>
+          todo.id === id ? { id: todo.id, text: text, complete: todo.complete } : todo
+        )
+
+        this._commit(this.todos)
+      }
+      deleteTodo(id){
+        this.todos = this.todos.filter(todo => todo.id!==id)
+        this._commit(this.todos)
+      }
+      completeTodo(id){
+        let item = this.todos.find(todo => todo.id==id)
+        console.log(item)
+        item.complete = !item.complete
+        this._commit(this.todos)
+      }
+    }
+    class View{
+      constructor(){
+        this.app = this.getElement('#root')
+        this.form = this.createElement('form')
+        this.input = this.createElement('input')
+        this.input.type = 'text'
+        this.input.placeholder = 'Add todo'
+        this.input.name = 'todo'
+        this.submitButton = this.createElement('button')
+        this.submitButton.textContent = 'Submit'
+        this.form.append(this.input, this.submitButton)
+        this.title = this.createElement('h1')
+        this.title.textContent = 'Todos'
+        this.todoList = this.createElement('ul', 'todo-list')
+        this.app.append(this.title, this.form, this.todoList)
+
+        this._tempText = '' //todo列表的临时保存text字段
+        this._initLinsten()
+      }
+      get _text(){ //get class的用法
+        return this.input.value
+      }
+      _resetInput(){
+        this.input.value = ''
+      }
+      createElement(tag, className){
+        const element = document.createElement(tag)
+        if (className) element.classList.add(className)
+        return element
+      }
+      getElement(selector){
+        const element = document.querySelector(selector)
+        return element
+      }
+      _initLinsten(){
+        //监听todo列表的input输入事件，保存修改的input值
+        this.todoList.addEventListener('input', event=>{
+          this._tempText = event.target.innerText
+        })
+      }
+      bindAddTodo(handler){
+        this.form.addEventListener('submit', event=>{
+          event.preventDefault()
+          if(this._text){
+            handler(this._text)
+            this._resetInput()
+          }
+        })
+        // Event.listen('input', )
+      }
+      bindEditTodo(handler){
+        this.todoList.addEventListener('focusout', event=>{
+          const id = parseInt(event.target.parentElement.id)
+          if(this._tempText){
+            handler(id, this._tempText)
+          }
+        })
+      }
+      bindDeleteTodo(handler){
+        this.todoList.addEventListener('click', event=>{
+          if (event.target.className === 'delete') {
+            const id = parseInt(event.target.parentElement.id)
+
+            handler(id)
+          }
+        })
+      }
+      bindCompleteTodo(handler){
+        this.todoList.addEventListener('change', event=>{
+          if (event.target.type === 'checkbox') {
+            const id = parseInt(event.target.parentElement.id)
+
+            handler(id)
+          }
+        })
+      }
+      displayTodos(todos){
+        // Delete all nodes
+        while (this.todoList.firstChild) {
+          this.todoList.removeChild(this.todoList.firstChild)
+        }
+
+        // Show default message
+        if (todos.length === 0) {
+          const p = this.createElement('p')
+          p.textContent = 'Nothing to do! Add a task?'
+          this.todoList.append(p)
+        } else {
+          // Create nodes
+          todos.forEach(todo => {
+            const li = this.createElement('li')
+            li.id = todo.id
+
+            const checkbox = this.createElement('input')
+            checkbox.type = 'checkbox'
+            checkbox.checked = todo.complete
+
+            const span = this.createElement('span')
+            span.contentEditable = true
+            span.classList.add('editable')
+
+            if (todo.complete) {
+              const strike = this.createElement('s')
+              strike.textContent = todo.text
+              span.append(strike)
+            } else {
+              span.textContent = todo.text
+            }
+
+            const deleteButton = this.createElement('button', 'delete')
+            deleteButton.textContent = 'Delete'
+            li.append(checkbox, span, deleteButton)
+
+            // Append nodes
+            this.todoList.append(li)
+          })
+        }
+      }
+    }
+    class Controller{
+      constructor(model, view){
+        this.model = model
+        this.view = view
+
+        //绑定视图与模型的关联
+        this.model.bindTodoListChange(this.onTodoListChanged) //todo数据发生改变事的回掉
+        this.view.bindAddTodo(this.handelAddTodo) //视图form提交按钮事件 绑定 model添加事件
+        this.view.bindEditTodo(this.handleEditTodo)
+        this.view.bindDeleteTodo(this.handleDeleteTodo)
+        this.view.bindCompleteTodo(this.handleCompleteTodo)
+        //初始化todos的界面
+        this.view.displayTodos(this.model.todos)
+      }
+      onTodoListChanged = (todos)=>{
+        this.view.displayTodos(todos)
+      }
+      handelAddTodo=(text)=> {
+        this.model.addTodo(text)
+      }
+      handleEditTodo=(id, text)=> {
+        this.model.editTodo(id, text)
+      }
+      handleDeleteTodo=(id)=>{
+        this.model.deleteTodo(id)
+      }
+      handleCompleteTodo=(id)=>{
+        this.model.completeTodo(id)
+      }
+    }
+    const app = new Controller(new Model(), new View())
+  </script>
+
+</body>
+</html>

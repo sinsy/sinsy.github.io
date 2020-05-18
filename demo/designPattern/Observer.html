@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+  <script>
+    //观察者列表组
+    function ObserverList(){
+      this.observerList = []
+    }
+    ObserverList.prototype.Add = function( obj ){
+      return this.observerList.push( obj );
+    };
+    ObserverList.prototype.Count = function(){
+      return this.observerList.length;
+    };
+    ObserverList.prototype.Get = function( index ){
+      if( index > -1 && index < this.observerList.length ){
+        return this.observerList[ index ];
+      }
+    };
+
+
+    //单个的观察者
+    function Observer(){
+      this.Update = function(){
+        // ...
+      };
+    }
+
+    //被观察者构造器
+    function Subjuect(){
+      this.observers = new ObserverList()  //生成观察者列表组
+    }
+    Subjuect.prototype.Notify = function( context ){
+      var observerCount = this.observers.Count();
+      console.log('notify',observerCount)
+      for(var i=0; i < observerCount; i++){
+        this.observers.Get(i).Update( context );
+      }
+    }
+    Subjuect.prototype.AddObserver = function(observer){
+      this.observers.Add(observer)
+    }
+    // Extend an object with an extension
+    function extend( extension, obj ){
+      for ( var key in extension ){
+        obj[key] = extension[key];
+      }
+    }
+  </script>
+</head>
+<body>
+  <button id="addNewObserver">Add New Observer checkbox</button>
+  <input id="mainCheckbox" type="checkbox" />全部
+  <div id="observersContainer"></div>
+  <script>
+    var controlCheckbox = document.getElementById( "mainCheckbox" ),
+    addBtn = document.getElementById( "addNewObserver" ),
+    container = document.getElementById( "observersContainer" );
+    //具体的被观察者
+    //Subject类扩展controlCheckbox元素，拥有Subject实例的函数
+    extend(new Subjuect(), controlCheckbox)
+    //点击checkbox 将会触发对观察者的通知，new Function 等同于创建了匿名函数，
+    //f anonymous() {
+    // controlCheckbox.Notify(controlCheckbox.checked)
+    // }
+    controlCheckbox["onclick"] = new Function( "controlCheckbox.Notify(controlCheckbox.checked)" );
+    addBtn['onclick'] = AddNewObserver
+    
+    //添加新的观察者
+    function AddNewObserver(){
+      var check = document.createElement('input')
+      check.type = 'checkbox'
+
+      extend(new Observer(), check)
+      check.Update = function(value){
+        this.checked = value
+      }
+      //添加新的观察者到被观察者的观察者列表里面
+      controlCheckbox.AddObserver(check)
+
+      container.appendChild(check)
+    }
+  </script>
+
+</body>
+</html>

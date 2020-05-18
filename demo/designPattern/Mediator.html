@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+  <title>中介者模式：初级了解</title>
+  <script>
+   //优化event事件，彻底解开 发布者与订阅者的耦合
+    var Event = (function(){
+      //订阅缓存列表里面
+      var orderList= {},listen,trigger,remove;
+      //添加订阅者
+      listen= function(key, fn){
+        if(!orderList[key]){
+          orderList[key] = []
+        }
+        //订阅的消息添加到缓存列表里面
+        orderList[key].push(fn)
+      },
+      // 发布-事件触发
+      trigger= function(){
+        // var key = 'check'
+        var key = Array.prototype.shift.call(arguments) //arguments是伪数组，通过call可以转成数组并shift第一位，但是arguments.shift()会报错
+        var fns = orderList[key]
+        //如果没有订阅过该消息的话就返回
+        if(!fns || fns.length==0){
+          return;
+        }
+        for(var i=0,fn; fn=fns[i++];){
+          // fn(arguments) 这个的this是指向了Window
+          fn.apply(this, arguments) //让this指向了Event对象
+        }
+      },
+      //删除订阅者
+      remove= function(key, fn){
+        var fns = orderList[key]
+        if(!fns) return
+        for(let i=0,fn1;fn1=fns[i++];){
+          if(fn1 === fn){
+            fns.splice(i-1, 1)//删除订阅者的回调函数
+          }
+        }
+      }
+      return {
+        listen,trigger,remove
+      }
+    })();   
+
+  </script>
+</head>
+<body>
+  <h1>中介者模式：初级了解</h1>
+  <p>
+    <a href="https://github.com/sinsy/Challenge/blob/master/demo/designPattern/Mediator_question.html">中介者模式：手机购买库存问题</a>
+    在这个例子里，colorSelect.onchange和numberInput.oninput里面的对象都是耦合的，如果要求去掉colorInfo和numberInfo这两个展示区域
+    我们就要改动这两个地方。现在只有颜色和数量，对象还算比较少，如果对象增加到10-15个，后续改动起来就非常麻烦了，所以得对该代码进行优化。
+  </p>
+  选择颜色: <select id="colorSelect">
+    <option value="">请选择</option>
+    <option value="red">红色</option>
+    <option value="blue">蓝色</option>
+  </select>
+  输入购买数量: <input type="text" id="numberInput"/>
+  选择内存:  <select id="memorySelect">
+    <option value="">请选择</option>
+    <option value="32G">32G</option>
+    <option value="16G">16G</option>
+  </select><br/>
+
+  您选择了颜色: <div id="colorInfo"></div><br/>
+  您输入了数量: <div id="numberInfo"></div><br/>
+  您选择了内存: <div id="memoryInfo"></div><br/>
+  <button id="nextBtn" disabled="true">请选择手机颜色和购买数量</button>
+
+  <script>
+    var colorSelect = document.getElementById( 'colorSelect' ),
+    numberInput = document.getElementById( 'numberInput' ),
+    memorySelect = document.getElementById( 'memorySelect' ),
+    colorInfo = document.getElementById( 'colorInfo' ),
+    numberInfo = document.getElementById( 'numberInfo' ),
+    memoryInfo = document.getElementById( 'memoryInfo' ),
+    nextBtn = document.getElementById( 'nextBtn' );
+    var goods = { // 手机库存
+      "red|32G": 3,
+      "red|16G": 0,
+      "blue|32G": 1,
+      "blue|16G": 6
+    };
+    Event.listen('color', function(value){
+      colorInfo.innerHTML = value;
+    })
+    Event.listen('number', function(value){
+      numberInfo.innerHTML = value;
+    })
+    Event.listen('memory', function(value){
+      memoryInfo.innerHTML = value;
+    })
+    Event.listen('nextBtn',function(flag, tip){
+      nextBtn.disabled = flag;
+      nextBtn.innerHTML = tip;
+    })
+    var mediator = (function(){
+      let change = function(obj){
+        var color = colorSelect.value, // 颜色
+        number = numberInput.value, // 数量
+        memory = memorySelect.value, //内存
+        stock = goods[ color+'|'+memory ]; // 该颜色手机对应的当前库存
+        if ( !color ){
+          Event.trigger('nextBtn', true, '请选择手机颜色')
+          return;
+        }
+        if (!memory){
+          Event.trigger('nextBtn', true, '请选择手机内存')
+          return;
+        }
+        if (!number){
+          Event.trigger('nextBtn', true, '请选择购买数量')
+          return;
+        }
+        if ( ( ( number - 0 ) | 0 ) !== number - 0 ){ // 用户输入的购买数量是否为正整数
+          Event.trigger('nextBtn', true, '请输入正确的购买数量')
+          return;
+        }
+        if ( number > stock ){ // 当前选择数量超过库存量
+          Event.trigger('nextBtn', true, '库存不足')
+          return ;
+        }
+        Event.trigger('nextBtn', false, '放入购物车')
+      }
+      return {
+        change
+      }
+    })()
+    colorSelect.onchange = function(){
+        Event.trigger('color', this.value)
+        mediator.change(this)
+    };
+    numberInput.oninput = function(){
+      Event.trigger('number', this.value)
+      mediator.change(this)
+    };
+    memorySelect.onchange = function(){
+      Event.trigger('memory', this.value)
+      mediator.change(this)
+    };
+  </script>
+
+</body>
+</html>
