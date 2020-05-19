@@ -165,14 +165,14 @@
 .iframe-post{
     display: none;
     position: absolute;
-    width: 90%;
-    left: 5%;
+    width: 80%;
+    right: 0%;
     height: 100%;
     z-index: 10;
     background: #fff;
     margin: auto;
     overflow: hidden;
-    box-shadow: 0 0 40px 1px #ddd;
+    // box-shadow: 0 0 40px 1px #ddd;
     @include media-query($on-palm) {
         width: 100%;
         left: 0;
@@ -200,11 +200,13 @@
         width: 100%;
         height: 100%;
         overflow-y: auto;
+        padding-left: 2%;
         header{
             margin-bottom: $spacing-unit/2;
-            background: #ECECEC;
+            // background: #ECECEC;
             color: #525252;
-            padding: $spacing-unit/2 ;
+            font-weight: bold;
+            padding: $spacing-unit/2 0;
             font-size: 30px;
             @include media-query($on-laptop) {
                 font-size: 28px;

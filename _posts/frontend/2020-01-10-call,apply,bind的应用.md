@@ -1,7 +1,7 @@
 ---
 layout: post
 title: call,apply,bind函数的应用
-date: 2020-01-10 14:02:15 +0800
+date: 2020-01-10 15:02:15 +0800
 category: 前端
 tags: [基础]
 ---
