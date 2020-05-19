@@ -118,7 +118,55 @@ async function async1() {
 ```
 查看promise和Generator的用法：https://www.jianshu.com/p/e2239f563d61
 
-## 9. setInterval为什么计时不准确
+## 9. 实战中的async await用法
+在实战中我们可能会遇到这种情况，接口A和接口B以及事件C，B接口需要用到A接口的数据，所以必须等A接口调用才能开始调用，事件C必须等待B接口的数据，不采用async await的话就会有许多的then出现，环环嵌套，代码会变得很难维护，如以下代码
+```
+function C(){
+  console.log('C：获取到B的数据了')
+}
+new Promise(function(resolve, reject){
+  console.log('A：开始调用A接口，获取A数据')
+  resolve(true)
+}).then(res=>{
+  if(res){
+    new Promise(function(resolve, reject){
+      console.log('B：获取A成功，开始调用B接口')
+      resolve(true)
+    }).then(res=>{
+      if(res){
+        C()
+      }
+    })
+  }
+})
+```
+
+优化上面的代码,思路也会变得更加清晰
+```
+async function C(){
+  const AB = await getAB()
+  if(AB){
+    console.log('C：获取到B的数据了')
+  }
+}
+async function getAB(){
+  const A = await new Promise(function(resolve, reject){
+    console.log('A：开始调用A接口，获取A数据')
+    resolve(true)
+  })
+  if(A){
+    const B = await new Promise(function(resolve, reject){
+      console.log('B：获取A成功，开始调用B接口')
+      resolve(true)
+    })
+    return B
+  }else{
+    return false
+  }
+}
+C()
+```
+## 10. setInterval为什么计时不准确
 setInterval是宏任务，他会在主线程空闲下来的时候执行，如果主线程一直没得空闲，数出来的时间间隔就会差异比较大了。可以采用setTimeout代替setInterval，setTimeout是在计数函数执行完又重新触发计数函数，会相对的准确。
 ```
 var startTime = new Date().getTime(); 
