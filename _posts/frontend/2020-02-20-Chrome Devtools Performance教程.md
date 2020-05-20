@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Chrome Devtools Performance教程
-date: 2020-02-20 14:02:15 +0800
+date: 2020-02-20
 category: 前端
 tags: [优化,工具, 浏览器]
 ---

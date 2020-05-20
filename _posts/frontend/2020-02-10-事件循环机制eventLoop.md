@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 事件循环机制
-date: 2020-02-10 14:02:15 +0800
+date: 2020-02-10
 category: 前端
 tags: [基础]
 ---

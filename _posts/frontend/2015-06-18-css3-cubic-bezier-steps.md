@@ -1,7 +1,7 @@
 ---
 layout: post
 title: css3 transition-timing-function之 Cubic-bezier与Steps详解
-date:   2015-06-18 11:02:15 +0800
+date:   2015-06-18
 category: 前端
 tags: [css]
 ---

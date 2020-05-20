@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Markdown常用资源"
-date:   2016-04-28 16:02:15 +0800
+date:   2016-04-28
 categories: 其他
 tags: [工具]
 ---

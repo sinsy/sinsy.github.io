@@ -9,6 +9,7 @@
       {{ content }} 
       {% include footer.html %} 
     </div>
+    <!-- 标签的内容显示 -->
     <div class="iframe-post" id="iframe-post">
       <div class="close" id="iframe-close">↩</div>
       <div class="content" id="iframe-content"></div>
@@ -17,8 +18,8 @@
       $(function () {
         Page.init();
         var hash = window.location.hash;
-        // Article.filter(hash);
-
+        Article.filter(decodeURI(hash));
+        
         $('#sidebar-tags li').on('click', function () {
           $(this).addClass('sel').siblings().removeClass('sel');
         });
@@ -33,14 +34,10 @@
         init: function () {
           var href = window.location.href.replace(window.location.protocol + '//' + window.location.host, '');
           var hrefArr = href.split('/');
-          console.log(hrefArr)
-
-          if (href != '/blog/' && hrefArr.length == 3) {
+          if (hrefArr[1] != 'blog' && hrefArr.length == 3) {
             $('a[href="' + href + '"]').parent().addClass('sel').siblings().removeClass('sel');
-          } else if (href != '/blog/' && hrefArr.length > 3) {
-            $('a[href="/' + hrefArr[1] + '/' + hrefArr[2] + '"]').parent().addClass('sel').siblings().removeClass('sel');
-          } else {
-            $('a[href="/blog/#前端"]').parent().addClass('sel').siblings().removeClass('sel');
+          } else if (hrefArr[1] == 'blog' && hrefArr.length == 3) {
+            $('a[href="/' + hrefArr[1] + '/' + decodeURI(hrefArr[2]) + '"]').parent().addClass('sel').siblings().removeClass('sel');
           }
         }
       }
@@ -53,10 +50,6 @@
             var link = $(articleLinkArr[i]);
             link.attr('href', hash + link.attr('data-href'));
           }
-          /*article-link 添加点击事件*/
-          articleLinkArr.on('click', function () {
-            Article.iframeShow($(this).attr('data-href'));
-          });
         },
         /*根据hash值过滤文章*/
         filter: function (val) {
@@ -68,14 +61,6 @@
             $('a[data-tags="' + type + '"]').show();
           }
         },
-        /*iframe 出现*/
-        iframeShow: function (src) {
-          $('#iframe-post').show();
-          $('#iframe-content').attr('src', src);
-        },
-        iframeHide: function () {
-          $('#iframe-post').hide();
-        }
       }
 
 

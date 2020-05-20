@@ -1,7 +1,7 @@
 ---
 layout: post
 title: css3 animation动画分析
-date:   2015-06-23 11:02:15 +0800
+date:   2015-06-23
 category: 前端
 tags: [css]
 ---

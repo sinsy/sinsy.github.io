@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 移动端Fixed布局的解决方案
-date:   2016-05-04 14:02:15 +0800
+date:   2016-05-04
 category: 前端
 tags: [移动端]
 ---

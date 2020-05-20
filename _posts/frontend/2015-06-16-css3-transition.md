@@ -1,7 +1,7 @@
 ---
 layout: post
 title: css3过渡 transition分析
-date:   2015-06-16 16:02:15 +0800
+date:   2015-06-16
 category: 前端
 tags: [css]
 ---

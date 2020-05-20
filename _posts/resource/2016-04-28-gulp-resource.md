@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Gulp常用资源"
-date:   2016-04-29 14:30:15 +0800
+date:   2016-04-29
 categories: 其他
 tags: [工具]
 ---
