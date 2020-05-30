@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>打印排查组件</title>
+    <meta name="description" content="先打电商ERP系统<%= htmlWebpackPlugin.options.timeVersion %>">
+    <meta name="keyword" content="先打电商ERP系统">
+    <style>
+      body {
+        color: #999;
+        line-height: 2;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>1. 排查打印面单数据问题，直接把控制台的面单复制出来，对比数据格式</li>
+      <li>2. test1.js 与 test2.js数据为面单数据，可以替换</li>
+      <li>3.printabao(data1) data1的数据可以替换</li>
+      <li>使用该插件会遇到的问题：</li>
+      <li>1. TaskID重复，删除菜鸟组件的任务</li>
+      <li>2. 没有匹配到打印机，“获取打印机” 先替换面单数据的打印机，换成自己本地的打印机名称</li>
+    </ul>
+    <button onclick="printMd()">打印面单</button>
+    <button onclick="getPrinter()">获取打印机</button>
+    <script src="test2.js"></script>
+    <script src="test1.js"></script>
+    <script>
+      function doConnect() {
+        socket = new WebSocket('ws://localhost:13528');
+        //如果是https的话，端口是13529
+        //socket = new WebSocket('wss://localhost:13529');
+        // 打开Socket
+        socket.onopen = function (event) {
+          // 监听消息
+          socket.onmessage = function (event) {
+            console.log('Client received a message', event);
+          };
+          // 监听Socket的关闭
+          socket.onclose = function (event) {
+            console.log('Client notified socket has closed', event);
+          };
+        };
+      }
+      function getUUID(len, radix) {
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+        var uuid = [], i;
+        radix = radix || chars.length;
+        if (len) {
+          for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix];
+        } else {
+          var r;
+          uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+          uuid[14] = '4';
+          for (i = 0; i < 36; i++) {
+            if (!uuid[i]) {
+              r = 0 | Math.random() * 16;
+              uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+            }
+          }
+        }
+        return uuid.join('');
+      }
+      function printabao(data) {
+        socket.send(JSON.stringify(data));
+      }
+
+      /**
+       * 响应请求demo
+       * */
+      // websocket.onmessage = function (event) {
+      //   var response = eval(event.data);
+      //   if (response.cmd == 'getPrinters') {
+      //     getPrintersHandler(response);//处理打印机列表
+      //   } else if (response.cmd == 'printerConfig') {
+      //     printConfigHandler(response);
+      //   }
+      // };
+      /***
+       * 构造request对象
+       */
+      function getRequestObject(cmd) {
+        var request = new Object();
+        request.requestID = getUUID(8, 16);
+        request.version = "1.0";
+        request.cmd = cmd;
+        return request;
+      }
+      doConnect()
+      function getPrinter() {
+        var request = getRequestObject("getPrinters");
+        socket.send(JSON.stringify(request));
+      }
+
+      function printMd() {
+        printabao(data1)
+      }
+    </script>
+  </body>
+
+</html>
