@@ -15,7 +15,7 @@
 1. [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 2. [配置jekyll安装环境与部署博客网站](https://www.jianshu.com/p/58f19083138f)
 
-## 目录结构
+## jekyll目录结构
 * _includes 页面的局部模块，通过`{% include head.html %}`引入
   * footer.html : 底部模块
   * head.html : xxx.html>head标签模块
@@ -57,4 +57,9 @@
 * css 引入_sass文件夹文件
 
 * 总目下的index.html： layout: index
+
+## 自建目录
+* source 资源目录结构，提供下载
+* public 公共资源：js， 组件等
+
 
