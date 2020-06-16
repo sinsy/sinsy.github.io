@@ -6,7 +6,7 @@ category: 前端
 tags: [浏览器,工具]
 ---
 # 1. 下载文件 
-github上下载vue-devtools-dev.zip文件，下载地址https://github.com/sinsy/vue-devtools/archive/dev.zip
+github上下载vue-devtools-dev.zip文件，下载地址 https://github.com/sinsy/vue-devtools
 ![img](../images/vue-devtools1.jpg) 
 # 2. 解压文件
 
