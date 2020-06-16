@@ -21,7 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 articleurl: "#"
 # url: "http://www.sinsy.top" # the base hostname & protocol for your site
 github_username:  sinsy
-rss_url: /pages/feed.xml
+rss_url: /feed.xml
 
 
 # 中文本地化
@@ -30,7 +30,6 @@ locals:
   archive: 归档
   resume: 个人简历
   demo: DEMO
-  book: 读书
 # 主题设置，自动激活某个标签
 active: 全部文章
 
