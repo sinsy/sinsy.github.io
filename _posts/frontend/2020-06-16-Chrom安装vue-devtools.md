@@ -7,7 +7,7 @@ tags: [浏览器,工具]
 ---
 # 1. 下载文件 
 github上下载vue-devtools-dev.zip文件，[下载地址](../source/vue-devtools-dev.zip)
-![img](../images/vue-devtools1.jpg) 
+
 # 2. 解压文件
 
 # 3. 安装依赖
