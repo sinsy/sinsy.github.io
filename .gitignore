@@ -14,7 +14,7 @@ selenium-debug.log
 # Editor directories and files
 .idea
 .vscode
-.jekyll-cache
+# .jekyll-cache
 *.suo
 *.ntvs*
 *.njsproj
