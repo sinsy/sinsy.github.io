@@ -7,7 +7,7 @@ encoding: utf-8
 author: 
   name: Sinsy
   email: 1214440709@qq.com
-  link: http://www.sinsy.top
+  link: http://sinsy.gitee.io/blog
   # weibo: http://weibo.com/liqing215
   github: http://github.com/sinsy
   github_name: sinsy
@@ -19,7 +19,7 @@ description: > # this means to ignore newlines until "baseurl:"
   当一天猿媛，敲一天代码
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 articleurl: "#"
-# url: "http://www.sinsy.top" # the base hostname & protocol for your site
+# url: "http://sinsy.gitee.io/blog" # the base hostname & protocol for your site
 github_username:  sinsy
 rss_url: /feed.xml
 
