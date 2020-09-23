@@ -1,8 +1,8 @@
-I"Q<p>本章主要详细讲讲transition-timing-function中的cubic-bezier与steps,而上文所讲的linear，ease， ease-in，ease-out 和 ease-in-out都是基于cubic-bezier。</p>
+I"�"<p>本章主要详细讲讲transition-timing-function中的cubic-bezier与steps,而上文所讲的linear，ease， ease-in，ease-out 和 ease-in-out都是基于cubic-bezier。</p>
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>div1 {transition-timing-function: step-start;}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>div1 {transition-timing-function: step-start;}
 div2 {transition-timing-function: cubic-bezier(0,0,1,1);}
 </code></pre></div></div>
 
@@ -14,72 +14,72 @@ div2 {transition-timing-function: cubic-bezier(0,0,1,1);}
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/cubic_bezier.html" frameborder="0" width="100%"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span> 
-<span class="nt">div</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">50px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">51</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-<span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-<span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="nl">color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
-<span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
-<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="nl">word-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
-<span class="nl">transition</span><span class="p">:</span><span class="nb">left</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nl">-moz-transition</span><span class="p">:</span><span class="nb">left</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition</span><span class="p">:</span><span class="nb">left</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari and Chrome */</span>
-<span class="nl">-o-transition</span><span class="p">:</span><span class="nb">left</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt; 
+div
+{
+width:100px;
+height:50px;
+background:rgb(51, 200, 100);
+position: absolute;
+left: 0;
+color:white;
+font-weight:bold;
+font-size: 18px;
+word-wrap: break-word;
+transition:left 2s;
+-moz-transition:left 2s; /* Firefox 4 */
+-webkit-transition:left 2s; /* Safari and Chrome */
+-o-transition:left 2s; /* Opera */
+}
 
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">);}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">.38</span><span class="p">,</span><span class="m">1.45</span><span class="p">,</span><span class="m">.68</span><span class="p">,</span><span class="m">-1.33</span><span class="p">);}</span>
+#div1 {transition-timing-function: cubic-bezier(0,0,1,1);}
+#div2 {transition-timing-function: cubic-bezier(.38,1.45,.68,-1.33);}
 
-<span class="c">/* Firefox 4: */</span>
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">-moz-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">);}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">-moz-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">.38</span><span class="p">,</span><span class="m">1.45</span><span class="p">,</span><span class="m">.68</span><span class="p">,</span><span class="m">-1.33</span><span class="p">);}</span>
+/* Firefox 4: */
+#div1 {-moz-transition-timing-function: cubic-bezier(0,0,1,1);}
+#div2 {-moz-transition-timing-function: cubic-bezier(.38,1.45,.68,-1.33);}
 
-<span class="c">/* Safari and Chrome: */</span>
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">-webkit-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">);}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">-webkit-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">.38</span><span class="p">,</span><span class="m">1.45</span><span class="p">,</span><span class="m">.68</span><span class="p">,</span><span class="m">-1.33</span><span class="p">);}</span>
+/* Safari and Chrome: */
+#div1 {-webkit-transition-timing-function: cubic-bezier(0,0,1,1);}
+#div2 {-webkit-transition-timing-function: cubic-bezier(.38,1.45,.68,-1.33);}
 
-<span class="c">/* Opera: */</span>
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">-o-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">);}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">-o-transition-timing-function</span><span class="p">:</span> <span class="n">cubic-bezier</span><span class="p">(</span><span class="m">.38</span><span class="p">,</span><span class="m">1.45</span><span class="p">,</span><span class="m">.68</span><span class="p">,</span><span class="m">-1.33</span><span class="p">);}</span>
+/* Opera: */
+#div1 {-o-transition-timing-function: cubic-bezier(0,0,1,1);}
+#div2 {-o-transition-timing-function: cubic-bezier(.38,1.45,.68,-1.33);}
 
-<span class="nc">.btn</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">50px</span><span class="p">;</span><span class="nl">outline</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span><span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span><span class="nl">margin-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span><span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;}</span>
-<span class="nc">.pink</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">164</span><span class="p">);}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div1"</span> <span class="na">style=</span><span class="s">"top:20px"</span><span class="nt">&gt;</span>Y值在[0,1]范围内<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div2"</span> <span class="na">style=</span><span class="s">"top:80px"</span><span class="nt">&gt;</span>Y值超出[0,1]范围<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;script&gt;</span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">move</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">move</span><span class="p">(){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">div1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span><span class="p">){</span>
-        <span class="nx">div1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">0px</span><span class="dl">'</span>
-        <span class="nx">div2</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">0px</span><span class="dl">'</span>
-    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-        <span class="nx">div1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-        <span class="nx">div2</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-    <span class="p">}</span>
-    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">move</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+.btn{width: 100px;height: 50px;outline: none;border: none;font-size: 20px;color: white;margin-right: 10px;cursor: pointer;}
+.pink{background: rgb(200, 100, 164);}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="div1" style="top:20px"&gt;Y值在[0,1]范围内&lt;/div&gt;
+&lt;div id="div2" style="top:80px"&gt;Y值超出[0,1]范围&lt;/div&gt;
+&lt;script&gt;
+window.onload = function(){
+    move();
+}
+function move(){
+    if(div1.style.left == '400px'){
+        div1.style.left = '0px'
+        div2.style.left = '0px'
+    }else{
+        div1.style.left = '400px'
+        div2.style.left = '400px'
+    }
+    setTimeout(move, 2500)
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cubic-bezier(x1, y1, x2, y2)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cubic-bezier(x1, y1, x2, y2)
 </code></pre></div></div>
 
 <p>注：x1,y1,x2,y2分别为P1和P2的横坐标与纵坐标。</p>
@@ -122,7 +122,7 @@ div2 {transition-timing-function: cubic-bezier(0,0,1,1);}
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>steps(number_of_steps, direction)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>steps(number_of_steps, direction)
 </code></pre></div></div>
 
 <table>
@@ -144,46 +144,46 @@ div2 {transition-timing-function: cubic-bezier(0,0,1,1);}
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/steps.html" frameborder="0" width="100%" height="250px"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">div</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">50px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">51</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-<span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-<span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="nl">color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
-<span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
-<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="nl">word-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
-<span class="nl">transition</span><span class="p">:</span><span class="nb">left</span> <span class="m">2s</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">step-start</span><span class="p">;}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">step-end</span><span class="p">;}</span>
-<span class="nf">#div3</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">steps</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">end</span><span class="p">);}</span>
-<span class="nf">#div4</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">steps</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">start</span><span class="p">);}</span>
-<span class="nc">.pink</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">164</span><span class="p">);}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div1"</span> <span class="na">style=</span><span class="s">"top:80px"</span><span class="nt">&gt;</span>step-start<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div2"</span> <span class="na">style=</span><span class="s">"top:140px"</span><span class="nt">&gt;</span>step-end<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div3"</span> <span class="na">style=</span><span class="s">"top:200px"</span><span class="nt">&gt;</span>steps(4,end)<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div4"</span> <span class="na">style=</span><span class="s">"top:260px"</span><span class="nt">&gt;</span>steps(4,start)<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;script&gt;</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">div1</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-        <span class="nx">div2</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-        <span class="nx">div3</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-        <span class="nx">div4</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">400px</span><span class="dl">'</span>
-    <span class="p">}</span>
-<span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+div
+{
+width:100px;
+height:50px;
+background:rgb(51, 200, 100);
+position: absolute;
+left: 0;
+color:white;
+font-weight:bold;
+font-size: 18px;
+word-wrap: break-word;
+transition:left 2s;
+}
+#div1 {transition-timing-function: step-start;}
+#div2 {transition-timing-function: step-end;}
+#div3 {transition-timing-function: steps(4, end);}
+#div4 {transition-timing-function: steps(4, start);}
+.pink{background: rgb(200, 100, 164);}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="div1" style="top:80px"&gt;step-start&lt;/div&gt;
+&lt;div id="div2" style="top:140px"&gt;step-end&lt;/div&gt;
+&lt;div id="div3" style="top:200px"&gt;steps(4,end)&lt;/div&gt;
+&lt;div id="div4" style="top:260px"&gt;steps(4,start)&lt;/div&gt;
+&lt;script&gt;
+    window.onload = function(){
+        div1.style.left = '400px'
+        div2.style.left = '400px'
+        div3.style.left = '400px'
+        div4.style.left = '400px'
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <p>本章结束，在写这几篇博文时真心挖到了不少外国好网站，资料详细，内容齐全，除了语言是英语，难懂了点，但要想在前端走得更远，学会看外国技术文档是一项必修课。今后一定要努力学好英语，在语言上吃大亏了。</p>

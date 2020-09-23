@@ -22,18 +22,18 @@
 
 
 <link rel="stylesheet" href="{{ "/public/component/prettify/prettify.css" | prepend: site.baseurl }}">
-<script src="/public/js/zepto.js"></script>
-<script src="/public/component/prettify/prettify.js"></script>
+<script src="{{ "/public/js/zepto.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/public/component/prettify/prettify.js" | prepend: site.baseurl }}"></script>
 <script type="text/javascript">
   $(function(){
     const href = $('#dataTags').attr('data-tags')
-    $('a[href="/blog/#' + href + '"]').parent().addClass('sel')
+    $('a[href="/blog/article/#' + href + '"]').parent().addClass('sel')
     $('#post-close').on('click', function(){
       if(history.length > 1){
         history.go(-1);
 
       }else{
-        window.location.href='http://www.sinsy.top/blog/#前端';
+        window.location.href='/blog/#前端';
       }
       
     });

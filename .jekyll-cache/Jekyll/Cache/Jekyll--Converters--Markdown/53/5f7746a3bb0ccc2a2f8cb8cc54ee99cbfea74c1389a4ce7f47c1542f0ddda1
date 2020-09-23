@@ -1,4 +1,4 @@
-I"3z<p>这几天一直在集中火力研究css3动画，现在分享一下这几天的成果吧。 
+I"�.<p>这几天一直在集中火力研究css3动画，现在分享一下这几天的成果吧。 
 首先先从2D入手，转换属性：</p>
 <table>
     <tr>
@@ -28,7 +28,7 @@
 <p>现在来个永恒的话题——浏览器支持
 <img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-browser-support.png" alt="browser suport" title="browser surport" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/*Internet Explorer 10、Firefox 以及 Opera 支持 transform 属性。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/*Internet Explorer 10、Firefox 以及 Opera 支持 transform 属性。
 Chrome 和 Safari 需要前缀 -webkit-。
 注释：Internet Explorer 9 需要前缀 -ms-。*/
 
@@ -61,46 +61,46 @@ transform: rotate(30deg);
 <iframe src="http://www.sinsy.top/hungry/learn/css3/2d/translate.html" frameborder="0" width="100%" height="450px"></iframe>
 <p>点X、Y、XY、O的初始位置为(0,0)，所以平移后的情况可相对于“点O”的位置来观看，X向右平移去整数，X向左平移取负数，Y向下取整数，Y向上取负数。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>translate<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-    <span class="nc">.bg_2d</span><span class="p">{</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span><span class="nl">background</span><span class="p">:</span> <span class="sx">url(../img/xy.png)</span> <span class="nb">no-repeat</span><span class="p">;</span><span class="nl">background-size</span><span class="p">:</span><span class="m">400px</span> <span class="nb">auto</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nc">.two_d_p</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">}</span>
-    <span class="nf">#translate</span><span class="p">{</span>
-        <span class="nl">transform</span><span class="p">:</span><span class="n">translate</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-ms-transform</span><span class="p">:</span><span class="n">translate</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-webkit-transform</span><span class="p">:</span><span class="n">translate</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-o-transform</span><span class="p">:</span><span class="n">translate</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-moz-transform</span><span class="p">:</span><span class="n">translate</span><span class="p">(</span><span class="m">200px</span><span class="p">,</span><span class="m">200px</span><span class="p">);}</span>
-    <span class="nf">#translateX</span><span class="p">{</span>
-        <span class="nl">transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-ms-transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-webkit-transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-o-transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-moz-transform</span><span class="p">:</span><span class="n">translateX</span><span class="p">(</span><span class="m">200px</span><span class="p">);}</span>
-    <span class="nf">#translateY</span><span class="p">{</span>
-        <span class="nl">transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-ms-transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-webkit-transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-o-transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">200px</span><span class="p">);</span>
-        <span class="nl">-moz-transform</span><span class="p">:</span><span class="n">translateY</span><span class="p">(</span><span class="m">200px</span><span class="p">);}</span>
-    <span class="nc">.fs16</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span><span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">middle</span><span class="p">;}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bg_2d"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"two_d_p"</span><span class="nt">&gt;</span>O<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fs16"</span><span class="nt">&gt;</span>[原点]<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translate"</span> <span class="na">class=</span><span class="s">"two_d_p"</span><span class="nt">&gt;</span>XY<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fs16"</span><span class="nt">&gt;</span>[x平移200px,y平移200px]<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translateX"</span> <span class="na">class=</span><span class="s">"two_d_p"</span><span class="nt">&gt;</span>X<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fs16"</span><span class="nt">&gt;</span>[x平移200px]<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"translateY"</span> <span class="na">class=</span><span class="s">"two_d_p"</span><span class="nt">&gt;</span>Y<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fs16"</span><span class="nt">&gt;</span>[y平移200px]<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;translate&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;style&gt;
+    .bg_2d{
+        width: 400px;height: 400px;background: url(../img/xy.png) no-repeat;background-size:400px auto;position: relative;
+    }
+    .two_d_p{font-size: 60px; position: absolute;top: 0;left: 0}
+    #translate{
+        transform:translate(200px,200px);
+        -ms-transform:translate(200px,200px);
+        -webkit-transform:translate(200px,200px);
+        -o-transform:translate(200px,200px);
+        -moz-transform:translate(200px,200px);}
+    #translateX{
+        transform:translateX(200px);
+        -ms-transform:translateX(200px);
+        -webkit-transform:translateX(200px);
+        -o-transform:translateX(200px);
+        -moz-transform:translateX(200px);}
+    #translateY{
+        transform:translateY(200px);
+        -ms-transform:translateY(200px);
+        -webkit-transform:translateY(200px);
+        -o-transform:translateY(200px);
+        -moz-transform:translateY(200px);}
+    .fs16{font-size: 16px;vertical-align: middle;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="bg_2d"&gt;
+     &lt;div id="" class="two_d_p"&gt;O&lt;span class="fs16"&gt;[原点]&lt;/span&gt;&lt;/div&gt;
+     &lt;div id="translate" class="two_d_p"&gt;XY&lt;span class="fs16"&gt;[x平移200px,y平移200px]&lt;/span&gt;&lt;/div&gt;
+     &lt;div id="translateX" class="two_d_p"&gt;X&lt;span class="fs16"&gt;[x平移200px]&lt;/span&gt;&lt;/div&gt;
+     &lt;div id="translateY" class="two_d_p"&gt;Y&lt;span class="fs16"&gt;[y平移200px]&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h2 id="二rotate">二、rotate</h2>
@@ -118,44 +118,44 @@ transform: rotate(30deg);
 
 <p>给出上图的部分代码，若要下载整个文件可在文在结尾处点击链接。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>rotate<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-    <span class="nc">.content</span><span class="p">{</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">;</span>
-        <span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
-        <span class="nl">margin</span><span class="p">:</span> <span class="m">80px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span>
-        <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-    <span class="p">}</span>
-        <span class="nc">.rotate_box</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">opacity</span><span class="p">:</span> <span class="m">0.8</span><span class="p">}</span>
-    <span class="nc">.opacity1</span><span class="p">{</span><span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">}</span>
-    <span class="nc">.rotate45</span><span class="p">{</span>
-        <span class="nl">transform</span><span class="p">:</span><span class="n">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
-        <span class="nl">-ms-transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
-        <span class="nl">-webkit-transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
-        <span class="nl">-moz-transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
-        <span class="nl">-o-transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">45deg</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="nc">.leftTop</span><span class="p">{</span>
-        <span class="nl">transform-origin</span><span class="p">:</span><span class="m">0%</span> <span class="m">0%</span><span class="p">;</span>
-        <span class="nl">-ms-transform-origin</span><span class="p">:</span> <span class="m">0%</span> <span class="m">0%</span><span class="p">;</span>
-        <span class="nl">-webkit-transform-origin</span><span class="p">:</span> <span class="m">0%</span> <span class="m">0%</span><span class="p">;</span>
-        <span class="nl">-moz-transform-origin</span><span class="p">:</span> <span class="m">0%</span> <span class="m">0%</span><span class="p">;</span>
-        <span class="nl">-o-transform-origin</span><span class="p">:</span><span class="m">0%</span> <span class="m">0%</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nc">.blue</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#0099FF</span><span class="p">}</span>
-    <span class="nc">.pink</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#CC6699</span><span class="p">;}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box blue opacity1"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"rotate_box pink rotate45 left200 leftTop"</span><span class="nt">&gt;</span>马上玩(0%，0%)<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;rotate&lt;/title&gt;
+    &lt;style&gt;
+    .content{
+        width: 1200px;
+        height: 300px;
+        margin: 80px auto 0;
+        position: relative;
+    }
+        .rotate_box{width: 100px;height: 100px;font-size: 25px;position: absolute;opacity: 0.8}
+    .opacity1{opacity: 1}
+    .rotate45{
+        transform:rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+    }
+    .leftTop{
+        transform-origin:0% 0%;
+        -ms-transform-origin: 0% 0%;
+        -webkit-transform-origin: 0% 0%;
+        -moz-transform-origin: 0% 0%;
+        -o-transform-origin:0% 0%;
+    }
+    .blue{background: #0099FF}
+    .pink{background: #CC6699;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="rotate_box blue opacity1"&gt;马上玩&lt;/div&gt;
+        &lt;div class="rotate_box pink rotate45 left200 leftTop"&gt;马上玩(0%，0%)&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h2 id="三scale">三、scale</h2>
@@ -178,38 +178,38 @@ transform: rotate(30deg);
 <p>scale可以根据所给的值进行放大与缩小，绝对值小于1——缩小，绝对值大于1——放大。当值为负数是会颠倒，如第四个图。
 <img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-scale.png" alt="scale" title="scale" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>rotate<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-    <span class="nc">.content</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span> <span class="m">80px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nc">.scale_box</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">}</span>
-    <span class="nf">#scale2</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span><span class="m">0.8</span><span class="p">);}</span>
-    <span class="nf">#scale3</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">-2</span><span class="p">);}</span>
-    <span class="nf">#scale</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">);}</span>
-    <span class="nf">#scaleX</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span> <span class="n">scaleX</span><span class="p">(</span><span class="m">2</span><span class="p">);}</span>
-    <span class="nf">#scaleY</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span> <span class="n">scaleY</span><span class="p">(</span><span class="m">2</span><span class="p">);}</span>
-    <span class="nc">.yellow</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#FFCC66</span><span class="p">;}</span>
-    <span class="nc">.left200</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="m">150px</span><span class="p">;}</span>
-    <span class="nc">.left400</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">350px</span><span class="p">;}</span>
-    <span class="nc">.left600</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">600px</span><span class="p">;}</span>
-    <span class="nc">.left800</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">830px</span><span class="p">;}</span>
-    <span class="nc">.left1000</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">1000px</span><span class="p">}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"scale_box yellow"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale2"</span> <span class="na">class=</span><span class="s">"scale_box yellow left200"</span><span class="nt">&gt;</span>马上玩scale(0.8,0.8)<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale"</span> <span class="na">class=</span><span class="s">"scale_box yellow left400"</span><span class="nt">&gt;</span>马上玩scale(2,2)<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scale3"</span> <span class="na">class=</span><span class="s">"scale_box yellow left600"</span><span class="nt">&gt;</span>马上玩scale(-2,-2)<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scaleX"</span> <span class="na">class=</span><span class="s">"scale_box yellow left800"</span><span class="nt">&gt;</span>马上玩scaleX(2)<span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scaleY"</span> <span class="na">class=</span><span class="s">"scale_box yellow left1000"</span><span class="nt">&gt;</span>马上玩scaleY(2)<span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;rotate&lt;/title&gt;
+    &lt;style&gt;
+    .content{width: 1200px;height: 300px;margin: 80px auto 0;position: relative;
+    }
+    .scale_box{font-size: 20px; position: absolute;top: 0;left: 0;width: 100px;height: 100px}
+    #scale2{transform: scale(0.8,0.8);}
+    #scale3{transform: scale(-2,-2);}
+    #scale{transform: scale(2,2);}
+    #scaleX{transform: scaleX(2);}
+    #scaleY{transform: scaleY(2);}
+    .yellow{background: #FFCC66;}
+    .left200{left:150px;}
+    .left400{left: 350px;}
+    .left600{left: 600px;}
+    .left800{left: 830px;}
+    .left1000{left: 1000px}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="scale_box yellow"&gt;马上玩&lt;/div&gt;
+        &lt;div id="scale2" class="scale_box yellow left200"&gt;马上玩scale(0.8,0.8)&lt;/div&gt;
+        &lt;div id="scale" class="scale_box yellow left400"&gt;马上玩scale(2,2)&lt;/div&gt;
+        &lt;div id="scale3" class="scale_box yellow left600"&gt;马上玩scale(-2,-2)&lt;/div&gt;
+        &lt;div id="scaleX" class="scale_box yellow left800"&gt;马上玩scaleX(2)&lt;/div&gt;
+        &lt;div id="scaleY" class="scale_box yellow left1000"&gt;马上玩scaleY(2)&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h2 id="四skew">四、skew</h2>
@@ -231,57 +231,57 @@ transform: rotate(30deg);
 <p>skew根据所给的值对元素进行倾斜变换，数值在[-180°,180°]，当值为skewX(90deg)、skewY(90deg)、skew(45deg,45deg)时，消失不见。假设skewX(45deg)，玫红方框沿着X轴的方向走变成绿色的透明框。
 <img src="http://7xtflp.com1.z0.glb.clouddn.com/css3-transform-skew.png" alt="skew" title="skew" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>skew<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-    <span class="nc">.content</span><span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span> <span class="m">80px</span> <span class="nb">auto</span> <span class="m">0</span><span class="p">;</span><span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nc">.content</span><span class="o">&gt;</span><span class="nt">div</span><span class="p">{</span><span class="nl">transform-origin</span><span class="p">:</span><span class="m">0%</span> <span class="m">0%</span><span class="p">;}</span>
-    <span class="nc">.skew_box</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">}</span>
-    <span class="nf">#skew</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skew</span><span class="p">(</span><span class="m">40deg</span><span class="p">,</span> <span class="m">40deg</span><span class="p">);}</span>
-    <span class="nf">#skew2</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skew</span><span class="p">(</span><span class="m">140deg</span><span class="p">,</span> <span class="m">140deg</span><span class="p">);}</span>
-    <span class="nf">#skewX</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skewX</span><span class="p">(</span><span class="m">45deg</span><span class="p">);}</span>
-    <span class="nf">#skewX2</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skewX</span><span class="p">(</span><span class="m">145deg</span><span class="p">);}</span>
-    <span class="nf">#skewY</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skewY</span><span class="p">(</span><span class="m">45deg</span><span class="p">);}</span>
-    <span class="nf">#skewY2</span><span class="p">{</span><span class="nl">transform</span><span class="p">:</span><span class="n">skewY</span><span class="p">(</span><span class="m">145deg</span><span class="p">);}</span>
-    <span class="nc">.green</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#00CC99</span><span class="p">;</span><span class="nl">opacity</span><span class="p">:</span> <span class="m">0.8</span><span class="p">}</span>
-    <span class="nc">.pink</span><span class="p">{</span><span class="nl">background</span><span class="p">:</span> <span class="m">#CC6699</span><span class="p">;}</span>
-    <span class="nc">.left200</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span><span class="m">180px</span><span class="p">;}</span>
-    <span class="nc">.left450</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">400px</span><span class="p">;}</span>
-    <span class="nc">.left600</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">600px</span><span class="p">;}</span>
-    <span class="nc">.left800</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">830px</span><span class="p">;}</span>
-    <span class="nc">.left1000</span><span class="p">{</span><span class="nl">left</span><span class="p">:</span> <span class="m">1000px</span><span class="p">}</span>
-    <span class="nc">.top150</span><span class="p">{</span><span class="nl">top</span><span class="p">:</span> <span class="m">280px</span><span class="p">;}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink left200"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink left450"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink left600"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skewX"</span> <span class="na">class=</span><span class="s">"skew_box green left200"</span><span class="nt">&gt;</span>马上玩skewX(45deg)<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skewY"</span> <span class="na">class=</span><span class="s">"skew_box green left450"</span><span class="nt">&gt;</span>马上玩skewY(45deg)<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skew"</span> <span class="na">class=</span><span class="s">"skew_box green left600"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;skew&lt;/title&gt;
+    &lt;style&gt;
+    .content{width: 1200px;height: 300px;margin: 80px auto 0;position: relative;
+    }
+    .content&gt;div{transform-origin:0% 0%;}
+    .skew_box{font-size: 20px; position: absolute;top: 0;left: 0;width: 100px;height: 100px}
+    #skew{transform:skew(40deg, 40deg);}
+    #skew2{transform:skew(140deg, 140deg);}
+    #skewX{transform:skewX(45deg);}
+    #skewX2{transform:skewX(145deg);}
+    #skewY{transform:skewY(45deg);}
+    #skewY2{transform:skewY(145deg);}
+    .green{background: #00CC99;opacity: 0.8}
+    .pink{background: #CC6699;}
+    .left200{left:180px;}
+    .left450{left: 400px;}
+    .left600{left: 600px;}
+    .left800{left: 830px;}
+    .left1000{left: 1000px}
+    .top150{top: 280px;}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="content"&gt;
+            &lt;div id="" class="skew_box pink"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink left200"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink left450"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink left600"&gt;马上玩&lt;/div&gt;
+            &lt;div id="skewX" class="skew_box green left200"&gt;马上玩skewX(45deg)&lt;/div&gt;
+            &lt;div id="skewY" class="skew_box green left450"&gt;马上玩skewY(45deg)&lt;/div&gt;
+            &lt;div id="skew" class="skew_box green left600"&gt;马上玩&lt;/div&gt;
  
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink top150"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink top150 left200"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink top150 left450"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">""</span> <span class="na">class=</span><span class="s">"skew_box pink top150 left600"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skew2"</span> <span class="na">class=</span><span class="s">"skew_box green left600 top150"</span><span class="nt">&gt;</span>马上玩<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skewX2"</span> <span class="na">class=</span><span class="s">"skew_box green left200 top150"</span><span class="nt">&gt;</span>马上玩skewY(145deg)<span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"skewY2"</span> <span class="na">class=</span><span class="s">"skew_box green left450 top150"</span><span class="nt">&gt;</span>马上玩skewX(145deg)<span class="nt">&lt;/div&gt;</span>
+            &lt;div id="" class="skew_box pink top150"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink top150 left200"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink top150 left450"&gt;马上玩&lt;/div&gt;
+            &lt;div id="" class="skew_box pink top150 left600"&gt;马上玩&lt;/div&gt;
+            &lt;div id="skew2" class="skew_box green left600 top150"&gt;马上玩&lt;/div&gt;
+            &lt;div id="skewX2" class="skew_box green left200 top150"&gt;马上玩skewY(145deg)&lt;/div&gt;
+            &lt;div id="skewY2" class="skew_box green left450 top150"&gt;马上玩skewX(145deg)&lt;/div&gt;
  
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h2 id="五多个属性">五、多个属性</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transform: rotate(45deg) scale(0.5) skew(30deg, 30deg) translate(100px, 100px);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transform: rotate(45deg) scale(0.5) skew(30deg, 30deg) translate(100px, 100px);
 </code></pre></div></div>
 
 <h2 id="六资料">六、资料</h2>

@@ -1,7 +1,7 @@
 <aside class="site-sidebar">
     <div class="sidebar-left">
         <div class="sidebar-head">
-           <a class="logo card" id="sidebar-avatar" href="{{ " / " | prepend: site.baseurl }}">
+           <a class="logo card" id="sidebar-avatar" href="{{ "/" | prepend: site.baseurl }}">
                 <div class="word back">SINSY</div>
                 <div class="monk font">
                   <div class="head_div">
@@ -30,10 +30,10 @@
         </div>
         <ul id="sidebar-tags" class="sidebar-tags">
     		    {% for category in site.categories %}
-              <li><a href="/blog/#{{ category | first }}" class="blog-link" data-href="#{{ category | first }}">{{ category[0] }}</a></li>
+              <li><a href="/blog/article/#{{ category | first}}" class="blog-link" data-href="{{ category | first }}">{{ category[0] }}</a></li>
             {% endfor %}
             <!-- <li><a href="/demo/">{{ site.locals.demo }}</a></li>  -->
-            <li><a href="/tags/">{{ site.locals.tags }}</a></li>  
+            <li><a href="{{"/tags/" | prepend: site.baseurl}}">{{ site.locals.tags }}</a></li>  
         </ul>
     </div>
 </aside>

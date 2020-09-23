@@ -1,7 +1,7 @@
 ---
 layout: default
 title: tags
-permalink: /tags/
+permalink: tags/
 ---
 <div class="tags-content">
 {% for tag in site.tags %} 
@@ -9,7 +9,7 @@ permalink: /tags/
 		<a class="tc-name" href="javascript:void(0)" data-name="{{ tag[0] }}">{{ tag[0] }} <span class="tc-num">{{ tag[1].size }}</span> </a>
 		<div class="tc-content">
 			{% for post in tag[1] %} 
-				<a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}" href="{{ post.url }}">
+				<a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url | prepend: site.baseurl}}" href="{{ post.url| prepend: site.baseurl }}">
 			    <span class="al-title">{{ post.title }}</span>
 			    <span class="al-tag">{{ post.categories | join: ' '}}</span>
 			    <span class="al-date">{{ post.date | date: "%F" }} </span>

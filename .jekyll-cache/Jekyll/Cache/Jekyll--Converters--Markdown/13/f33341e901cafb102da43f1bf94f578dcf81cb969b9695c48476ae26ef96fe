@@ -1,15 +1,15 @@
-I"2<h2 id="常用语句">常用语句</h2>
-<p><code class="highlighter-rouge">git init</code></p>
+I"�<h2 id="常用语句">常用语句</h2>
+<p><code class="language-plaintext highlighter-rouge">git init</code></p>
 
-<p><code class="highlighter-rouge">git checkout --orphan gh-pages</code></p>
+<p><code class="language-plaintext highlighter-rouge">git checkout --orphan gh-pages</code></p>
 
-<p><code class="highlighter-rouge">git remote add origin https://github.com/username/jekyll_demo.git</code></p>
+<p><code class="language-plaintext highlighter-rouge">git remote add origin https://github.com/username/jekyll_demo.git</code></p>
 
-<p><code class="highlighter-rouge">git push origin gh-pages</code></p>
+<p><code class="language-plaintext highlighter-rouge">git push origin gh-pages</code></p>
 
-<p><code class="highlighter-rouge">jekyll new blog</code></p>
+<p><code class="language-plaintext highlighter-rouge">jekyll new blog</code></p>
 
-<p><code class="highlighter-rouge">jekyll server --watch</code></p>
+<p><code class="language-plaintext highlighter-rouge">jekyll server --watch</code></p>
 <h2 id="参考文档">参考文档</h2>
 
 <ol>

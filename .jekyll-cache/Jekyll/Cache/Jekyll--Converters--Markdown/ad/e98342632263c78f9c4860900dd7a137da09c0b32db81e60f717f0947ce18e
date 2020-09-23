@@ -1,4 +1,4 @@
-I"�d<p>transition 属性是一个简写属性，用于设置四个过渡属性。</p>
+I"Q+<p>transition 属性是一个简写属性，用于设置四个过渡属性。</p>
 <table>
 	<tr>
 		<th>值</th>
@@ -24,7 +24,7 @@
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition: property duration timing-function delay;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition: property duration timing-function delay;
 </code></pre></div></div>
 
 <p><strong>浏览器支持</strong></p>
@@ -38,31 +38,31 @@
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/property_single.html" frameborder="0" width="100%"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">div</span><span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
-<span class="nl">transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nl">-moz-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari and Chrome */</span>
-<span class="nl">-o-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="nd">:hover</span><span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">300px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;p&gt;</span>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;&lt;b&gt;</span>注释：<span class="nt">&lt;/b&gt;</span>本例在 Internet Explorer 中无效。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+div{
+width:100px;
+height:100px;
+background:blue;
+transition:width 2s;
+-moz-transition:width 2s; /* Firefox 4 */
+-webkit-transition:width 2s; /* Safari and Chrome */
+-o-transition:width 2s; /* Opera */
+}
+div:hover{
+width:300px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;本例在 Internet Explorer 中无效。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
 </code></pre></div></div>
 
@@ -70,37 +70,37 @@
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/property_multiple.html" frameborder="0" width="100%" height="200px"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nc">.box</span> <span class="p">{</span>
-    <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
-    <span class="nl">border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#0000FF</span><span class="p">;</span>
-    <span class="nl">-webkit-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">,</span> <span class="n">height</span> <span class="m">2s</span><span class="p">,</span> <span class="n">background-color</span> <span class="m">2s</span><span class="p">,</span> <span class="n">-webkit-transform</span> <span class="m">2s</span><span class="p">;</span>
-    <span class="nl">transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">,</span> <span class="n">height</span> <span class="m">2s</span><span class="p">,</span> <span class="n">background-color</span> <span class="m">2s</span><span class="p">,</span> <span class="n">transform</span> <span class="m">2s</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nc">.box</span><span class="nd">:hover</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#FFCCCC</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span><span class="m">200px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span><span class="m">200px</span><span class="p">;</span>
-    <span class="nl">-webkit-transform</span><span class="p">:</span><span class="n">rotate</span><span class="p">(</span><span class="m">180deg</span><span class="p">);</span>
-    <span class="nl">transform</span><span class="p">:</span><span class="n">rotate</span><span class="p">(</span><span class="m">180deg</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+.box {
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: #0000FF;
+    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition:width 2s, height 2s, background-color 2s, transform 2s;
+}
+.box:hover {
+    background-color: #FFCCCC;
+    width:200px;
+    height:200px;
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
  
-    <span class="nt">&lt;p&gt;</span>蓝色的div包含了 transition属性 : width, height, background-color, transform. 移动到该div,就可以看到该效果<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    &lt;p&gt;蓝色的div包含了 transition属性 : width, height, background-color, transform. 移动到该div,就可以看到该效果&lt;/p&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
  
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 <p>看过以上两个例子，相信大家对transition应该有了一定的了解，现在我们再来看看四个过渡属性的详细用法。</p>
 
@@ -109,46 +109,46 @@
 <h3 id="1-transition-property">1. transition-property</h3>
 <p>transition-property 属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。点击查看<a href="http://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">可以设置过渡效果的 CSS 属性列表</a>。</p>
 
-<p><code class="highlighter-rouge">
+<p><code class="language-plaintext highlighter-rouge">
 提示：过渡效果通常在用户将鼠标指针浮动到元素上时发生。
 注释：请始终设置 transition-duration 属性，否则时长为 0，就不会产生过渡效果。
 </code></p>
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-property: none|all|property;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-property: none|all|property;
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">div</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
-<span class="nl">transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span>
-<span class="nl">transition-duration</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nl">-moz-transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-moz-transition-duration</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span> <span class="c">/* Safari and Chrome */</span>
-<span class="nl">-webkit-transition-duration</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari and Chrome */</span>
-<span class="nl">-o-transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="nl">-o-transition-duration</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
-<span class="nt">div</span><span class="nd">:hover</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">300px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;p&gt;</span>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;&lt;b&gt;</span>注释：<span class="nt">&lt;/b&gt;</span>本例在 Internet Explorer 中无效。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div
+{
+width:100px;
+height:100px;
+background:blue;
+transition-property: width;
+transition-duration: 2s;
+-moz-transition-property: width; /* Firefox 4 */
+-moz-transition-duration: 2s; /* Firefox 4 */
+-webkit-transition-property: width; /* Safari and Chrome */
+-webkit-transition-duration: 2s; /* Safari and Chrome */
+-o-transition-property: width; /* Opera */
+-o-transition-duration: 2s; /* Opera */
+}
+div:hover
+{
+width:300px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;本例在 Internet Explorer 中无效。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h3 id="2transition-duration">2.transition-duration</h3>
@@ -156,44 +156,44 @@
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-duration: time;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-duration: time;
 </code></pre></div></div>
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/duration_animate.html" frameborder="0" width="100%" height="450px"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">body</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;}</span>
-<span class="nt">div</span><span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">51</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-<span class="nl">transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span>
-<span class="nl">-moz-transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span> <span class="c">/* Safari 和 Chrome */</span>
-<span class="nl">-o-transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span> <span class="c">/* Opera */</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+body{font-size: 20px;}
+div{
+width:100px;
+height:100px;
+background:rgb(51, 200, 100);
+transition-property:width;
+-moz-transition-property: width; /* Firefox 4 */
+-webkit-transition-property:width; /* Safari 和 Chrome */
+-o-transition-property:width; /* Opera */
  
-<span class="p">}</span>
-<span class="nc">.div1</span><span class="p">{</span>
-<span class="nl">transition-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span>
-<span class="nl">-moz-transition-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span> <span class="c">/* Safari 和 Chrome */</span>
-<span class="nl">-o-transition-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
-<span class="nc">.div1</span><span class="nd">:hover</span><span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;p&gt;</span>transition-duration:1s<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"div1"</span> <span class="na">id=</span><span class="s">"div1"</span><span class="nt">&gt;</span>1s<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;p&gt;</span>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+}
+.div1{
+transition-duration: 1s;
+-moz-transition-duration: 1s; /* Firefox 4 */
+-webkit-transition-duration: 1s; /* Safari 和 Chrome */
+-o-transition-duration: 1s; /* Opera */
+}
+.div1:hover{
+    width: 400px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;transition-duration:1s&lt;/p&gt;
+&lt;div class="div1" id="div1"&gt;1s&lt;/div&gt;
+&lt;p&gt;请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
 </code></pre></div></div>
 
@@ -203,58 +203,58 @@
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n)|steps(number_of_steps, direction);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n)|steps(number_of_steps, direction);
 </code></pre></div></div>
 <p>在这里我们只是讲讲用法和运动曲线的差异，不深入探讨，想要跟深入了解各个运动曲线的可以狠狠点击链接<a href="http://www.sinsy.top/2015-06-18-css3-cubic-bezier-steps/">css3 transition-timing-function之 Cubic-bezier与Steps详解</a></p>
 
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/timing_function.html" frameborder="0" width="100%" height="450px"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">div</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">50px</span><span class="p">;</span>
-<span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">51</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-<span class="nl">color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
-<span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
-<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
-<span class="nl">word-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
-<span class="nl">transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nl">-moz-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari and Chrome */</span>
-<span class="nl">-o-transition</span><span class="p">:</span><span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
-<span class="nf">#div1</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">linear</span><span class="p">;}</span>
-<span class="nf">#div2</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease</span><span class="p">;}</span>
-<span class="nf">#div3</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-in</span><span class="p">;}</span>
-<span class="nf">#div4</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-out</span><span class="p">;}</span>
-<span class="nf">#div5</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">ease-in-out</span><span class="p">;}</span>
-<span class="nf">#div6</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">step-end</span><span class="p">;}</span>
-<span class="nf">#div7</span> <span class="p">{</span><span class="nl">transition-timing-function</span><span class="p">:</span> <span class="n">steps</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="n">end</span><span class="p">);}</span>
-<span class="nt">div</span><span class="nd">:hover</span>
-<span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">400px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div1"</span> <span class="na">style=</span><span class="s">"top:100px"</span><span class="nt">&gt;</span>linear<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div2"</span> <span class="na">style=</span><span class="s">"top:150px"</span><span class="nt">&gt;</span>ease<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div3"</span> <span class="na">style=</span><span class="s">"top:200px"</span><span class="nt">&gt;</span>ease-in<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div4"</span> <span class="na">style=</span><span class="s">"top:250px"</span><span class="nt">&gt;</span>ease-out<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div5"</span> <span class="na">style=</span><span class="s">"top:300px"</span><span class="nt">&gt;</span>ease-in-out<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div6"</span> <span class="na">style=</span><span class="s">"top:400px"</span><span class="nt">&gt;</span>steps-end<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"div7"</span> <span class="na">style=</span><span class="s">"top:450px"</span><span class="nt">&gt;</span>steps(4,end)<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;p&gt;</span>请把鼠标指针移动到绿色的 div 元素上，就可以看到过渡效果。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;&lt;b&gt;</span>注释：<span class="nt">&lt;/b&gt;</span>本例在 Internet Explorer 中无效。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn pink"</span> <span class="na">id=</span><span class="s">"start"</span><span class="nt">&gt;</span>开始<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">id=</span><span class="s">"stop_btn"</span><span class="nt">&gt;</span>停止<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div
+{
+width:100px;
+height:50px;
+margin-bottom: 10px;
+background:rgb(51, 200, 100);
+color:white;
+font-weight:bold;
+font-size: 18px;
+word-wrap: break-word;
+transition:width 2s;
+-moz-transition:width 2s; /* Firefox 4 */
+-webkit-transition:width 2s; /* Safari and Chrome */
+-o-transition:width 2s; /* Opera */
+}
+#div1 {transition-timing-function: linear;}
+#div2 {transition-timing-function: ease;}
+#div3 {transition-timing-function: ease-in;}
+#div4 {transition-timing-function: ease-out;}
+#div5 {transition-timing-function: ease-in-out;}
+#div6 {transition-timing-function: step-end;}
+#div7 {transition-timing-function: steps(4,end);}
+div:hover
+{
+width:400px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="div1" style="top:100px"&gt;linear&lt;/div&gt;
+&lt;div id="div2" style="top:150px"&gt;ease&lt;/div&gt;
+&lt;div id="div3" style="top:200px"&gt;ease-in&lt;/div&gt;
+&lt;div id="div4" style="top:250px"&gt;ease-out&lt;/div&gt;
+&lt;div id="div5" style="top:300px"&gt;ease-in-out&lt;/div&gt;
+&lt;div id="div6" style="top:400px"&gt;steps-end&lt;/div&gt;
+&lt;div id="div7" style="top:450px"&gt;steps(4,end)&lt;/div&gt;
+&lt;p&gt;请把鼠标指针移动到绿色的 div 元素上，就可以看到过渡效果。&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;本例在 Internet Explorer 中无效。&lt;/p&gt;
+&lt;button class="btn pink" id="start"&gt;开始&lt;/button&gt;
+&lt;button class="btn" id="stop_btn"&gt;停止&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <h3 id="4transition-delay">4.transition-delay</h3>
@@ -262,44 +262,44 @@
 
 <p><strong>语法</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-delay: time;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transition-delay: time;
 </code></pre></div></div>
 <iframe src="http://www.sinsy.top/hungry/learn/css3/transition/delay_animate.html" frameborder="0" width="100%" height="450px"></iframe>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">body</span><span class="p">{</span><span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;}</span>
-<span class="nt">div</span><span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">height</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
-<span class="nl">background</span><span class="p">:</span><span class="nb">rgb</span><span class="p">(</span><span class="m">51</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
-<span class="nl">transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span>
-<span class="nl">-moz-transition-property</span><span class="p">:</span> <span class="n">width</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span> <span class="c">/* Safari 和 Chrome */</span>
-<span class="nl">-o-transition-property</span><span class="p">:</span><span class="n">width</span><span class="p">;</span> <span class="c">/* Opera */</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;style&gt;
+body{font-size: 20px;}
+div{
+width:100px;
+height:100px;
+background:rgb(51, 200, 100);
+transition-property:width;
+-moz-transition-property: width; /* Firefox 4 */
+-webkit-transition-property:width; /* Safari 和 Chrome */
+-o-transition-property:width; /* Opera */
  
-<span class="p">}</span>
-<span class="nc">.div1</span><span class="p">{</span>
-<span class="nl">transition-delay</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nl">-moz-transition-delay</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
-<span class="nl">-webkit-transition-delay</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari 和 Chrome */</span>
-<span class="nl">-o-transition-delay</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
-<span class="p">}</span>
-<span class="nc">.div1</span><span class="nd">:hover</span><span class="p">{</span>
-<span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-<span class="nt">&lt;p&gt;</span>transition-delay:2s<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"div1"</span> <span class="na">id=</span><span class="s">"div1"</span><span class="nt">&gt;</span>2s<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;p&gt;</span>请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>注释：过渡效果会在开始前等待两秒钟。<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+}
+.div1{
+transition-delay: 2s;
+-moz-transition-delay: 2s; /* Firefox 4 */
+-webkit-transition-delay: 2s; /* Safari 和 Chrome */
+-o-transition-delay: 2s; /* Opera */
+}
+.div1:hover{
+width: 200px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;transition-delay:2s&lt;/p&gt;
+&lt;div class="div1" id="div1"&gt;2s&lt;/div&gt;
+&lt;p&gt;请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。&lt;/p&gt;
+&lt;p&gt;注释：过渡效果会在开始前等待两秒钟。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <p>本章完结，注意：由于要减少篇幅，有些浏览器前缀在代码里直接省去，自己动手写时一定要补全哦。</p>

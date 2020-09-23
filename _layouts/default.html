@@ -3,11 +3,11 @@
   {% include head.html %}
 
   <body>
-    <script src="/public/js/zepto.js"></script> 
+    <script src="{{"/public/js/zepto.js" | prepend: site.baseurl}}"></script> 
     {% include sidebar.html %} 
     <div class="main">
       {{ content }} 
-      {% include footer.html %} 
+      {% include footer.html %}  
     </div>
     <!-- 标签的内容显示 -->
     <div class="iframe-post" id="iframe-post">
@@ -18,6 +18,7 @@
       $(function () {
         Page.init();
         var hash = window.location.hash;
+        console.log(hash)
         Article.filter(decodeURI(hash));
         
         $('#sidebar-tags li').on('click', function () {
@@ -33,12 +34,8 @@
         /*页面初始化，根据路径值，sidebar选项选中状态*/
         init: function () {
           var href = window.location.href.replace(window.location.protocol + '//' + window.location.host, '');
-          var hrefArr = href.split('/');
-          if (hrefArr[1] != 'blog' && hrefArr.length == 3) {
-            $('a[href="' + href + '"]').parent().addClass('sel').siblings().removeClass('sel');
-          } else if (hrefArr[1] == 'blog' && hrefArr.length == 3) {
-            $('a[href="/' + hrefArr[1] + '/' + decodeURI(hrefArr[2]) + '"]').parent().addClass('sel').siblings().removeClass('sel');
-          }
+          href = decodeURI(href)
+          $('a[href="'+href + '"]').parent().addClass('sel').siblings().removeClass('sel');
         }
       }
       var Article = {

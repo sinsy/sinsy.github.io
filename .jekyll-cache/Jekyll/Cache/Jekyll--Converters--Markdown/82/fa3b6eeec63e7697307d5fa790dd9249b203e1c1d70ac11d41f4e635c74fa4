@@ -1,14 +1,14 @@
-I"�<p><code class="highlighter-rouge">注：如果npm install -g gulp，就改成sudo npm install -g gulp</code></p>
+I""<p><code class="language-plaintext highlighter-rouge">注：如果npm install -g gulp，就改成sudo npm install -g gulp</code></p>
 
 <h2 id="一安装操作">一、安装操作</h2>
 <ul>
-  <li><strong>全局安装</strong> <code class="highlighter-rouge">npm install -g gulp</code></li>
-  <li><strong>局部安装</strong> <code class="highlighter-rouge">npm install –-save-dev gulp</code> （项目目录下安装）</li>
-  <li><strong>安装插件</strong> <code class="highlighter-rouge">npm install —-save-dev &lt;name&gt;</code></li>
+  <li><strong>全局安装</strong> <code class="language-plaintext highlighter-rouge">npm install -g gulp</code></li>
+  <li><strong>局部安装</strong> <code class="language-plaintext highlighter-rouge">npm install –-save-dev gulp</code> （项目目录下安装）</li>
+  <li><strong>安装插件</strong> <code class="language-plaintext highlighter-rouge">npm install —-save-dev &lt;name&gt;</code></li>
   <li><strong>安装gulp4.0</strong>
     <ul>
-      <li>全局安装： <code class="highlighter-rouge">npm install gulpjs/gulp#4.0 -g</code></li>
-      <li>局部安装： <code class="highlighter-rouge">npm install gulpjs/gulp#4.0 --save-dev</code></li>
+      <li>全局安装： <code class="language-plaintext highlighter-rouge">npm install gulpjs/gulp#4.0 -g</code></li>
+      <li>局部安装： <code class="language-plaintext highlighter-rouge">npm install gulpjs/gulp#4.0 --save-dev</code></li>
       <li>参考资料： <a href="http://www.alloyteam.com/2015/07/update-your-gulp/">gulp 4.0的变化</a>     <a href="https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md">官方升级文档</a></li>
     </ul>
   </li>
@@ -22,7 +22,7 @@
   <li><a href="https://www.npmjs.com/package/browser-sync">browser-sync</a> 静态文件服务器，同时也支持浏览器自动刷新</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(browsersync);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(browsersync);
 function browsersync() {
     browserSync({ 
       // proxy: 'http://localhost:8080/zhibei2/web/src/' //利用tomcat或其他服务器
@@ -55,7 +55,7 @@ function browsersync() {
   <li><a href="http://www.codes51.com/article/detail_117947.html">gulp-css-spriter</a>： css文件中的sprite图片合成</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(css);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp.task(css);
 function css() {
     var processors = [
       cssImport,

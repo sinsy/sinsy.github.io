@@ -1,10 +1,10 @@
 ---
 layout: default
-title: blog
-permalink: /blog/
+title: article
+permalink: article/
 ---
 {% for post in site.posts %}
-  <a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url }}" href="{{ post.url }}">
+  <a class="article-link" data-tags="{{ post.categories | join: ' ' }}" data-href="{{ post.url|prepend: site.baseurl }}" href="{{ post.url|prepend: site.baseurl }}">
     <span class="al-title">{{ post.title }}</span>
     <span class="al-tag">{{ post.categories | join: ' '}}</span>
     <span class="al-date">{{ post.date | date: "%F" }} </span>

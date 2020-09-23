@@ -1,42 +1,42 @@
-I"�	<h2 id="一markdown语法的简要规则">一、Markdown语法的简要规则</h2>
+I"<h2 id="一markdown语法的简要规则">一、Markdown语法的简要规则</h2>
 
 <h3 id="1标题">1.标题</h3>
-<p><code class="highlighter-rouge">#</code> 一级标题</p>
+<p><code class="language-plaintext highlighter-rouge">#</code> 一级标题</p>
 
-<p><code class="highlighter-rouge">##</code> 二级标题</p>
+<p><code class="language-plaintext highlighter-rouge">##</code> 二级标题</p>
 
-<p><code class="highlighter-rouge">###</code> 三级标题…</p>
+<p><code class="language-plaintext highlighter-rouge">###</code> 三级标题…</p>
 
 <h3 id="2列表">2.列表</h3>
 <p>有序列表</p>
 
-<p><code class="highlighter-rouge">1.1</code></p>
+<p><code class="language-plaintext highlighter-rouge">1.1</code></p>
 
-<p><code class="highlighter-rouge">2.2</code>…</p>
+<p><code class="language-plaintext highlighter-rouge">2.2</code>…</p>
 
 <p>无序列表</p>
 
-<p><code class="highlighter-rouge">* 1</code></p>
+<p><code class="language-plaintext highlighter-rouge">* 1</code></p>
 
-<p><code class="highlighter-rouge">* 2</code>
+<p><code class="language-plaintext highlighter-rouge">* 2</code>
 …</p>
 
 <h3 id="3引用">3.引用</h3>
 
-<p>只需要在文本前加入<code class="highlighter-rouge">&gt;</code></p>
+<p>只需要在文本前加入<code class="language-plaintext highlighter-rouge">&gt;</code></p>
 
 <h3 id="4图片与链接">4.图片与链接</h3>
-<p>插入链接与插入图片的语法很像，区别在一个<code class="highlighter-rouge">!</code>号</p>
+<p>插入链接与插入图片的语法很像，区别在一个<code class="language-plaintext highlighter-rouge">!</code>号</p>
 
-<p>图片： <code class="highlighter-rouge">![](){ImgCap}{/ImgCap}</code></p>
+<p>图片： <code class="language-plaintext highlighter-rouge">![](){ImgCap}{/ImgCap}</code></p>
 
-<p>链接： <code class="highlighter-rouge">[]()</code></p>
+<p>链接： <code class="language-plaintext highlighter-rouge">[]()</code></p>
 
 <h3 id="5粗体与斜体">5.粗体与斜体</h3>
 
-<p>粗体： <code class="highlighter-rouge">**粗体**</code> 或 <code class="highlighter-rouge">__粗体__</code></p>
+<p>粗体： <code class="language-plaintext highlighter-rouge">**粗体**</code> 或 <code class="language-plaintext highlighter-rouge">__粗体__</code></p>
 
-<p>斜体： <code class="highlighter-rouge">*斜体*</code> 或 <code class="highlighter-rouge">_斜体_</code></p>
+<p>斜体： <code class="language-plaintext highlighter-rouge">*斜体*</code> 或 <code class="language-plaintext highlighter-rouge">_斜体_</code></p>
 
 <h3 id="6代码">6.代码</h3>
 
@@ -45,7 +45,7 @@
 <p>代码区块： 前后三个```</p>
 
 <h3 id="7分割线">7.分割线</h3>
-<p><code class="highlighter-rouge">***</code></p>
+<p><code class="language-plaintext highlighter-rouge">***</code></p>
 
 <p>注： 以上符号若失效，加空格或换行</p>
 
@@ -58,15 +58,15 @@
 <ol>
   <li>MarkdownEditing
     <ul>
-      <li><code class="highlighter-rouge">输入 "mdl + tab"</code>  插入链接</li>
-      <li><code class="highlighter-rouge">输入 "mdi + tab"</code> 插入图片</li>
+      <li><code class="language-plaintext highlighter-rouge">输入 "mdl + tab"</code>  插入链接</li>
+      <li><code class="language-plaintext highlighter-rouge">输入 "mdi + tab"</code> 插入图片</li>
     </ul>
   </li>
   <li>OmniMarkupPreviewer
     <ul>
-      <li><code class="highlighter-rouge">Ctrl+Alt+O</code>: Preview Markup in Browser.</li>
-      <li><code class="highlighter-rouge">Ctrl+Alt+X</code>: Export Markup as HTML.</li>
-      <li><code class="highlighter-rouge">Ctrl+Alt+C</code>: Copy Markup as HTML.(Mac ctrl 为 command)</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl+Alt+O</code>: Preview Markup in Browser.</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl+Alt+X</code>: Export Markup as HTML.</li>
+      <li><code class="language-plaintext highlighter-rouge">Ctrl+Alt+C</code>: Copy Markup as HTML.(Mac ctrl 为 command)</li>
     </ul>
   </li>
 </ol>
