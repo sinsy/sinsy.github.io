@@ -1,3 +1,8 @@
+## 博客地址
+由于github的个人博客经常无法访问，使用gitee来构建个人博客
+ http://sinsy.gitee.io/blog
+## github自动同步到gitee
+https://blog.csdn.net/qq_42460209/article/details/108041021 
 ## 常用语句
 `git init`
 
@@ -26,11 +31,11 @@
   ```
   ---
   layout: default #对应的layout模块
-  title: blog #标题
-  permalink: /blog/ #对应的链接跳转
+  title: article #标题
+  permalink: article/ #对应的链接跳转
   ---
   ```
-  * blog.html : 当链接为/blog/#xxx引用blog.html文件内容，为博客文章， layout: default
+  * article.html : 当链接为/article/#xxx引用article.html文件内容，为博客文章， layout: default
   * demo.html : 暂时不用，以后可以扩展为代码模块的展示，layout: default
   * tags.html : 标签页面，layout: default
   * resume.html : 简历，layout: resume

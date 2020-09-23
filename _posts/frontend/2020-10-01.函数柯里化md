@@ -1,0 +1,92 @@
+---
+layout: post
+title: webpack打包优化
+date:  2020-07-06
+category: 前端
+tags: [工具]
+---
+# 1. 为什么要做优化？
+项目采用vue-cli3.0脚手架，利用jenkins打包，每次打包都会重新下载依赖，并使用webpack打包，从下载依赖，打包，到上传服务器需要6-7分钟，每次都得等很长时间，针对项目打包做了次优化,终于把时间控制在4分钟以内，在网速好的情况下可以在3分钟内打包完成。
+# 2. sass改成用less
+* sass的下载极其浪费时间，改成less需要对原先使用的element和scss文件进行优化，element的主题颜色替换利用gulp去打包并生成element.css文件在index.html
+![img](../images/webpack01.jpg) 
+
+* base.scss和component.scss文件中使用了sass的语法改成less,主要是循环语句和变量声明的修改
+
+# 2. CDN加速 
+* 针对项目中经常使用到方法和组件，在vue.config.js中配置成cdn加速，目前只做了moment的优化，element和vue的暂时不动，后期可以尝试
+
+```
+// cdn链接
+const cdn = {
+  // cdn：模块名称和模块作用域命名（对应window里面挂载的变量名称）
+  externals: {
+    // vue: 'Vue',
+    // vuex: 'Vuex',
+    // 'vue-router': 'VueRouter'
+    moment: 'moment'
+  },
+  // cdn的css链接
+  css: [],
+  // cdn的js链接
+  js: [
+    'https://cdn.bootcss.com/moment.js/2.20.1/moment.min.js',
+    'https://cdn.bootcss.com/moment.js/2.20.1/locale/zh-cn.js'
+    // 'https://cdn.staticfile.org/vue/2.6.10/vue.min.js',
+    // 'https://cdn.staticfile.org/vuex/3.0.1/vuex.min.js',
+    // 'https://cdn.staticfile.org/vue-router/3.0.3/vue-router.min.js'
+  ]
+}
+
+//在chainWebpack中配置配置cdn
+module.exports = {
+  
+  chainWebpack: config => {
+    // 用cdn方式引入
+    config.externals = cdn.externals
+    console.log(process.env.NODE_ENV)
+    if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'production') {
+      config.output.filename('[name].[hash].js');
+    }
+  }
+};
+```
+
+* 在index.html的body中加入cdn的链接
+
+```
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  </head>
+  <body>
+    <!-- 使用CDN的JS文件 --> 
+    <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+      <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script> 
+    <% } %>
+    <!-- 使用CDN的JS文件 -->
+  </body>
+</html>
+```
+
+# api文件的优化
+项目原本采用一个接口创建一个方法，造成代码太过冗余，利用正则对该部分代码进行优化。
+* 原先的代码结构
+```
+export async function getBusinessDetail(params) {
+  //获取商家详情
+  let result = await apiUtils.get(`${domain}/business/findByBusinessCode`, {
+    ...params
+  });
+  return result;
+}
+```
+
+* 优化后的代码
+
+```
+export default {
+  baseInfo: `[postWithQuery]{oms}/refund/trefundbase/baseInfo`, //获取退单基本信息
+  ...
+}
+```

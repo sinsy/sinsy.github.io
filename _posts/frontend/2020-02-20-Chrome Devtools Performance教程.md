@@ -12,7 +12,7 @@ tags: [优化,工具, 浏览器]
 
 ## 打开Devtools控制台
 1. 使用chrom的无痕模式（该模式可以保证chrom在相对干净的环境运行，比如安装了过多的chrom插件，会影响性能分析）
-2. 输入代码地址 https://sinsy.github.io/Challenge/demo/chromeDevtools/
+2. 输入代码地址:<a href="../demo/chromeDevtools/" target="_blank">地址</a>  
 3. 按下Command+Opiton+I（Mac）或者Control+shift+I (Windows, Linux) 来打开Devtools控制台，或者直接右键鼠标-点击“检查”。  
 ![avatar](../images/chrome_01.png)
 
