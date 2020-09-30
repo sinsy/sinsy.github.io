@@ -6,7 +6,7 @@ category: 前端
 tags: [浏览器,工具]
 ---
 # 1. 下载文件 
-github上下载vue-devtools-dev.zip文件，[下载地址](../source/vue-devtools-dev.zip)
+在github上下载压缩包并解压到本地，github下载地址：[https://github.com/vuejs/vue-devtools](https://github.com/vuejs/vue-devtools)
 
 # 2. 解压文件
 

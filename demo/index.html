@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>代码案例</title>
+  <style>
+    *{
+      font-family: "PingFang SC", sans-serif;
+    }
+    .fc-red {
+      color: red;
+    }
+    .demo{
+      padding: 10px;
+    }
+  </style>
+  <script>
+    let json = {
+      'curryFunction': '函数柯里化',
+
+    }
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-for="(item,index) in Object.keys(dataJson)" @click="getJs(item)">
+      {{dataJson[item]}}
+    </button>
+    <p class="fc-red">* F12查看运行结果</p>
+    <pre class="demo" v-html="demo">
+
+    </pre>
+
+  </div>
+  <link rel="stylesheet" href="../public/component/prettify/prettify.css">
+  <script src="../public/component/prettify/prettify.js"></script>
+  <script src="../public/js/zepto.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+  <script>
+    $(function () {
+      $("pre").addClass("prettyprint");
+
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        dataJson: json,
+        demo: ''
+      },
+      mounted() {
+
+      },
+      methods: {
+        getJs: function (key) {
+          const _this = this
+          axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
+          axios
+            .get(`./example/${key}.js`, {
+              responseType: 'blob'
+            })
+            .then(res => {
+              var reader = new FileReader();
+              reader.onload = function (event) {
+                var content = reader.result;//内容就在这里
+                _this.demo = content
+                _this.$nextTick(() => {
+                  prettyPrint();
+                })
+                console.log(`================运行${_this.dataJson[key]} start=================`)
+                _this.loadJS(`./example/${key}.js`, function(){
+                  console.log(`================运行${_this.dataJson[key]} end=================`)
+                })
+              };
+              reader.readAsText(res.data)
+            })
+        },
+        loadJS: function (url, callback) {
+          var script = document.createElement('script'),
+          fn = callback || function () { };
+          script.type = 'text/javascript';
+          //IE
+          if (script.readyState) {
+            script.onreadystatechange = function () {
+              if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                script.onreadystatechange = null;
+                fn();
+              }
+            };
+          } else {
+            //其他浏览器
+            script.onload = function () {
+              fn();
+            };
+          }
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
